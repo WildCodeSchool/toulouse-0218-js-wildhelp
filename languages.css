@@ -8,72 +8,46 @@ h1{
   text-align: center;
 }
 
-/* footer accueil */
+/* CSS footer */
 
-.paddingLeft
-{
-	text-align: center;
-	font-family: "existencelight";
-	color: white;
-	font-size: 1em;
-	min-height: 230px;
-	background-color: rgb(173, 169, 169);
-	padding-top: 70px;
+ footer {
+     text-align: center;
+     font-family: "existencelight";
+     color: white;
+     font-size: 1em;
+     min-height: 230px;
+     background-color: rgb(173, 169, 169);
+     padding-top: 70px;
+}
+ .reseaux {
+     width: 100%;
+}
+ footer .reseaux p {
+     text-align: center;
+}
+ footer .imgbtn {
+     width:40px;
+     filter: grayscale(80%);
+     margin: 2% 4%;
+}
+ footer .imgbtn:hover {
+     filter: grayscale(0);
+}
+ footer a:link {
+     text-decoration:none;
+     color:white;
+}
+ footer a:visited{
+     text-decoration:none;
+     color:white;
+}
+ .madeBy {
+     color: white;
+     font-style: italic;
+     margin-top: 50px;
+     text-align: center;
 }
 
 
-/* 
-.no-gutters
-{
-	margin-right: 0;
-	margin-left: 0;
-	> .col,> [class*="col-"]
-	{
-		padding-right: 0;
-		padding-left: 0;
-	}
-} */
-
-.reseaux
-{
-  width: 100%;
-} 
 
 
-
-footer .reseaux p
-{
-	text-align: center;
-}
-
-footer .imgbtn
-{
-	width:40px;
-	filter: grayscale(80%);
-	margin: 2% 4%;
-}
-
-footer .imgbtn:hover
-{
-	filter: grayscale(0);
-}
-
-footer a:link
-{
-	text-decoration:none;
-	color:white;
-}
-
-footer a:visited
-{
-	text-decoration:none;
-	color:white;
-}
-
-.madeBy
-{
-	color: white;
-	font-style: italic;
-	margin-top: 50px;
-	text-align: center;
-}
