@@ -1,0 +1,96 @@
+<!Doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>Wild Help</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"crossorigin="anonymous">
+        <link rel="stylesheet" href="aide.css" type="text/css">
+        
+    </head>
+    
+	<body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Demande d'aide</h2>
+                </div>
+            </div>
+        
+            <div class="row">
+                <div class="col-md-12 ">
+                    <div class="form-group">
+                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                            <div class="input-group-addon" style="width: 2.6rem">
+                                <i class="fa fa-repeat"></i>
+                            </div>
+                            <select id="subject" name="subject" class="form-control" required="required">
+                                <option value="" selected="">Selectionnez le langage</option>
+                                <option>JavaScript Angular</option>
+                                <option>JavaScript React</option>
+                                <option>JavaScript Vue.js</option>
+                                <option>JAVA J2EE</option>
+                                <option>JAVA Android</option>
+                                <option>PHP</option>
+                                <option>Symfony</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form">
+                        <form method="post" action="traitement.php">
+                            <p>
+                                <label for="sujet">Sujet requête :</label>
+                                <input type="text" name="pseudo" id="pseudo" placeholder="Ex : Algorithme" size="40" maxlength="50" />
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <form method="post" action="traitement.php">
+                        <p>
+                            <textarea name="ameliorer" id="ameliorer" rows="10" cols="50">
+    Requête Wilder : Décris ici en détail ton problème.
+                            </textarea>       
+                        </p>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                        <input class="btn btn-outline-primary" type="submit" value="Save me !" />
+                </div>
+            </div>
+        </div>
+
+
+    <!--Footer-->
+        <footer class="paddingLeft">
+            <div class="reseaux col-mg-6 ">
+                <p>
+                    Embarquez avec nous :
+                </p>
+                <a href="https://www.facebook.com/" target="_blank"><img class="imgbtn" src="logos/fb.png"></a>
+                <a href="https://www.instagram.com/" target="_blank"><img class="imgbtn" src="logos/insta.png"></a>
+                <a href="https://twitter.com/" target="_blank"><img class="imgbtn" src="logos/twitter.png"></a>
+                <a href="https://www.twitch.tv/khanaeleff" target="_blank"><img class="imgbtn" src="logos/twitch.png"></a>
+            </div>
+            <div class="row no-gutters">
+                <div class="col-12">
+                <p class="madeBy">
+                    Made by The Wild Help Team 2018 session
+                </p>
+                </div>
+            </div>
+        </footer>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="accueil.js"></script>
+    </body>
+</html>
