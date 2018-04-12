@@ -1,7 +1,7 @@
 //ladiv où je veux afficher
 const mainDiv = document.getElementById('main')
 
-const homeHtml = /* @html */ `
+const pageHelp = /* @html */ `
     <div class="container">
         <form id="formHelp" class="form-horizontal" method="POST" action="/register">
             <div class="row">
@@ -73,12 +73,17 @@ const homeHtml = /* @html */ `
         </form>
     </div>`
 
+
+
+
+
+
 const render = mainHtml => {
     mainDiv.innerHTML = mainHtml
 }
 
 const home = () =>{
-    render(homeHtml)
+    render(pageHelp)
 
 
 
