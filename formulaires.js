@@ -31,7 +31,7 @@ const homeHtml = /* @html */ `
                 <div class="col-md-12">
                     <p>
                         <label for="sujet">Sujet requête :</label>
-                        <input type="text" name="theme" id="theme" placeholder="Ex : Algorithme" size="40" maxlength="50" required="required" />
+                        <input type="text" name="theme" id="theme" placeholder="Ex : Algorithme" size="40" maxlength="50" required="required" class="form-control" />
                     </p>
 
                 </div>
@@ -39,14 +39,14 @@ const homeHtml = /* @html */ `
             <div class="row">
                 <div class="col-md-12">
                     <p>
-                      <textarea name="ameliorer" id="ameliorer" rows="10" cols="50" required="required"
+                      <textarea name="ameliorer" id="ameliorer" rows="10" cols="50" required="required" class="form-control"
                       placeholder="Décris ici en détail ton problème"></textarea>
                     </p>
                 </div>
             </div>
             <div class="row">
               <div class="col-md-6">
-                <input class="btn btn-outline-primary" type="button" value="Save me !" data-toggle="modal" data-target="#myModal"/>
+                <input class="btn btn-outline-primary" type="submit" value="Save me !" _data-toggle="modal" _data-target="#myModal"/>
               </div>
               <div class="col-md-6">
                 <input class="btn btn-outline-danger" type="reset" value="Annuler" />
@@ -104,18 +104,20 @@ const home = () => {
     const formCours = document.getElementById('formHelp')
     formCours.addEventListener('submit', event => {
 
+
+
       let data = {}
 
       event.preventDefault()
-      const inputs = formCours.getElementsByTagName('input')
-      for(input of inputs) {
-      if(input.name !== '') {
-        console.log(input.name)
-        data[input.name] = input.value
+      const formControls = formCours.getElementsByClassName('form-control')
+      for(formControl of formControls) {
+      if(formControl.name !== '') {
+        console.log(formControl.name)
+        data[formControl.name] = formControl.value
         }
       }
 
-      const body = JSON.stringfly(data)
+      const body = JSON.stringify(data)
       console.log(body)
 
       fetch('/ma-demande-de-cours', {
