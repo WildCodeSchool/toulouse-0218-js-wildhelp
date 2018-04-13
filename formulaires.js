@@ -113,7 +113,7 @@ const home = () => {
         console.log(input.name)
         data[input.name] = input.value
         }
-      }   
+      }
 
       const body = JSON.stringfly(data)
       console.log(body)
