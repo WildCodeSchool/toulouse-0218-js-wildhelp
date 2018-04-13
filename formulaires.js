@@ -2,7 +2,7 @@ const mainDiv = document.getElementById('main')
 
 const homeHtml = /* @html */ `
     <div class="container">
-        <form id="formHelp" class="form-horizontal" method="POST" action="/ma-demande-de-cours">
+        <form id="formHelp" class="form-horizontal" method="POST" action='/ma-demande-de-cours'>
             <div class="row">
                 <div class="col-md-12">
                     <h2>Demande d'aide</h2>
@@ -14,7 +14,7 @@ const homeHtml = /* @html */ `
                         <div class="input-group-addon" style="width: 2.6rem">
                             <i class="fa fa-repeat"></i>
                         </div>
-                        <select id="subject" name="subject" class="form-control" required="required">
+                        <select id="language" name="subject" class="form-control" required="required">
                             <option value="" selected="">Selectionnez le langage</option>
                             <option value="JavaScriptAngular">JavaScript Angular</option>
                             <option value="JavaScriptReact">JavaScript React</option>
@@ -39,7 +39,7 @@ const homeHtml = /* @html */ `
             <div class="row">
                 <div class="col-md-12">
                     <p>
-                      <textarea name="ameliorer" id="ameliorer" rows="10" cols="50" required="required" class="form-control"
+                      <textarea name="details" id="details" rows="10" cols="50" required="required" class="form-control"
                       placeholder="Décris ici en détail ton problème"></textarea>
                     </p>
                 </div>

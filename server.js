@@ -4,6 +4,8 @@ const app = express()
 app.use(express.static(__dirname))
 app.use(bodyParser.json())
 
+
+
 const html = `
 <!doctype html>
 <html class="no-js" lang="fr">
@@ -29,10 +31,40 @@ const html = `
 </html>`
 
 app.get('*', (req, res) => {
-  console.log('wildcard route')
+  console.log(req.body)
+
   res.send(html)
   res.end()
 })
+
+// partie demande d'aide
+const requestCourse= []
+let id = 1
+
+app.post('/ma-demande-de-cours', (req, res) => {
+  console.log(req.body)
+  const language = req.body.language
+  const theme = req.body.theme
+  const details = req.body.details
+
+if(details.length < 30) {
+  return res.status(400).json({
+    error: 'Détails trop court (30 caractères minimum)'
+  })
+}
+
+const newRequest = {
+  id: id,
+  langage: language,
+  theme: theme,
+  details: details
+}
+
+requestCourse.push(newRequest)
+id += 1
+res.json(newRequest)
+})
+// fin partie demande d'aide
 
 console.log('Server listening on http://127.0.0.1:4000')
 app.listen(4000)
