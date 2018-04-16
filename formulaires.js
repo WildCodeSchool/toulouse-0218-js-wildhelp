@@ -1,6 +1,6 @@
 'use strict'
 const targetElement = document.getElementById('main')
-// const mainDiv = document.getElementById('main')
+
 
 const accueilhtml =
  /* @html */`
