@@ -18,17 +18,9 @@ CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
 USE `mydb` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`table1`
+-- Table `techno`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`table1` (
-)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mydb`.`techno`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`techno` (
+CREATE TABLE IF NOT EXISTS `techno` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
@@ -36,101 +28,91 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`User`
+-- Table `User`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`User` (
+CREATE TABLE IF NOT EXISTS `user` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `first-Name` VARCHAR(50) NOT NULL,
-  `last-Name` VARCHAR(50) NOT NULL,
+  `firstName` VARCHAR(50) NOT NULL,
+  `lastName` VARCHAR(50) NOT NULL,
   `password` VARCHAR(12) NOT NULL,
-  `mail` VARCHAR(50) NOT NULL,
+  `email` VARCHAR(50) NOT NULL,
   `city` VARCHAR(50) NOT NULL,
-  `techno_id` INT NOT NULL,
-  PRIMARY KEY (`id`, `techno_id`),
-  INDEX `fk_User_techno_idx` (`techno_id` ASC),
+  `technoId` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  -- INDEX `fk_User_techno_idx` (`techno_id` ASC),
   CONSTRAINT `fk_User_techno`
-    FOREIGN KEY (`techno_id`)
-    REFERENCES `mydb`.`techno` (`id`)
+    FOREIGN KEY (`technoId`)
+    REFERENCES `techno` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`HelpRequest`
+-- Table `helpRequest`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`HelpRequest` (
+CREATE TABLE IF NOT EXISTS `helpRequest` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `description` VARCHAR(300) NOT NULL,
   `topic` VARCHAR(45) NOT NULL,
-  `Date` DATE NOT NULL,
-  `techno_id` INT NOT NULL,
-  `User_id` INT NOT NULL,
-  `User_techno_id` INT NOT NULL,
-  PRIMARY KEY (`id`, `techno_id`),
-  INDEX `fk_Request Help_techno1_idx` (`techno_id` ASC),
-  INDEX `fk_HelpRequest_User1_idx` (`User_id` ASC, `User_techno_id` ASC),
+  `date` DATE NOT NULL,
+  `technoId` INT NOT NULL,
+  `userId` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  -- INDEX `fk_Request Help_techno1_idx` (`techno_id` ASC),
+  -- INDEX `fk_helpRequest_User1_idx` (`User_id` ASC, `User_techno_id` ASC),
   CONSTRAINT `fk_Request Help_techno1`
-    FOREIGN KEY (`techno_id`)
-    REFERENCES `mydb`.`techno` (`id`)
+    FOREIGN KEY (`technoId`)
+    REFERENCES `techno` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_HelpRequest_User1`
-    FOREIGN KEY (`User_id` , `User_techno_id`)
-    REFERENCES `mydb`.`User` (`id` , `techno_id`)
+  CONSTRAINT `fk_helpRequest_User1`
+    FOREIGN KEY (`userId`)
+    REFERENCES `user` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-
 -- -----------------------------------------------------
--- Table `mydb`.`HelpProposal`
+-- Table `helpProposal`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`HelpProposal` (
+CREATE TABLE IF NOT EXISTS `helpProposal` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `date` DATE NOT NULL,
-  `description` VARCHAR(300) NOT NULL,
+  `description` TEXT NOT NULL,
   `status` VARCHAR(45) NULL,
-  `User_id` INT NOT NULL,
-  `techno_id` INT NOT NULL,
-  PRIMARY KEY (`id`, `User_id`, `techno_id`),
-  INDEX `fk_help proposal_User1_idx` (`User_id` ASC),
-  CONSTRAINT `fk_help proposal_User1`
-    FOREIGN KEY (`User_id`)
-    REFERENCES `mydb`.`User` (`id`)
+  `userId` INT NOT NULL,
+  `requestId` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  -- INDEX `fk_help proposal_User1_idx` (`User_id` ASC),
+  CONSTRAINT `fk_helpProposal_User1`
+    FOREIGN KEY (`userId`)
+    REFERENCES `user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_helpProposal_helpRequest1`
+    FOREIGN KEY (`requestId`)
+    REFERENCES `helpRequest` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`user proposal`
+-- Table `user proposal`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`user proposal` (
-  `help proposal_id` INT NOT NULL,
-  `help proposal_User_id` INT NOT NULL,
-  `help proposal_techno_id` INT NOT NULL,
-  `User_id` INT NOT NULL,
-  `User_techno_id` INT NOT NULL,
-  `Request Help_id` INT NOT NULL,
-  `Request Help_techno_id` INT NOT NULL,
-  PRIMARY KEY (`help proposal_id`, `help proposal_User_id`, `help proposal_techno_id`, `User_id`, `User_techno_id`, `Request Help_id`, `Request Help_techno_id`),
-  INDEX `fk_help proposal_has_User_User1_idx` (`User_id` ASC, `User_techno_id` ASC),
-  INDEX `fk_help proposal_has_User_help proposal1_idx` (`help proposal_id` ASC, `help proposal_User_id` ASC, `help proposal_techno_id` ASC),
-  INDEX `fk_user proposal_Request Help1_idx` (`Request Help_id` ASC, `Request Help_techno_id` ASC),
-  CONSTRAINT `fk_help proposal_has_User_help proposal1`
-    FOREIGN KEY (`help proposal_id` , `help proposal_User_id` , `help proposal_techno_id`)
-    REFERENCES `mydb`.`HelpProposal` (`id` , `User_id` , `techno_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+CREATE TABLE IF NOT EXISTS `userProposal` (
+  `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `userId` INT NOT NULL,
+  `proposalId` INT NOT NULL,
   CONSTRAINT `fk_help proposal_has_User_User1`
-    FOREIGN KEY (`User_id` , `User_techno_id`)
-    REFERENCES `mydb`.`User` (`id` , `techno_id`)
+    FOREIGN KEY (`userId`)
+    REFERENCES `user` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_user proposal_Request Help1`
-    FOREIGN KEY (`Request Help_id` , `Request Help_techno_id`)
-    REFERENCES `mydb`.`HelpRequest` (`id` , `techno_id`)
+  CONSTRAINT `fk_userProposal_RequestHelp1`
+    FOREIGN KEY (`proposalId`)
+    REFERENCES `helpProposal` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -138,14 +120,14 @@ ENGINE = InnoDB;
 USE `mydb` ;
 
 -- -----------------------------------------------------
--- Placeholder table for view `mydb`.`view1`
+-- Placeholder table for view `view1`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`view1` (`id` INT);
+CREATE TABLE IF NOT EXISTS `view1` (`id` INT);
 
 -- -----------------------------------------------------
--- View `mydb`.`view1`
+-- View `view1`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`view1`;
+DROP TABLE IF EXISTS `view1`;
 USE `mydb`;
 
 
