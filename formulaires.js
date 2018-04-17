@@ -21,16 +21,17 @@ const accueilhtml =
  </div>
  </div>`
 
-const inscriptionwilderhtml =
+const inscriptionHtml = (title, type) =>
 /* @html */ `<div class="button"><a href="/connexion" class="btn btn-default btn-lg active" role="button" title="Connexion">Déjà inscrit ?</a></div>
 <div class="container">
    <div class="row">
       <div class="container">
          <form id="myForm" class="form-horizontal" method="POST" action="/register">
+           <input type="hidden" name="account-type" value="${type}" />
             <div class="row">
                <div class="col-md-3"></div>
                <div class="col-md-6">
-                  <h1>Wilder Inscription</h1>
+                  <h1>${title}</h1>
                   <hr>
                </div>
             </div>
@@ -89,7 +90,7 @@ const inscriptionwilderhtml =
                <div class="col-md-3">
                   <div class="form-control-feedback">
                      <span class="text-danger align-middle">
-                     <i class="fa fa-close">Champ obligatoire !</i>
+                     <!-- <i class="fa fa-close">Champ obligatoire !</i> -->
                      </span>
                   </div>
                </div>
@@ -106,13 +107,9 @@ const inscriptionwilderhtml =
                         </div>
                         <select id="subject" name="subject" class="form-control" required="required">
                            <option value="" selected="">Selectionnez</option>
-                           <option>JavaScript Angular</option>
-                           <option>JavaScript React</option>
-                           <option>JavaScript Vue.js</option>
-                           <option>JAVA J2EE</option>
-                           <option>JAVA Android</option>
+                           <option>JavaScript</option>
+                           <option>JAVA</option>
                            <option>PHP</option>
-                           <option>Symfony</option>
                         </select>
                      </div>
                   </div>
@@ -121,7 +118,7 @@ const inscriptionwilderhtml =
             <div class="row">
                <div class="col-md-3"></div>
                <div class="col-md-6">
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                  <button type="button" class="btn btn-primary">
                   S'inscrire
                   </button>
                </div>
@@ -129,144 +126,7 @@ const inscriptionwilderhtml =
          </form>
       </div>
    </div>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-   <div class="modal-dialog" role="document">
-      <div class="modal-content">
-         <div class="modal-body">
-            Bienvenue à toi Helper ! Clique ici pour accéder dans la communauté.
-         </div>
-         <div class="modal-footer">
-            <a href="/languages"><button type="button" id="buttonWelcome" class="btn btn-primary">Welcome !</button></a>
-         </div>
-      </div>
-   </div>
 </div>`
-
-const inscriptionhelperhtml =
-/* @html */ `<div class="button"><a href="/connexion" class="btn btn-default btn-lg active" role="button" title="Connexion">Déjà inscrit ?</a></div>
-<div class="container">
-   <div class="row">
-      <div class="container">
-         <form id="myForm" class="form-horizontal" method="POST" action="/register">
-            <div class="row">
-               <div class="col-md-3"></div>
-               <div class="col-md-6">
-                  <h1>Helper Inscription</h1>
-                  <hr>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-md-3 field-label-responsive">
-                  <label for="name">Nom Prénom</label>
-               </div>
-               <div class="col-md-6">
-                  <div class="form-group">
-                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
-                        <input type="text" name="name" class="form-control" id="name" placeholder="Wilder Doe" required>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-3">
-                  <div class="form-control-feedback">
-                     <span class="text-danger align-middle">
-                        <!-- Put name validation error messages here -->
-                     </span>
-                  </div>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-md-3 field-label-responsive">
-                  <label for="email">E-mail</label>
-               </div>
-               <div class="col-md-6">
-                  <div class="form-group">
-                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
-                        <input type="text" name="email" class="form-control" id="email" placeholder="wilder@example.com" required>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-3">
-                  <div class="form-control-feedback">
-                     <span class="text-danger align-middle">
-                        <!-- Put e-mail validation error messages here -->
-                     </span>
-                  </div>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-md-3 field-label-responsive">
-                  <label for="password">Mot de passe</label>
-               </div>
-               <div class="col-md-6">
-                  <div class="form-group has-danger">
-                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
-                        <input type="password" name="password" class="form-control" id="password" placeholder="Mot-de-passe" required>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-3">
-                  <div class="form-control-feedback">
-                     <span class="text-danger align-middle">
-                     <i class="fa fa-close">Champ obligatoire !</i>
-                     </span>
-                  </div>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-md-3 field-label-responsive">
-                  <label for="password">J'ai appris à la W.C.S</label>
-               </div>
-               <div class="col-md-6">
-                  <div class="form-group">
-                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                        <div class="input-group-addon" style="width: 2.6rem">
-                           <i class="fa fa-repeat"></i>
-                        </div>
-                        <select id="subject" name="subject" class="form-control" required="required">
-                           <option value="" selected="">Selectionnez</option>
-                           <option>JavaScript Angular</option>
-                           <option>JavaScript React</option>
-                           <option>JavaScript Vue.js</option>
-                           <option>JAVA J2EE</option>
-                           <option>JAVA Android</option>
-                           <option>PHP</option>
-                           <option>Symfony</option>
-                        </select>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-md-3"></div>
-               <div class="col-md-6">
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                  S'inscrire
-                  </button>
-               </div>
-            </div>
-         </form>
-      </div>
-   </div>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-   <div class="modal-dialog" role="document">
-      <div class="modal-content">
-         <div class="modal-body">
-            Bienvenue à toi Helper ! Clique ici pour accéder dans la communauté.
-         </div>
-         <div class="modal-footer">
-            <a href="/languages"><button type="button" id="buttonWelcome" class="btn btn-primary">Welcome !</button></a>
-         </div>
-      </div>
-   </div>
-</div>`
-
 
 const languageHtml = /* @html */`<div class="nav-side-menu">
    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
@@ -621,10 +481,11 @@ const footerForAllPage = /* @html */ `
   }
 
   const showInscriptionWilder = () => {
-    render(inscriptionwilderhtml)
+    render(inscriptionHtml('Inscription Wilder', 'Wilder'))
   }
+
   const showInscriptionHelper = () => {
-    render(inscriptionhelperhtml)
+    render(inscriptionHtml('Inscription Helper', 'Helper'))
   }
 
   const showLanguages = () => {
