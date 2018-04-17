@@ -2,6 +2,23 @@
 const targetElement = document.getElementById('main')
 
 
+const requetes = [
+  {
+    id : 1,
+    description : "Bonjour, j'ai besoin d'aide sur les fonctions.",
+    topic : "JavaScript",
+    date : "2018-04-20",
+  },
+
+  {
+    id : 2,
+    description : "Bonjour, j'ai besoin d'aide sur la créations de bases de données.",
+    topic : "MySQL",
+    date : "2018-04-24",
+  }
+]
+
+
 const accueilhtml =
  /* @html */`
  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
@@ -276,7 +293,15 @@ const coursproposeHtml = /* @html */ `<div class="nav-side-menu">
    </div>
 </div>`
 
-const listerequeteHtml = /* @html */ `<div class="nav-side-menu">
+function getRequestItem(requete) {
+  return `<li class="list-group-item list-group-item-warning justify-content-between">${requete.description}</li>`
+}
+
+
+
+// console.log(requetes.map(getRequestItem).join(""))
+
+const listerequeteHtml = (requetes) => /* @html */ `<div class="nav-side-menu">
    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
       <a class="p-2 text-dark" href="/">
          <h5 class="my-0 mr-md-auto font-weight-normal">Wild Help</h5>
@@ -301,6 +326,9 @@ const listerequeteHtml = /* @html */ `<div class="nav-side-menu">
       <div class="col-xs-12">
          <h3>Liste des requêtes</h3>
          <ul class="list-group">
+           ${
+             requetes.map(getRequestItem).join("")
+           }
             <li class="list-group-item list-group-item-warning justify-content-between">
                Requête : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas neque justo, pellentesque quis sagittis sed, placerat nec justo."
                <span class="badge badge-default badge-pill"></span>
@@ -505,7 +533,7 @@ const footerForAllPage = /* @html */ `
   }
 
   const showListeRequete = () => {
-    render(listerequeteHtml)
+    render(listerequeteHtml(requetes))
   }
 
   const showAide = () => {
