@@ -2,7 +2,7 @@ const mainDiv = document.getElementById('main')
 
 const homeHtml = /* @html */ `
     <div class="container">
-        <form id="formHelp" class="form-horizontal" method="POST" action='/ma-demande-de-cours'>
+        <form id="formHelp" class="form-horizontal" method="POST" action='/aide'>
             <div class="row">
                 <div class="col-md-12">
                     <h2>Demande d'aide</h2>
@@ -100,7 +100,7 @@ const home = () => {
       const body = JSON.stringify(data)
       console.log(body)
 
-      fetch('/ma-demande-de-cours', {
+      fetch('/aide', {
         method: 'POST',
         body: body,
         headers: {

@@ -33,35 +33,23 @@ const html = `
 
 
 
-app.get('*', (req, res) => {
-  connection.query('SELECT id, topic, description FROM helpRequest'  (error, results) => {
-    // if (error) throw error
-    if(error) {
-      return res.status
-    }
-    console.log('The results are: ', results)
-  res.json()
-})
 
-  res.send(html)
-  res.end()
-})
 
 // partie demande d'aide !!!
 const requestCourse= []
 let id = 1
 
-app.post('/ma-demande-de-cours', (req, res) => {
+app.post('/aide', (req, res) => {
   console.log(req.body)
   const language = req.body.language
   const topic = req.body.topic
   const description = req.body.description
 
-if(details.length < 30) {
-  return res.status(400).json({
-    error: 'Détails trop court (30 caractères minimum)'
-  })
-}
+    if(description.length < 30) {
+      return res.status(400).json({
+        error: 'Description trop court (30 caractères minimum)'
+      })
+    }
 
 const newRequest = {
   id: id,
@@ -73,6 +61,26 @@ const newRequest = {
 requestCourse.push(newRequest)
 id += 1
 res.json(newRequest)
+
+// const topic = req.body.topic
+// const description = req.body.description
+const query = `SELECT topic, description FROM wildRequest WHERE topic = '${topic}' AND description = '${description}'`
+
+connection.query(query, (error, results) => {
+  // if (error) throw error
+  if(error) {
+    return res.status(500).json({
+      error: error.message
+      })
+    }
+  const topic = result[0]
+  res.json( {results: results[0]})
+})
+}
+
+app.get('*', (req, res) => {
+  res.send(html)
+  res.end()
 })
 // fin partie demande d'aide
 
