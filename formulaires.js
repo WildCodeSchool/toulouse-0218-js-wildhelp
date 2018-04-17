@@ -31,7 +31,7 @@ const homeHtml = /* @html */ `
                 <div class="col-md-12">
                     <p>
                         <label for="sujet">Sujet requête :</label>
-                        <input type="text" name="theme" id="theme" placeholder="Ex : Algorithme" size="40" maxlength="50" required="required" class="form-control" />
+                        <input type="text" name="topic" id="topic" placeholder="Ex : Algorithme" size="40" maxlength="50" required="required" class="form-control" />
                     </p>
 
                 </div>
@@ -39,7 +39,7 @@ const homeHtml = /* @html */ `
             <div class="row">
                 <div class="col-md-12">
                     <p>
-                      <textarea name="details" id="details" rows="10" cols="50" required="required" class="form-control"
+                      <textarea name="description" id="description" rows="10" cols="50" required="required" class="form-control"
                       placeholder="Décris ici en détail ton problème"></textarea>
                     </p>
                 </div>
@@ -71,26 +71,6 @@ const homeHtml = /* @html */ `
           </div>
         </form>
     </div>`
-
-    const footerForAllPage =  `<footer>
-            <div class="reseaux col-mg-6">
-                <p> Embarquez avec nous : </p>
-                <a href="https://www.facebook.com/" target="_blank"><img class="imgbtn" src="logofooter/fb.png" alt="imgbtn"></a>
-                <a href="https://www.instagram.com/" target="_blank"><img class="imgbtn" src="logofooter/insta.png" alt="imgbtn"></a>
-                <a href="https://twitter.com/" target="_blank"><img class="imgbtn" src="logofooter/twitter.png" alt="imgbtn"></a>
-                <a href="https://www.twitch.tv/khanaeleff" target="_blank"><img class="imgbtn" src="logofooter/twitch.png" alt="imgbtn"></a>
-                <a href="https://slack.com/intl/fr-fr/brand-guidelines" target="_blank"><img class="imgbtn" src="logofooter/slack.png" alt="imgbtn"></a>
-            </div>
-            <div class="row no-gutters">
-                <div class="col-12">
-                    <p class="madeBy">
-                        Made by The Wild Help Team 2018 session
-                    </p>
-                </div>
-            </div>
-      </footer>
-      `
-
 
 
 
