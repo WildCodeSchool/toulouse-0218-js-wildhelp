@@ -144,42 +144,63 @@ const languageHtml = /* @html */`<div class="nav-side-menu">
       </nav>
    </div>
 </div>
-<h1>Langages proposés</h1>
-<div class="row">
-   <div class="col-md-3 col-xs-6 logo">
-      <a href="/requete"><img src="https://developer.akamai.com/blog/wp-content/uploads/2017/03/android-logo.png" alt="Android Logo" /></a>
-   </div>
-   <div class="col-md-3 col-xs-6 logo">
-      <a href="/requete"><img src="http://blog.zenika.com/wp-content/uploads/2016/04/java-logo.png" alt="Java Logo" /></a>
-   </div>
-   <div class="col-md-3 col-xs-6 logo">
-      <a href="/requete"><img src="http://edmundtian.com/images/nodejs.ico" alt="JavaScript Logo" /></a>
-   </div>
-   <div class="col-md-3 col-xs-6 logo">
-      <a href="/requete"><img src="http://nikhilnanjappa.github.io/img/react-logo.png" alt="React Logo" /></a>
-   </div>
-   <div class="col-md-3 col-xs-6 logo">
-      <a href="/requete">
-         <img src="https://camo.githubusercontent.com/0f946287c3cbcdd7d71f99ef18dcc506ba2e2186/687474703a2f2f7777772e69636f6e61747469747564652e636f6d2f69636f6e732f6f70656e5f69636f6e5f6c6962726172792f617070732f706e672f3235362f707974686f6e322e352e706e67" alt="Python Logo" />
-   </div>
-   <div class="col-md-3 col-xs-6 logo">
-   <a href="/requete"><img src="http://muchocodigo.com/wp-content/uploads/2013/11/php.jpg" alt="Php Logo" /></a>
-   </div>
-   <div class="col-md-3 col-xs-6 logo">
-      <a href="/requete">
-         <img src="http://rodrigovenancio.info/wp-content/uploads/2017/04/1491199643_angular.png" alt="Angular Logo" />
-   </div>
-   <div class="col-md-3 col-xs-6 logo">
-   <a href="/requete"><img src="http://onusinfotech.com/wp-content/uploads/2_0.png" alt="Symfony Logo" /></a>
-   </div>
-   <div class="col-md-3 col-xs-6 logo">
-      <a href="/requete">
-         <img src="https://silentbedlam.gallerycdn.vsassets.io/extensions/silentbedlam/vuejs-jquery-bootstrapprojecttemplate/1.0/1491418503089/257278/1/thumbnail.png" alt="VueJs Logo" />
-   </div>
-   <div class="col-md-3 col-xs-6 logo">
-   <a href="/requete"><img src="http://www.flook.co/img/skills/nodejs.ico" alt="NodeJs Logo" /></a>
-   </div>
-</div>`
+
+<div class="container">
+      <h1>Technologies proposées</h1>
+        <div class="row">
+            <div class="col-md-3 col-xs-6 logo">
+                <a href="/requete" target="_blank">
+                <img src="https://developer.akamai.com/blog/wp-content/uploads/2017/03/android-logo.png" alt="Android Logo" />
+                <p>Android</p>
+                </a>
+            </div>
+            <div class="col-md-3 col-xs-6 logo">
+                <a href="/requete" target="_blank">
+                <img src="http://rodrigovenancio.info/wp-content/uploads/2017/04/1491199643_angular.png" alt="Angular Logo" />
+                <p>Angular</p>
+            </div>
+            <div class="col-md-3 col-xs-6 logo">
+                <a href="/requete" target="_blank">
+                <img src="http://blog.zenika.com/wp-content/uploads/2016/04/java-logo.png" alt="Java Logo" />
+                <p>Java</p>
+            </div>
+            <div class="col-md-3 col-xs-6 logo">
+                <a href="/requete" target="_blank">
+                <img src="http://edmundtian.com/images/nodejs.ico" alt="JavaScript Logo" />
+                <p>JavaScript</p>
+            </div>
+            <div class="col-md-3 col-xs-6 logo">
+                <a href="/requete" target="_blank">
+                <img src="http://www.flook.co/img/skills/nodejs.ico" alt="NodeJs Logo" />
+                <p>NodeJs</p>
+            </div>
+            <div class="col-md-3 col-xs-6 logo">
+                <a href="/requete" target="_blank">
+                <img src="http://muchocodigo.com/wp-content/uploads/2013/11/php.jpg" alt="Php Logo" />
+                <p>Php</p>
+            </div>
+            <div class="col-md-3 col-xs-6 logo">
+                <a href="/requete" target="_blank">
+                <img src="https://camo.githubusercontent.com/0f946287c3cbcdd7d71f99ef18dcc506ba2e2186/687474703a2f2f7777772e69636f6e61747469747564652e636f6d2f69636f6e732f6f70656e5f69636f6e5f6c6962726172792f617070732f706e672f3235362f707974686f6e322e352e706e67" alt="Python Logo" />
+                <p>Python</p>
+            </div>
+            <div class="col-md-3 col-xs-6 logo">
+                <a href="/requete" target="_blank">
+                <img src="http://nikhilnanjappa.github.io/img/react-logo.png" alt="React Logo" />
+                <p>React</p>
+            </div>
+            <div class="col-md-3 col-xs-6 logo">
+                <a href="/requete" target="_blank">
+                <img src="http://onusinfotech.com/wp-content/uploads/2_0.png" alt="Symfony Logo" />
+                <p>Symfony</p>
+            </div>
+            <div class="col-md-3 col-xs-6 logo">
+                <a href="/requete" target="_blank">
+                <img src="https://silentbedlam.gallerycdn.vsassets.io/extensions/silentbedlam/vuejs-jquery-bootstrapprojecttemplate/1.0/1491418503089/257278/1/thumbnail.png" alt="VueJs Logo" />
+                <p>VueJs</p>
+            </div>
+        </div>
+    </div>`
 
 const connexionHtml = /* @html */ `<section class="login-block">
    <div class="container" id="loginco">
