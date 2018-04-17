@@ -3,6 +3,7 @@ const bodyParser = require('body-parser')
 const app = express()
 app.use(express.static(__dirname))
 app.use(bodyParser.json())
+const  connection = require('./db')
 
 
 
@@ -30,8 +31,17 @@ const html = `
   </body>
 </html>`
 
+
+
 app.get('*', (req, res) => {
-  console.log(req.body)
+  connection.query('SELECT id, topic, description FROM helpRequest'  (error, results) => {
+    // if (error) throw error
+    if(error) {
+      return res.status
+    }
+    console.log('The results are: ', results)
+  res.json()
+})
 
   res.send(html)
   res.end()
@@ -44,8 +54,8 @@ let id = 1
 app.post('/ma-demande-de-cours', (req, res) => {
   console.log(req.body)
   const language = req.body.language
-  const theme = req.body.theme
-  const details = req.body.details
+  const topic = req.body.topic
+  const description = req.body.description
 
 if(details.length < 30) {
   return res.status(400).json({
@@ -56,8 +66,8 @@ if(details.length < 30) {
 const newRequest = {
   id: id,
   langage: language,
-  theme: theme,
-  details: details
+  topic: topic,
+  description: description
 }
 
 requestCourse.push(newRequest)
