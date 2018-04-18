@@ -1,0 +1,159 @@
+  @import url('https://fonts.googleapis.com/css?family=Lobster');
+/*  PAGE D ACCUEIL */
+body
+{
+  color: #0066cc;
+  font-family: 'Lobster', arial;
+  background: #DE6262;
+    /* fallback for old browsers */
+     background: -webkit-linear-gradient(to bottom, #FFB88C, #DE6262);
+    /* Chrome 10-25, Safari 5.1-6 */
+     background: linear-gradient(to bottom, #FFB88C, #DE6262);
+}
+
+.background
+{
+  justify-content: center;
+}
+
+.background .imgAccueil
+{
+  width: 99%;
+}
+
+.background .connexion
+{
+  position: absolute;
+  margin-top: 20%;
+  color: white;
+  font-size: 4vw;
+}
+
+.connexion h1
+{
+  font-style: italic;
+  color:  #001a33;
+  text-align: center;
+  font-size: 120px;
+}
+
+.connexion p
+{
+  font-style: italic;
+  color:  #001a33;
+  text-align: center;
+  font-size: 35px;
+}
+.connexion a
+{
+  font-style: italic;
+  color:  #001a33;
+  text-align: center;
+  font-size: 35px;
+}
+
+/* CSS PAGE CONNEXION */
+ .login-block{
+     background: #DE6262;
+    /* fallback for old browsers */
+     background: -webkit-linear-gradient(to bottom, #FFB88C, #DE6262);
+    /* Chrome 10-25, Safari 5.1-6 */
+     background: linear-gradient(to bottom, #FFB88C, #DE6262);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+     float:left;
+     width:100%;
+     padding : 50px 0;
+}
+ .banner-sec{
+    border-radius: 0 10px 10px 0;
+     padding:0;
+}
+ #loginco{
+    background:#fff;
+     border-radius: 10px;
+     box-shadow:15px 20px 0px rgba(0,0,0,0.1);
+}
+ .carousel-inner{
+    border-radius:0 10px 10px 0;
+}
+ .carousel-caption{
+    text-align:left;
+     left:5%;
+}
+ .login-sec{
+    padding: 50px 30px;
+     position:relative;
+}
+ .login-sec .copy-text{
+    position:absolute;
+     width:80%;
+     bottom:20px;
+     font-size:13px;
+     text-align:center;
+}
+ .login-sec .copy-text i{
+    color:#FEB58A;
+}
+ .login-sec .copy-text a{
+    color:#E36262;
+}
+ .login-sec h2{
+    margin-bottom:30px;
+     font-weight:800;
+     font-size:40px;
+     color: #DE6262;
+}
+ .btn-login{
+    background: #DE6262;
+     color:#fff;
+     font-weight:600;
+}
+ .banner-text{
+    width:70%;
+     position:absolute;
+     bottom:1px;
+     padding-left:20px;
+}
+ .banner-text h2{
+    color:#E36262;
+     font-weight:600;
+}
+ .banner-text p{
+    color:#E36262;
+}
+
+/* page langages */
+.titleLanguages h1
+{
+  color-font: #563482;
+  text-align: center;
+}
+.logo{
+  margin-top: 40px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+.logoLanguages {
+  width: 50%;
+}
+
+/* CSS Footer */
+ footer {
+     text-align: center;
+     font-family: 'Lobster', arial;
+     color: white;
+     font-size: 1em;
+     background-color: black;
+     padding-top: 70px;
+}
+ .reseaux {
+     width: 100%;
+}
+ footer .imgbtn {
+     width:40px;
+     filter: grayscale(80%);
+     margin: 2% 4%;
+}
+ footer .imgbtn:hover {
+     filter: grayscale(0);
+}
