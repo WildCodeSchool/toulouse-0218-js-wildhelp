@@ -51,11 +51,10 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `helpRequest`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `helpRequest` (
+CREATE TABLE IF NOT EXISTS `wildRequest` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `description` VARCHAR(300) NOT NULL,
   `topic` VARCHAR(45) NOT NULL,
-  `date` DATE NOT NULL,
   `technoId` INT NOT NULL,
   `userId` INT NOT NULL,
   PRIMARY KEY (`id`),
