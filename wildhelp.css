@@ -1,3 +1,56 @@
+  @import url('https://fonts.googleapis.com/css?family=Lobster');
+/*  PAGE D ACCUEIL */
+body
+{
+  color: #0066cc;
+  font-family: 'Lobster', arial;
+  background: #DE6262;
+    /* fallback for old browsers */
+     background: -webkit-linear-gradient(to bottom, #FFB88C, #DE6262);
+    /* Chrome 10-25, Safari 5.1-6 */
+     background: linear-gradient(to bottom, #FFB88C, #DE6262);
+}
+
+.background
+{
+  justify-content: center;
+}
+
+.background .imgAccueil
+{
+  width: 99%;
+}
+
+.background .connexion
+{
+  position: absolute;
+  margin-top: 20%;
+  color: white;
+  font-size: 4vw;
+}
+
+.connexion h1
+{
+  font-style: italic;
+  color:  #001a33;
+  text-align: center;
+  font-size: 120px;
+}
+
+.connexion p
+{
+  font-style: italic;
+  color:  #001a33;
+  text-align: center;
+  font-size: 35px;
+}
+.connexion a
+{
+  font-style: italic;
+  color:  #001a33;
+  text-align: center;
+  font-size: 35px;
+}
 
 /* CSS PAGE CONNEXION */
  .login-block{
@@ -68,21 +121,33 @@
  .banner-text p{
     color:#E36262;
 }
+
+/* page langages */
+.titleLanguages h1
+{
+  color-font: #563482;
+  text-align: center;
+}
+.logo{
+  margin-top: 40px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+.logoLanguages {
+  width: 50%;
+}
+
 /* CSS Footer */
  footer {
      text-align: center;
-     font-family: "existencelight";
+     font-family: 'Lobster', arial;
      color: white;
      font-size: 1em;
-     min-height: 230px;
      background-color: black;
      padding-top: 70px;
 }
  .reseaux {
      width: 100%;
-}
- footer .reseaux p {
-     text-align: center;
 }
  footer .imgbtn {
      width:40px;
@@ -91,18 +156,4 @@
 }
  footer .imgbtn:hover {
      filter: grayscale(0);
-}
- footer a:link {
-     text-decoration:none;
-     color:white;
-}
- footer a:visited{
-     text-decoration:none;
-     color:white;
-}
- .madeBy {
-     color: white;
-     font-style: italic;
-     margin-top: 50px;
-     text-align: center;
 }

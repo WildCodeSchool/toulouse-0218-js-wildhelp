@@ -2,18 +2,14 @@ const express = require('express')
 const app = express()
 app.use(express.static(__dirname))
 
-const html = `
+const html = /* @html */ `
 <!doctype html>
 <html class="no-js" lang="fr">
   <head>
     <meta charset="utf-8">
     <title>Formulaires</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="listerequete.css">
-    <link rel="stylesheet" href="accueil.css">
-    <link rel="stylesheet" href="courspropose.css">
-    <link rel="stylesheet" href="wildhelp.css">
-    <link rel="stylesheet" href="languages.css">
+    <link rel="stylesheet" href="wildhelp.css" />
 
   </head>
   <style>
@@ -28,7 +24,7 @@ const html = `
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="page.js"></script>
-    <script src="formulaires.js"></script>
+    <script src="wildhelp.js"></script>
   </body>
 </html>`
 
