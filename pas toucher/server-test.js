@@ -7,7 +7,7 @@ const  connection = require('./db')
 
 
 
-const html = `
+const html = /* @html */`
 <!doctype html>
 <html class="no-js" lang="fr">
   <head>
