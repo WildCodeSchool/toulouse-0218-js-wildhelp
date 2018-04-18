@@ -76,7 +76,6 @@ const homeHtml = /* @html */ `
 
 const render = mainHtml => {
     mainDiv.innerHTML = mainHtml
-}
 
 const home = () => {
     render(homeHtml)
