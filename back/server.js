@@ -12,7 +12,7 @@ const staticPath = path.normalize(`${__dirname}/../public`)
 app.use(express.static(staticPath))
 const bodyParser = require('body-parser')
 app.use(bodyParser.json())
-// const  connection = require('./db')
+const  connection = require('./db')
 
 const html = /* @html */ `
 <!doctype html>
@@ -55,17 +55,17 @@ app.post('/aide', (req, res) => {
         error: 'Description trop court (30 caractères minimum)'
       })
     }
-
-const newRequest = {
-  id: id,
-  langage: language,
-  topic: topic,
-  description: description
-}
-
-requestCourse.push(newRequest)
-id += 1
-res.json(newRequest)
+//
+// const newRequest = {
+//   id: id,
+//   langage: language,
+//   topic: topic,
+//   description: description
+// }
+//
+// requestCourse.push(newRequest)
+// id += 1
+// res.json(newRequest)
 
 // const topic = req.body.topic
 // const description = req.body.description
