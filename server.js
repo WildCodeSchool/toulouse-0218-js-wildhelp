@@ -76,7 +76,7 @@ connection.query(query, (error, results) => {
   const topic = result[0]
   res.json( {results: results[0]})
 })
-}
+})
 
 app.get('*', (req, res) => {
   res.send(html)
