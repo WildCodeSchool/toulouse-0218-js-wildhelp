@@ -175,6 +175,10 @@ const languageHtml = /* @html */`<div class="nav-side-menu">
       <nav class="my-2 my-md-0 mr-md-3">
          <a class="p-2 text-dark" href="/aide">Demande d'aide</a>
       </nav>
+      <nav class="my-2 my-md-0 mr-md-3">
+        <a href="/" class="btn btn-info btn-lg">
+          <span class="glyphicon glyphicon-log-out"></span> Deconnexion </a>
+      </nav>
    </div>
 </div>
   <div class="titleLanguages">
@@ -242,7 +246,7 @@ const connexionHtml = /* @html */ `<section class="login-block">
             <h2 class="text-center">Connexion</h2>
             <form class="login-form">
                <div class="form-group">
-                  <label for="exampleInputEmail1" class="text-uppercase">Pseudo</label>
+                  <label for="exampleInputEmail1" class="text-uppercase">Email</label>
                   <input id="exampleInputEmail1" type="text" class="form-control" placeholder="">
                </div>
                <div class="form-group">
@@ -317,6 +321,10 @@ const coursproposeHtml = /* @html */ `<div class="nav-side-menu">
       <nav class="my-2 my-md-0 mr-md-3">
          <a class="p-2 text-dark" href="/aide">Demande d'aide</a>
       </nav>
+      <nav class="my-2 my-md-0 mr-md-3">
+        <a href="/" class="btn btn-info btn-lg">
+          <span class="glyphicon glyphicon-log-out"></span> Deconnexion </a>
+      </nav>
    </div>
 </div>
 <a href="https://placeholder.com"><img class="banner" src="http://via.placeholder.com/1500x250" alt="banner"></a>
@@ -377,6 +385,10 @@ const listerequeteHtml = /* @html */ `<div class="nav-side-menu">
       </nav>
       <nav class="my-2 my-md-0 mr-md-3">
          <a class="p-2 text-dark" href="/aide">Demande d'aide</a>
+      </nav>
+      <nav class="my-2 my-md-0 mr-md-3">
+        <a href="/" class="btn btn-info btn-lg">
+          <span class="glyphicon glyphicon-log-out"></span> Deconnexion </a>
       </nav>
    </div>
 </div>
@@ -461,6 +473,10 @@ const aideHtml = /* @html */ `
       </nav>
       <nav class="my-2 my-md-0 mr-md-3">
          <a class="p-2 text-dark" href="/aide">Demande d'aide</a>
+      </nav>
+      <nav class="my-2 my-md-0 mr-md-3">
+        <a href="/" class="btn btn-info btn-lg">
+          <span class="glyphicon glyphicon-log-out"></span> Deconnexion </a>
       </nav>
    </div>
 <div class="container">
