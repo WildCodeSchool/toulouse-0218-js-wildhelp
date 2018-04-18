@@ -1,0 +1,8 @@
+/* top secret */
+
+{
+  "host" : "localhost",
+  "user" : "root",
+  "password" : "toulouse",
+  "database" : "mydb"
+}
