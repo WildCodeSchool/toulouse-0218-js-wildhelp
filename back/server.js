@@ -10,6 +10,9 @@ const app = express()
 // /home/wilder/projet2/wildhelp/public
 const staticPath = path.normalize(`${__dirname}/../public`)
 app.use(express.static(staticPath))
+const bodyParser = require('body-parser')
+app.use(bodyParser.json())
+// const  connection = require('./db')
 
 const html = /* @html */ `
 <!doctype html>
@@ -36,6 +39,50 @@ const html = /* @html */ `
     <script src="wildhelp.js"></script>
   </body>
 </html>`
+
+// partie demande d'aide !!!
+const requestCourse= []
+let id = 1
+
+app.post('/aide', (req, res) => {
+  console.log(req.body)
+  const language = req.body.language
+  const topic = req.body.topic
+  const description = req.body.description
+
+    if(description.length < 30) {
+      return res.status(400).json({
+        error: 'Description trop court (30 caractères minimum)'
+      })
+    }
+
+const newRequest = {
+  id: id,
+  langage: language,
+  topic: topic,
+  description: description
+}
+
+requestCourse.push(newRequest)
+id += 1
+res.json(newRequest)
+
+// const topic = req.body.topic
+// const description = req.body.description
+const query = `SELECT topic, description FROM wildRequest WHERE topic = '${topic}' AND description = '${description}'`
+
+connection.query(query, (error, results) => {
+  // if (error) throw error
+  if(error) {
+    return res.status(500).json({
+      error: error.message
+      })
+    }
+  const topic = result[0]
+  res.json( {results: results[0]})
+})
+})
+// fin demande aide
 
 app.get('*', (req, res) => {
   console.log('wildcard route')
