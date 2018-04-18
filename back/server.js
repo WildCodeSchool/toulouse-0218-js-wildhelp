@@ -1,6 +1,15 @@
 const express = require('express')
+// Module path: manipulation des chemins de fichiers
+const path = require('path')
 const app = express()
-app.use(express.static(__dirname))
+// Je veux public qui est à ../public
+// Avec node, je ne peux pas mettre qqchose comme:
+// /home/wilder/projet2/wildhelp/back/../public
+// path.normalize va transformer
+// /home/wilder/projet2/wildhelp/back/../public
+// /home/wilder/projet2/wildhelp/public
+const staticPath = path.normalize(`${__dirname}/../public`)
+app.use(express.static(staticPath))
 
 const html = /* @html */ `
 <!doctype html>
