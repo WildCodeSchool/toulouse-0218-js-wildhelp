@@ -400,13 +400,14 @@ const aideHtml = /* @html */ `
       </div>
       <div class="row">
         <div class="col-md-6 mb-2">
-          <input class="btn-outline-primary" type="submit" value="Save me !"/>
+          <input class="btn-outline-primary" onclick="showAlertHelp('merci d'indique votre description')" type="submit" value="Save me !"/>
         </div>
         <div class="col-md-6">
           <input class="btn btn-outline-danger" type="reset" value="Annuler" />
         </div>
       </div>
     </form>
+      <div id="alert-wrapper-help" class="alert" role="alert"></div>
 </div>
 `
 const footerForAllPage = /* @html */ `<footer>
@@ -453,12 +454,45 @@ const showAide = () => {
           'Content-Type': 'application/json'
         }
       })
+      .then(response => {
+        if(response.status === 400) {
+          showAlertHelp(false, 'Veuillez décrire plus en détails votre requète !')
+        }
+        else if(response.status === 200){
+          showAlertHelp(true, 'Votre requète est bien pris en compte')
+        }
+        else {
+          showAlertHelp(false, 'impossible de valider votre requète')
+        }
+      })
       .then(response => response.json())
       .then(data => {
         console.log(data)
       })
     })
   }
+// DIV ALERT
+  const showAlertHelp = (isSuccess, text) => {
+    // recuper la div de l'alert
+    const alertWrapperhelp = document.getElementById('alert-wrapper-help')
+    // calculer la class bootstrap à appliquer suivant que c'est une notification de succes ou non
+    const alertClass = isSuccess ? 'alert-success' :'alert-danger'
+    // supprimer les classes mises lors des appels précédent
+    alertWrapperhelp.classlist.remove('alert-success')
+    alertWrapperhelp.classList.remove('alert-danger')
+    // ajouter la classe calculée
+    alertWrapperhelp.classList.add(alertClass)
+    // definir le texte
+    alertWrapperhelp.innerHTML = text
+    // rendre visible
+    alertWrapperhelp.classList.add('visible')
+    // rendre invisible
+    setTimeout(() => {
+      alertWrapperhelp.classList.remove('visible')
+    }, 5000)
+  }
+
+
 // FIN PAGE HELP
 
 

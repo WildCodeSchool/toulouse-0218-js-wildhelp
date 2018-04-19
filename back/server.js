@@ -29,6 +29,7 @@ const html = /* @html */ `
     input { border: 1px solid #ddd; border-radius: 3px; padding: 5px 10px; }
   </style>
   <body>
+    <div id="alert-wrapper-help" class="alert" role="alert"></div>
 
     <div class="container_fluid" id="main"></div>
 
