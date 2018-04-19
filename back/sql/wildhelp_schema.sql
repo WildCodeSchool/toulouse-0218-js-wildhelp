@@ -60,12 +60,12 @@ CREATE TABLE IF NOT EXISTS `wildRequest` (
   PRIMARY KEY (`id`),
   -- INDEX `fk_Request Help_techno1_idx` (`techno_id` ASC),
   -- INDEX `fk_helpRequest_User1_idx` (`User_id` ASC, `User_techno_id` ASC),
-  CONSTRAINT `fk_Request Help_techno1`
+  CONSTRAINT `fk_Request wild_techno1`
     FOREIGN KEY (`technoId`)
     REFERENCES `techno` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_helpRequest_User1`
+  CONSTRAINT `fk_wildRequest_User1`
     FOREIGN KEY (`userId`)
     REFERENCES `user` (`id`)
     ON DELETE NO ACTION
