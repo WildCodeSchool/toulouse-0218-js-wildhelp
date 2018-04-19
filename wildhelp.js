@@ -5,39 +5,25 @@ const targetElement = document.getElementById('main')
 const accueilhtml =
 /* @html */`
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4  bg-white border-bottom box-shadow" id="navBarAcc">
-   <h4 class="my-0 mr-md-auto">Tu as étudié à la W.C.S et tu souhaites partager tes connaissances ? Rejoins nous vite !</h4>
+   <h4 class="my-0 mr-md-auto"></h4>
    <nav class="my-2 my-md-0 mr-md-3">
-      <a class="p-2 text-dark" href="/helper">Devenir Helper</a>
+     <button type="button"  data-container="body" data-toggle="popover" data-placement="bottom" data-content=" <a href='/helper'>Inscris</a> toi afin d'aider les nouveaux élèves !">
+  Alumni
+</button>
+
    </nav>
-   <a class="btn btn-outline-primary text-dark" href="/connexion">Connexion</a>
+   <a class="btn" href="/connexion">Connexion</a>
 </div>
 <!-- barre de recherche -->
 <div class="row background">
-   <img class="imgAccueil" alt="imgAccueil" src="https://images.unsplash.com/photo-1482745637430-91c0bbcea3e1?ixlib=rb-0.3.5&s=0e4d8bb5ca22ff85639a7f6306bc0305&auto=format&fit=crop&w=1050&q=80" />
+   <img class="imgAccueil" alt="imgAccueil" src="/image/animeg.gif" />
    <div class="connexion">
-      <h1 class="text-dark">Wild Help</h1>
-      <p class="text-dark">Tu es étudiant(e) à la W.C.S et tu as besoin d'aide ? Alors inscris toi, les anciens sont là pour toi !</p>
-      <p class="text-dark"><a href="/wilder">Inscription</a></p>
+      <h1>Wild Help</h1>
+      <p>Profite de la communauté des développeurs Alumni de la Wild pour t'aider à résoudre les casse-têtes les plus fous durant ta formation !</p>
+      <a href="/wilder"><button type="button" class="btn">Inscription</button></a>
    </div>
 </div>
-</div>
-<footer>
-   <div class="reseaux col-mg-6">
-      <p> Embarquez avec nous : </p>
-      <a href="https://www.facebook.com/" target="_blank"><img class="imgbtn" src="logofooter/fb.png" alt="imgbtn"></a>
-      <a href="https://www.instagram.com/" target="_blank"><img class="imgbtn" src="logofooter/insta.png" alt="imgbtn"></a>
-      <a href="https://twitter.com/" target="_blank"><img class="imgbtn" src="logofooter/twitter.png" alt="imgbtn"></a>
-      <a href="https://www.twitch.tv/khanaeleff" target="_blank"><img class="imgbtn" src="logofooter/twitch.png" alt="imgbtn"></a>
-      <a href="https://slack.com/intl/fr-fr/brand-guidelines" target="_blank"><img class="imgbtn" src="logofooter/slack.png" alt="imgbtn"></a>
-   </div>
-   <div class="row no-gutters">
-      <div class="col-12">
-         <p class="madeBy">
-            Made by The Wild Help Team 2018 session
-         </p>
-      </div>
-   </div>
-</footer>`
+</div>`
 
 const inscriptionHtml = (title, type) =>
 /* @html */ `
@@ -52,6 +38,7 @@ const inscriptionHtml = (title, type) =>
                   <hr>
                </div>
             </div>
+            <div class="formInscription mt-5 pt-5 pl-5">
             <div class="row">
                <div class="col-md-3 field-label-responsive">
                   <label for="name">Nom Prénom</label>
@@ -141,6 +128,7 @@ const inscriptionHtml = (title, type) =>
                </div>
             </div>
          </form>
+       </div>
       </div>
       <footer>
          <div class="reseaux col-mg-6">
@@ -162,24 +150,16 @@ const inscriptionHtml = (title, type) =>
 `
 
 const languageHtml = /* @html */`<div class="nav-side-menu">
-   <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-      <a class="p-2 text-dark" href="/">
-         <h5 class="my-0 mr-md-auto font-weight-normal">Wild Help</h5>
-      </a>
-      <nav class="my-2 my-md-0 mr-md-3">
-         <a class="p-2 text-dark" href="/cours">Voir les cours proposés</a>
-      </nav>
-      <nav class="my-2 my-md-0 mr-md-3">
-         <a class="p-2 text-dark" href="/requete">Déposer une requête</a>
-      </nav>
-      <nav class="my-2 my-md-0 mr-md-3">
-         <a class="p-2 text-dark" href="/aide">Demande d'aide</a>
-      </nav>
-      <nav class="my-2 my-md-0 mr-md-3">
-        <a href="/" class="btn btn-info btn-lg">
-          <span class="glyphicon glyphicon-log-out"></span> Deconnexion </a>
-      </nav>
-   </div>
+  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+     <a class="p-2 text-dark" href="/">
+        <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
+     </a>
+     <nav class="my-2 my-md-0 mr-md-3">
+       <a href="/" class="btn btn-info btn-lg">
+         <span class="glyphicon glyphicon-log-out"></span> Deconnexion </a>
+     </nav>
+  </div>
+
 </div>
   <div class="titleLanguages">
     <h1>Langages proposés</h1>
@@ -188,10 +168,10 @@ const languageHtml = /* @html */`<div class="nav-side-menu">
 
 <div class="row" id="languages">
    <div class="col-md-3 col-xs-6 logo">
-      <a href="/requete"><img src="image/android-logo.png" alt="Android Logo" id="logoLanguages"/></a>
+      <a href="/requete"><img src="https://developer.akamai.com/blog/wp-content/uploads/2017/03/android-logo.png" alt="Android Logo" id="logoLanguages"/></a>
    </div>
    <div class="col-md-3 col-xs-6 logo">
-      <a href="/requete"><img src="image/java-logo.png" alt="Java Logo" id="logoLanguages"/></a>
+      <a href="/requete"><img src="http://blog.zenika.com/wp-content/uploads/2016/04/java-logo.png" alt="Java Logo" id="logoLanguages"/></a>
    </div>
    <div class="col-md-3 col-xs-6 logo">
       <a href="/requete"><img src="http://edmundtian.com/images/nodejs.ico" alt="JavaScript Logo" id="logoLanguages"/></a>
@@ -220,24 +200,7 @@ const languageHtml = /* @html */`<div class="nav-side-menu">
    <div class="col-md-3 col-xs-6 logo">
    <a href="/requete"><img src="http://www.flook.co/img/skills/nodejs.ico" alt="NodeJs Logo" id="logoLanguages" /></a>
    </div>
-</div></div>
-<footer>
-   <div class="reseaux col-mg-6">
-      <p> Embarquez avec nous : </p>
-      <a href="https://www.facebook.com/" target="_blank"><img class="imgbtn" src="logofooter/fb.png" alt="imgbtn"></a>
-      <a href="https://www.instagram.com/" target="_blank"><img class="imgbtn" src="logofooter/insta.png" alt="imgbtn"></a>
-      <a href="https://twitter.com/" target="_blank"><img class="imgbtn" src="logofooter/twitter.png" alt="imgbtn"></a>
-      <a href="https://www.twitch.tv/khanaeleff" target="_blank"><img class="imgbtn" src="logofooter/twitch.png" alt="imgbtn"></a>
-      <a href="https://slack.com/intl/fr-fr/brand-guidelines" target="_blank"><img class="imgbtn" src="logofooter/slack.png" alt="imgbtn"></a>
-   </div>
-   <div class="row no-gutters">
-      <div class="col-12">
-         <p class="madeBy">
-            Made by The Wild Help Team 2018 session
-         </p>
-      </div>
-   </div>
-</footer>`
+</div></div>`
 
 const connexionHtml = /* @html */ `<section class="login-block">
    <div class="container" id="loginco">
@@ -246,7 +209,7 @@ const connexionHtml = /* @html */ `<section class="login-block">
             <h2 class="text-center">Connexion</h2>
             <form class="login-form">
                <div class="form-group">
-                  <label for="exampleInputEmail1" class="text-uppercase">Email</label>
+                  <label for="exampleInputEmail1" class="text-uppercase">E-mail</label>
                   <input id="exampleInputEmail1" type="text" class="form-control" placeholder="">
                </div>
                <div class="form-group">
@@ -266,61 +229,26 @@ const connexionHtml = /* @html */ `<section class="login-block">
             <div id="carousel" class="carousel slide" data-ride="carousel">
                <div class="carousel-inner" role="listbox">
                   <div class="carousel-item active">
-                     <img class="d-block img-fluid" src="imagesconnexion/wil.jpg" alt="First slide">
-                     <div class="carousel-caption d-none d-md-block">
-                        <div class="banner-text">
-                           <h2>Welcome</h2>
-                           <p>Connecte toi pour accéder à la communauté Wild</p>
-                        </div>
-                     </div>
+                     <img class="d-block img-fluid" src="https://images.unsplash.com/photo-1497171156029-51dfc973e5f9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c8e7ca2e7514a9e0e66fcc2091dc2ad5&auto=format&fit=crop&w=1050&q=80" alt="First slide">
                   </div>
                   <div class="carousel-item">
-                     <img class="d-block img-fluid" src="https://images.pexels.com/photos/7097/people-coffee-tea-meeting.jpg" alt="Second slide">
-                     <div class="carousel-caption d-none d-md-block">
-                        <div class="banner-text">
-                           <h2>Wild Help</h2>
-                           <p>Ici un seul mot d'ordre : l'entraide !</p>
-                        </div>
-                     </div>
+                     <img class="d-block img-fluid" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=37c91c8e3f63462e0739c676dfe8fee8&auto=format&fit=crop&w=1050&q=80" alt="Second slide">
+                  </div>
+                  <div class="carousel-item">
+                     <img class="d-block img-fluid" src="https://images.unsplash.com/photo-1506452819137-0422416856b8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=35c3a22e647b11004efd8135de82164c&auto=format&fit=crop&w=966&q=80" alt="Third slide">
                   </div>
                </div>
             </div>
          </div>
       </div>
    </div>
-</section>
-<footer>
-   <div class="reseaux col-mg-6 mb-3">
-      <p> Embarquez avec nous : </p>
-      <a href="https://www.facebook.com/" target="_blank"><img class="imgbtn" src="logofooter/fb.png" alt="imgbtn"></a>
-      <a href="https://www.instagram.com/" target="_blank"><img class="imgbtn" src="logofooter/insta.png" alt="imgbtn"></a>
-      <a href="https://twitter.com/" target="_blank"><img class="imgbtn" src="logofooter/twitter.png" alt="imgbtn"></a>
-      <a href="https://www.twitch.tv/khanaeleff" target="_blank"><img class="imgbtn" src="logofooter/twitch.png" alt="imgbtn"></a>
-      <a href="https://slack.com/intl/fr-fr/brand-guidelines" target="_blank"><img class="imgbtn" src="logofooter/slack.png" alt="imgbtn"></a>
-   </div>
-   <div class="row no-gutters">
-      <div class="col-12">
-         <p class="madeBy">
-            Made by The Wild Help Team 2018 session
-         </p>
-      </div>
-   </div>
-</footer>`
+</section>`
 
 const coursproposeHtml = /* @html */ `<div class="nav-side-menu">
    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
       <a class="p-2 text-dark" href="/">
-         <h5 class="my-0 mr-md-auto font-weight-normal">Wild Help</h5>
+         <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
       </a>
-      <nav class="my-2 my-md-0 mr-md-3">
-         <a class="p-2 text-dark" href="/languages">Liste des langages</a>
-      </nav>
-      <nav class="my-2 my-md-0 mr-md-3">
-         <a class="p-2 text-dark" href="/requete">Déposer une requête</a>
-      </nav>
-      <nav class="my-2 my-md-0 mr-md-3">
-         <a class="p-2 text-dark" href="/aide">Demande d'aide</a>
-      </nav>
       <nav class="my-2 my-md-0 mr-md-3">
         <a href="/" class="btn btn-info btn-lg">
           <span class="glyphicon glyphicon-log-out"></span> Deconnexion </a>
@@ -353,44 +281,18 @@ const coursproposeHtml = /* @html */ `<div class="nav-side-menu">
          <button type="button" class="btn btn-warning btn-lg">Save me too !!!</button>
       </div>
    </div>
-</div>
-<footer>
-   <div class="reseaux col-mg-6">
-      <p> Embarquez avec nous : </p>
-      <a href="https://www.facebook.com/" target="_blank"><img class="imgbtn" src="logofooter/fb.png" alt="imgbtn"></a>
-      <a href="https://www.instagram.com/" target="_blank"><img class="imgbtn" src="logofooter/insta.png" alt="imgbtn"></a>
-      <a href="https://twitter.com/" target="_blank"><img class="imgbtn" src="logofooter/twitter.png" alt="imgbtn"></a>
-      <a href="https://www.twitch.tv/khanaeleff" target="_blank"><img class="imgbtn" src="logofooter/twitch.png" alt="imgbtn"></a>
-      <a href="https://slack.com/intl/fr-fr/brand-guidelines" target="_blank"><img class="imgbtn" src="logofooter/slack.png" alt="imgbtn"></a>
-   </div>
-   <div class="row no-gutters">
-      <div class="col-12">
-         <p class="madeBy">
-            Made by The Wild Help Team 2018 session
-         </p>
-      </div>
-   </div>
-</footer>`
+</div>`
 
 const listerequeteHtml = /* @html */ `<div class="nav-side-menu">
-   <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-      <a class="p-2 text-dark" href="/">
-         <h5 class="my-0 mr-md-auto font-weight-normal">Wild Help</h5>
-      </a>
-      <nav class="my-2 my-md-0 mr-md-3">
-         <a class="p-2 text-dark" href="/languages">Liste des langages</a>
-      </nav>
-      <nav class="my-2 my-md-0 mr-md-3">
-         <a class="p-2 text-dark" href="/cours">Voir les cours proposés</a>
-      </nav>
-      <nav class="my-2 my-md-0 mr-md-3">
-         <a class="p-2 text-dark" href="/aide">Demande d'aide</a>
-      </nav>
-      <nav class="my-2 my-md-0 mr-md-3">
-        <a href="/" class="btn btn-info btn-lg">
-          <span class="glyphicon glyphicon-log-out"></span> Deconnexion </a>
-      </nav>
-   </div>
+  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+     <a class="p-2 text-dark" href="/">
+        <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
+     </a>
+     <nav class="my-2 my-md-0 mr-md-3">
+       <a href="/" class="btn btn-info btn-lg">
+         <span class="glyphicon glyphicon-log-out"></span> Deconnexion </a>
+     </nav>
+  </div>
 </div>
 <a href="https://placeholder.com"><img class="banner" src="http://via.placeholder.com/1500x250" alt="banner"></a>
 <div class="container">
@@ -437,24 +339,7 @@ const listerequeteHtml = /* @html */ `<div class="nav-side-menu">
          <button type="button" class="btn btn-warning btn-lg">Help Me !!!</button>
       </div>
    </div>
-</div>
-<footer>
-   <div class="reseaux col-mg-6">
-      <p> Embarquez avec nous : </p>
-      <a href="https://www.facebook.com/" target="_blank"><img class="imgbtn" src="logofooter/fb.png" alt="imgbtn"></a>
-      <a href="https://www.instagram.com/" target="_blank"><img class="imgbtn" src="logofooter/insta.png" alt="imgbtn"></a>
-      <a href="https://twitter.com/" target="_blank"><img class="imgbtn" src="logofooter/twitter.png" alt="imgbtn"></a>
-      <a href="https://www.twitch.tv/khanaeleff" target="_blank"><img class="imgbtn" src="logofooter/twitch.png" alt="imgbtn"></a>
-      <a href="https://slack.com/intl/fr-fr/brand-guidelines" target="_blank"><img class="imgbtn" src="logofooter/slack.png" alt="imgbtn"></a>
-   </div>
-   <div class="row no-gutters">
-      <div class="col-12">
-         <p class="madeBy">
-            Made by The Wild Help Team 2018 session
-         </p>
-      </div>
-   </div>
-</footer>`
+</div>`
 
 
 // PAGE DEMANDE AIDE
@@ -463,17 +348,8 @@ const aideHtml = /* @html */ `
 <div class="nav-side-menu">
    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
       <a class="p-2 text-dark" href="/">
-         <h5 class="my-0 mr-md-auto font-weight-normal">Wild Help</h5>
+         <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
       </a>
-      <nav class="my-2 my-md-0 mr-md-3">
-         <a class="p-2 text-dark" href="/languages">Liste des langages</a>
-      </nav>
-      <nav class="my-2 my-md-0 mr-md-3">
-         <a class="p-2 text-dark" href="/requete">Déposer une requête</a>
-      </nav>
-      <nav class="my-2 my-md-0 mr-md-3">
-         <a class="p-2 text-dark" href="/aide">Demande d'aide</a>
-      </nav>
       <nav class="my-2 my-md-0 mr-md-3">
         <a href="/" class="btn btn-info btn-lg">
           <span class="glyphicon glyphicon-log-out"></span> Deconnexion </a>
@@ -552,29 +428,22 @@ const aideHtml = /* @html */ `
    </div>
    </form>
 </div>
-<footer>
-   <div class="reseaux col-mg-6 mb-5">
-      <p> Embarquez avec nous : </p>
-      <a href="https://www.facebook.com/" target="_blank"><img class="imgbtn" src="logofooter/fb.png" alt="imgbtn"></a>
-      <a href="https://www.instagram.com/" target="_blank"><img class="imgbtn" src="logofooter/insta.png" alt="imgbtn"></a>
-      <a href="https://twitter.com/" target="_blank"><img class="imgbtn" src="logofooter/twitter.png" alt="imgbtn"></a>
+`
+const footerForAllPage = /* @html */ `<footer>
+   <div class="reseaux col-mg-6">
+      <a href="https://www.facebook.com/wildcodeschool/" target="_blank"><img class="imgbtn" src="logofooter/fb.png" alt="imgbtn"></a>
+      <a href="https://www.instagram.com/wildcodeschool/" target="_blank"><img class="imgbtn" src="logofooter/insta.png" alt="imgbtn"></a>
+      <a href="https://twitter.com/wildcodeschool" target="_blank"><img class="imgbtn" src="logofooter/twitter.png" alt="imgbtn"></a>
       <a href="https://www.twitch.tv/khanaeleff" target="_blank"><img class="imgbtn" src="logofooter/twitch.png" alt="imgbtn"></a>
       <a href="https://slack.com/intl/fr-fr/brand-guidelines" target="_blank"><img class="imgbtn" src="logofooter/slack.png" alt="imgbtn"></a>
-   </div>
-   <div class="row no-gutters">
-      <div class="col-12">
-         <p class="madeBy">
-            Made by The Wild Help Team 2018 session
-         </p>
-      </div>
-   </div>
-</footer>
-
-`
+     </div>
+</footer>`
 
 
-
-
+// popup page accueil
+$(function () {
+$('[data-toggle="popover"]').popover({html:true})
+})
 
 
 const aide = () => {
@@ -615,7 +484,7 @@ const aide = () => {
 
 
   const render = htmlContent => {
-    targetElement.innerHTML =  htmlContent
+    targetElement.innerHTML =  htmlContent + footerForAllPage
   }
 
   const showInscriptionWilder = () => {
@@ -649,6 +518,7 @@ const aide = () => {
   const showAide = () => {
     render(aideHtml)
   }
+
 
 page('/', showAccueil)
 page('/connexion', showConnexion)

@@ -1,15 +1,11 @@
-  @import url('https://fonts.googleapis.com/css?family=Lobster');
-/*  PAGE D ACCUEIL */
-body
+
+.formInscription
 {
-  color: #0066cc;
-  font-family: 'Lobster', arial;
-  background: #DE6262;
-    /* fallback for old browsers */
-     background: -webkit-linear-gradient(to bottom, #FFB88C, #DE6262);
-    /* Chrome 10-25, Safari 5.1-6 */
-     background: linear-gradient(to bottom, #FFB88C, #DE6262);
+  background:grey;
+  border-radius: 10px;
 }
+
+/*  PAGE D ACCUEIL */
 
 .background
 {
@@ -20,6 +16,7 @@ body
 {
   width: 99%;
 }
+
 
 .background .connexion
 {
@@ -32,7 +29,7 @@ body
 .connexion h1
 {
   font-style: italic;
-  color:  #001a33;
+  color: black;
   text-align: center;
   font-size: 120px;
 }
@@ -40,26 +37,37 @@ body
 .connexion p
 {
   font-style: italic;
-  color:  #001a33;
-  text-align: center;
-  font-size: 35px;
-}
-.connexion a
-{
-  font-style: italic;
-  color:  #001a33;
+  color: black;
   text-align: center;
   font-size: 35px;
 }
 
+.connexion button
+{
+    display: block;
+    margin : auto;
+    padding: center;
+    background: #DE6262;
+    color:#fff;
+    font-weight:600;
+}
+
+.btn{
+background: #DE6262;
+color:#fff;
+font-weight:600;
+}
+
+.btn:hover{
+background: #DE6262;
+color:#fff;
+font-weight:600;
+}
+
 /* CSS PAGE CONNEXION */
- .login-block{
-     background: #DE6262;
-    /* fallback for old browsers */
-     background: -webkit-linear-gradient(to bottom, #FFB88C, #DE6262);
-    /* Chrome 10-25, Safari 5.1-6 */
-     background: linear-gradient(to bottom, #FFB88C, #DE6262);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+ .login-block
+{
+     background: white;
      float:left;
      width:100%;
      padding : 50px 0;
@@ -69,9 +77,8 @@ body
      padding:0;
 }
  #loginco{
-    background:#fff;
+     background:grey;
      border-radius: 10px;
-     box-shadow:15px 20px 0px rgba(0,0,0,0.1);
 }
  .carousel-inner{
     border-radius:0 10px 10px 0;
@@ -85,43 +92,49 @@ body
      position:relative;
 }
  .login-sec .copy-text{
-    position:absolute;
+     position:absolute;
      width:80%;
      bottom:20px;
      font-size:13px;
      text-align:center;
 }
- .login-sec .copy-text i{
-    color:#FEB58A;
-}
+
  .login-sec .copy-text a{
     color:#E36262;
 }
- .login-sec h2{
-    margin-bottom:30px;
+ .login-sec h2
+{
+     margin-bottom:30px;
      font-weight:800;
      font-size:40px;
-     color: #DE6262;
+     color: white;
 }
- .btn-login{
+
+ .btn-login
+{
     background: #DE6262;
      color:#fff;
      font-weight:600;
 }
- .banner-text{
+
+ .banner-text
+{
     width:70%;
      position:absolute;
      bottom:1px;
      padding-left:20px;
 }
- .banner-text h2{
-    color:#E36262;
+
+ .banner-text h2
+{
+    color:white;
      font-weight:600;
 }
- .banner-text p{
-    color:#E36262;
-}
 
+ .banner-text p
+{
+    color:white;
+}
 /* page langages */
 .titleLanguages h1
 {
@@ -139,20 +152,21 @@ body
 
 /* CSS Footer */
  footer {
-     text-align: center;
-     font-family: 'Lobster', arial;
-     color: white;
-     font-size: 1em;
-     background-color: black;
-     padding-top: 70px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 10%;
+    color: white;
+    text-align: center;
+    background-color: black;
 }
- .reseaux {
-     width: 100%;
-}
+
+
  footer .imgbtn {
-     width:40px;
+     width:20px;
      filter: grayscale(80%);
-     margin: 2% 4%;
+     margin: 2%;
 }
  footer .imgbtn:hover {
      filter: grayscale(0);
