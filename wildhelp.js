@@ -406,7 +406,7 @@ const footerForAllPage = /* @html */ `<footer>
       <a href="https://www.instagram.com/wildcodeschool/" target="_blank"><img class="imgbtn" src="logofooter/insta.png" alt="imgbtn"></a>
       <a href="https://twitter.com/wildcodeschool" target="_blank"><img class="imgbtn" src="logofooter/twitter.png" alt="imgbtn"></a>
       <a href="https://www.twitch.tv/khanaeleff" target="_blank"><img class="imgbtn" src="logofooter/twitch.png" alt="imgbtn"></a>
-      <a href="https://slack.com/intl/fr-fr/brand-guidelines" target="_blank"><img class="imgbtn" src="logofooter/slack.png" alt="imgbtn"></a>
+      <a href="https://wild4ever.slack.com/" target="_blank"><img class="imgbtn" src="logofooter/slack.png" alt="imgbtn"></a>
      </div>
 </footer>`
 
