@@ -31,7 +31,7 @@ const accueilhtml =
 </div>
 <!-- barre de recherche -->
 <div class="row background">
-   <img class="imgAccueil" alt="imgAccueil" src="/image/animeg.gif" />
+  <video loop="0" src="/image/22.mp4" autoplay="true"></video>
    <div class="connexion">
       <h1>Wild Help</h1>
       <p>Profite de la communauté des développeurs Alumni de la Wild pour t'aider à résoudre les casse-têtes les plus fous durant ta formation !</p>
