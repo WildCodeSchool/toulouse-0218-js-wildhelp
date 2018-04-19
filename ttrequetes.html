@@ -3,19 +3,38 @@
   <head>
     <meta charset="utf-8">
     <title>My test page</title>
+    <style type="text/css">
+      .invisible {
+        display: none;
+      }
+    </style>
   </head>
     <body>
       <p>Comment me contacter ?</p>
       <form id="choix-contact">
-        <input type="radio" name="contact" value="email" />par e-mail<br>
+        <input type="radio" name="contact" value="email" checked />par e-mail<br>
         <input type="radio" name="contact" value="slack" />sur Slack
-        <input type="text" name="pseudoSlack" value="" /><br>
+        <input type="text" name="pseudoSlack" value="" style="display:none" /><br>
         <button type="submit" class="btn btn-primary">A l'aide !</button>
       </form>
       <script>
         const formulaire = document.getElementById('choix-contact')
         const inputs = formulaire.getElementsByTagName('input')
-        console.log(inputs[1])
+        const inputPseudoSlack = inputs[2] 
+        for (let i = 0; i <= 1; i++ ) {
+          const bouton = inputs[i]
+          bouton.addEventListener("click", function () {
+          console.dir(bouton)   
+           if (bouton.value == "slack") {
+            inputPseudoSlack.style.display="inline"
+           }
+           else {
+            inputPseudoSlack.style.display="none"
+           }
+          })
+        }
+
+      
       </script>
     </body>
 </html>
