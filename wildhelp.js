@@ -1,6 +1,21 @@
 'use strict'
 const targetElement = document.getElementById('main')
 
+const requetes = [
+  {
+    id : 1,
+    description : "Bonjour, j'ai besoin d'aide sur les fonctions.",
+    topic : "JavaScript",
+    date : "2018-04-20",
+  },
+
+  {
+    id : 2,
+    description : "Bonjour, j'ai besoin d'aide sur la créations de bases de données.",
+    topic : "MySQL",
+    date : "2018-04-24",
+  }
+]
 
 const accueilhtml =
 /* @html */`
@@ -130,23 +145,6 @@ const inscriptionHtml = (title, type) =>
          </form>
        </div>
       </div>
-      <footer>
-         <div class="reseaux col-mg-6">
-            <p> Embarquez avec nous : </p>
-            <a href="https://www.facebook.com/" target="_blank"><img class="imgbtn" src="logofooter/fb.png" alt="imgbtn"></a>
-            <a href="https://www.instagram.com/" target="_blank"><img class="imgbtn" src="logofooter/insta.png" alt="imgbtn"></a>
-            <a href="https://twitter.com/" target="_blank"><img class="imgbtn" src="logofooter/twitter.png" alt="imgbtn"></a>
-            <a href="https://www.twitch.tv/khanaeleff" target="_blank"><img class="imgbtn" src="logofooter/twitch.png" alt="imgbtn"></a>
-            <a href="https://slack.com/intl/fr-fr/brand-guidelines" target="_blank"><img class="imgbtn" src="logofooter/slack.png" alt="imgbtn"></a>
-         </div>
-         <div class="row no-gutters">
-            <div class="col-12">
-               <p class="madeBy">
-                  Made by The Wild Help Team 2018 session
-               </p>
-            </div>
-         </div>
-      </footer>
 `
 
 const languageHtml = /* @html */`<div class="nav-side-menu">
@@ -154,18 +152,13 @@ const languageHtml = /* @html */`<div class="nav-side-menu">
      <a class="p-2 text-dark" href="/">
         <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
      </a>
-     <nav class="my-2 my-md-0 mr-md-3">
-       <a href="/" class="btn btn-info btn-lg">
-         <span class="glyphicon glyphicon-log-out"></span> Deconnexion </a>
-     </nav>
-  </div>
-
+       <a class="btn btn-log-out" href="/"><span class="glyphicon glyphicon-log-out">Deconnexion </span> </a>
+       </div>
 </div>
   <div class="titleLanguages">
     <h1>Langages proposés</h1>
   </div>
 <div class="container">
-
 <div class="row" id="languages">
    <div class="col-md-3 col-xs-6 logo">
       <a href="/requete"><img src="https://developer.akamai.com/blog/wp-content/uploads/2017/03/android-logo.png" alt="Android Logo" id="logoLanguages"/></a>
@@ -250,12 +243,11 @@ const coursproposeHtml = /* @html */ `<div class="nav-side-menu">
          <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
       </a>
       <nav class="my-2 my-md-0 mr-md-3">
-        <a href="/" class="btn btn-info btn-lg">
+        <a href="/" class="btn">
           <span class="glyphicon glyphicon-log-out"></span> Deconnexion </a>
       </nav>
    </div>
 </div>
-<a href="https://placeholder.com"><img class="banner" src="http://via.placeholder.com/1500x250" alt="banner"></a>
 <div class="container">
    <div class="row">
       <div class="col-xs-8">
@@ -283,18 +275,21 @@ const coursproposeHtml = /* @html */ `<div class="nav-side-menu">
    </div>
 </div>`
 
-const listerequeteHtml = /* @html */ `<div class="nav-side-menu">
+function getRequestItem(requete) {
+  return `<li class="list-group-item list-group-item-warning justify-content-between">${requete.description}</li>`
+}
+
+const listerequeteHtml = (requetes) => /* @html */ `<div class="nav-side-menu">
   <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
      <a class="p-2 text-dark" href="/">
         <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
      </a>
      <nav class="my-2 my-md-0 mr-md-3">
-       <a href="/" class="btn btn-info btn-lg">
+       <a href="/" class="btn">
          <span class="glyphicon glyphicon-log-out"></span> Deconnexion </a>
      </nav>
   </div>
 </div>
-<a href="https://placeholder.com"><img class="banner" src="http://via.placeholder.com/1500x250" alt="banner"></a>
 <div class="container">
    <h1>Wild Help</h1>
 </div>
@@ -303,40 +298,16 @@ const listerequeteHtml = /* @html */ `<div class="nav-side-menu">
       <div class="col-xs-12">
          <h3>Liste des requêtes</h3>
          <ul class="list-group">
-            <li class="list-group-item list-group-item-warning justify-content-between">
-               Requête : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas neque justo, pellentesque quis sagittis sed, placerat nec justo."
-               <span class="badge badge-default badge-pill"></span>
-            </li>
-            <li class="list-group-item list-group-item-warning justify-content-between">
-               Requête : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas neque justo, pellentesque quis sagittis sed, placerat nec justo."
-               <span class="badge badge-default badge-pill"></span>
-            </li>
-            <li class="list-group-item list-group-item-info justify-content-between">
-               Cours : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas neque justo, pellentesque quis sagittis sed, placerat nec justo."
-               <span class="badge badge-default list-group-item-success badge-pill">2</span>
-            </li>
-            <li class="list-group-item list-group-item-warning justify-content-between">
-               Requête : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas neque justo, pellentesque quis sagittis sed, placerat nec justo."
-               <span class="badge badge-default badge-pill"></span>
-            </li>
-            <li class="list-group-item list-group-item-warning justify-content-between">
-               Requête : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas neque justo, pellentesque quis sagittis sed, placerat nec justo."
-               <span class="badge badge-default badge-pill"></span>
-            </li>
-            <li class="list-group-item list-group-item-info justify-content-between">
-               Cours : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas neque justo, pellentesque quis sagittis sed, placerat nec justo."
-               <span class="badge badge-default list-group-item-success badge-pill">1</span>
-            </li>
-            <li class="list-group-item list-group-item-info justify-content-between">
-               Cours : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas neque justo, pellentesque quis sagittis sed, placerat nec justo."
-               <span class="badge badge-default list-group-item-success badge-pill">5</span>
-            </li>
+           ${
+             requetes.map(getRequestItem).join("")
+           }
+
          </ul>
       </div>
    </div>
    <div class="row">
       <div class="col-xs-12">
-         <button type="button" class="btn btn-warning btn-lg">Help Me !!!</button>
+          <a href="/aide" class="btn btn-warning btn-lg">Help Me !!!</button></a>
       </div>
    </div>
 </div>`
@@ -441,9 +412,10 @@ const footerForAllPage = /* @html */ `<footer>
 
 
 // popup page accueil
-$(function () {
-$('[data-toggle="popover"]').popover({html:true})
-})
+
+ $(function () {
+    $('[data-toggle="popover"]').popover({html:true})
+  })
 
 
 const aide = () => {
@@ -512,7 +484,7 @@ const aide = () => {
   }
 
   const showListeRequete = () => {
-    render(listerequeteHtml)
+    render(listerequeteHtml(requetes))
   }
 
   const showAide = () => {
