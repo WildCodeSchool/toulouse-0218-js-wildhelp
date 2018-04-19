@@ -12,8 +12,14 @@
     <body>
       <p>Comment me contacter ?</p>
       <form id="choix-contact">
+
+<!-- La création de cases Radio au lieu de cases Checkbox, qui oblige l'utilisateur à avoir qu'un seul choix de contact. -->
+
         <input type="radio" name="contact" value="email" checked />par e-mail<br>
         <input type="radio" name="contact" value="slack" />sur Slack
+
+<!-- Intégration du champ de texte Pseudo Slack, qui apparait lors du click sur la case "sur Slack". -->
+
         <input type="text" name="pseudoSlack" value="" style="display:none" /><br>
         <button type="submit" class="btn btn-primary">A l'aide !</button>
       </form>
@@ -24,17 +30,21 @@
         for (let i = 0; i <= 1; i++ ) {
           const bouton = inputs[i]
           bouton.addEventListener("click", function () {
-          console.dir(bouton)   
+          console.dir(bouton)  
+
+// Le champ de texte Pseudo Slack, apparait lors du click sur la case "sur Slack". 
+
            if (bouton.value == "slack") {
             inputPseudoSlack.style.display="inline"
            }
+
+// Le champ de texte Pseudo Slack, disparait lors du click sur la case "par e-mail".
+
            else {
             inputPseudoSlack.style.display="none"
            }
           })
-        }
-
-      
+        } 
       </script>
     </body>
 </html>
