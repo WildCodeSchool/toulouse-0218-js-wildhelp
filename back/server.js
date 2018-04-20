@@ -50,37 +50,27 @@ app.post('/aide', (req, res) => {
   const topic = req.body.topic
   const description = req.body.description
 
-    if(description.length < 30) {
-      return res.status(400).json({
-        error: 'Description trop court (30 caractères minimum)'
-      })
-    }
-//
-// const newRequest = {
-//   id: id,
-//   langage: language,
-//   topic: topic,
-//   description: description
-// }
-//
-// requestCourse.push(newRequest)
-// id += 1
-// res.json(newRequest)
+  if(description.length < 30) {
+    return res.status(400).json({
+      error: 'Description trop court (30 caractères minimum)'
+    })
+  }
 
-// const topic = req.body.topic
-// const description = req.body.description
-const query = `SELECT topic, description FROM wildRequest WHERE topic = '${topic}' AND description = '${description}'`
 
-connection.query(query, (error, results) => {
-  // if (error) throw error
-  if(error) {
-    return res.status(500).json({
-      error: error.message
-      })
+    const request = `INSERT INTO wildRequest (id, userId, technoId, topic, description ) VALUES('${id}', '${userId}', '${technoId}', '${topic}', '${description}' )`
+
+
+  connection.request(request, (error, results) => {
+    // if (error) throw error
+    if(error) {
+      return res.status(500).json({
+        error: error.message
+        })
     }
-  const topic = result[0]
-  res.json( {results: results[0]})
-})
+    console.log(results)
+    const topic = results[0]
+    res.json( {results: results[0]})
+  })
 })
 // fin demande aide
 

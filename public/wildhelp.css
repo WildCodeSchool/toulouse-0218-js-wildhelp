@@ -150,6 +150,20 @@ font-weight:600;
   width: 50%;
 }
 
+/* PAGE HELP */
+#alert-wrapper-help
+{
+  position: fixed;
+  top: 70px;
+  right: 20px;
+  width: 350px;
+  transition: top 1s;
+}
+
+#alert-wrapper-help.visible
+{
+  top: 270px;
+}
 
 /* CSS Footer */
  footer {
