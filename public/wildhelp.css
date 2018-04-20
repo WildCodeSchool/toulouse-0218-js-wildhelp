@@ -9,7 +9,7 @@
 
 .background
 {
-  justify-content: center;
+ width: 102%;
 }
 
 
@@ -20,10 +20,16 @@
   color: white;
   font-size: 4vw;
 }
-.imgacc
+/* .imgacc
 {
   width:1520px;
   height: 650px;
+} */
+.background .videoAC
+{
+  margin: 0 auto;
+
+
 }
 .connexion h1
 {

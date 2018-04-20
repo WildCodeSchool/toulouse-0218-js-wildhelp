@@ -29,15 +29,18 @@ const accueilhtml =
    <a class="btn" href="/connexion">Connexion</a>
 </div>
 <!-- barre de recherche -->
+
 <div class="row background">
-  <!-- <img class="imgacc" src="/image/photo1.jpg" alt="imgacc" /> -->
-  <video loop="0" src="/image/22.mp4" autoplay="true"></video>
+  <!-- <img class="imgacc" src="/image/photo1.jpg" alt="imgacc" />  -->
+
+  <video class="videoAC" loop="0" src="/image/22.mp4" autoplay="true" width="140%"></video>
    <div class="connexion">
       <h1>Wild Help</h1>
       <p>Profite de la communauté des développeurs Alumni de la Wild pour t'aider à résoudre les casse-têtes les plus fous durant ta formation !</p>
       <a href="/wilder"><button type="button" class="btn">Inscription</button></a>
    </div>
-</div>
+ </div>
+
 </div>`
 
 $("[data-toggle=popover]").each(function(i, obj) {
@@ -390,12 +393,12 @@ const aideHtml = /* @html */ `
 const footerForAllPage = /* @html */ `<footer>
 
    <div class="reseaux col-mg-6">
-      <a href="https://www.facebook.com/wildcodeschool/" target="_blank"><img class="imgbtn" src="logofooter/fb.png" alt="imgbtn"></a>
-      <a href="https://www.instagram.com/wildcodeschool/" target="_blank"><img class="imgbtn" src="logofooter/insta.png" alt="imgbtn"></a>
-      <a href="https://twitter.com/wildcodeschool" target="_blank"><img class="imgbtn" src="logofooter/twitter.png" alt="imgbtn"></a>
-      <a href="https://www.twitch.tv/khanaeleff" target="_blank"><img class="imgbtn" src="logofooter/twitch.png" alt="imgbtn"></a>
-      <a href="https://wild4ever.slack.com/" target="_blank"><img class="imgbtn" src="logofooter/slack.png" alt="imgbtn"></a>
-     </div>
+    <a href="https://www.facebook.com/wildcodeschool/" target="_blank"><img class="imgbtn" src="logofooter/fb.png" alt="imgbtn"></a>
+    <a href="https://www.instagram.com/wildcodeschool/" target="_blank"><img class="imgbtn" src="logofooter/insta.png" alt="imgbtn"></a>
+    <a href="https://twitter.com/wildcodeschool" target="_blank"><img class="imgbtn" src="logofooter/twitter.png" alt="imgbtn"></a>
+    <a href="https://www.twitch.tv/khanaeleff" target="_blank"><img class="imgbtn" src="logofooter/twitch.png" alt="imgbtn"></a>
+    <a href="https://wild4ever.slack.com/" target="_blank"><img class="imgbtn" src="logofooter/slack.png" alt="imgbtn"></a>
+   </div>
 
 </footer>`
 
