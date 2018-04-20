@@ -20,7 +20,11 @@
   color: white;
   font-size: 4vw;
 }
-
+.imgacc
+{
+  width:1520px;
+  height: 650px;
+}
 .connexion h1
 {
   font-style: italic;
@@ -157,7 +161,6 @@ font-weight:600;
     text-align: center;
     background-color: black;
 }
-
 
  footer .imgbtn {
      width:20px;
