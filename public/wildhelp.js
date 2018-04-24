@@ -22,23 +22,38 @@ const accueilhtml =
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4  bg-white border-bottom box-shadow" id="navBarAcc">
    <h4 class="my-0 mr-md-auto"></h4>
    <nav class="my-2 my-md-0 mr-md-3">
-     <button type="button"  data-container="body" data-toggle="popover" data-placement="bottom" data-content=" <a href='/helper'>Inscris</a> toi afin d'aider les nouveaux élèves !">
-  Alumni
-</button>
+    <button type="button" data-container="body" data-toggle="popover" tabindex="0" data-trigger="focus" data-placement="bottom" data-content=" <a href='/helper'>Inscris</a> toi afin d'aider les nouveaux élèves !">Alumni</button>
+
 
    </nav>
    <a class="btn" href="/connexion">Connexion</a>
 </div>
 <!-- barre de recherche -->
+
 <div class="row background">
-   <img class="imgAccueil" alt="imgAccueil" src="/image/animeg.gif" />
+  <!-- <img class="imgacc" src="/image/photo1.jpg" alt="imgacc" />  -->
+
+  <video class="videoAC" loop="0" src="/image/22.mp4" autoplay="true" width="140%"></video>
    <div class="connexion">
       <h1>Wild Help</h1>
       <p>Profite de la communauté des développeurs Alumni de la Wild pour t'aider à résoudre les casse-têtes les plus fous durant ta formation !</p>
       <a href="/wilder"><button type="button" class="btn">Inscription</button></a>
    </div>
-</div>
+ </div>
+
 </div>`
+
+$("[data-toggle=popover]").each(function(i, obj) {
+
+$(this).popover({
+  html: true,
+  content: function() {
+    var id = $(this).attr('id')
+    return $('#popover-content-' + id).html();
+  }
+});
+
+});
 
 const inscriptionHtml = (title, type) =>
 /* @html */ `
@@ -376,26 +391,30 @@ const aideHtml = /* @html */ `
 </div>
 `
 const footerForAllPage = /* @html */ `<footer>
+
    <div class="reseaux col-mg-6">
-      <a href="https://www.facebook.com/wildcodeschool/" target="_blank"><img class="imgbtn" src="logofooter/fb.png" alt="imgbtn"></a>
-      <a href="https://www.instagram.com/wildcodeschool/" target="_blank"><img class="imgbtn" src="logofooter/insta.png" alt="imgbtn"></a>
-      <a href="https://twitter.com/wildcodeschool" target="_blank"><img class="imgbtn" src="logofooter/twitter.png" alt="imgbtn"></a>
-      <a href="https://www.twitch.tv/khanaeleff" target="_blank"><img class="imgbtn" src="logofooter/twitch.png" alt="imgbtn"></a>
-      <a href="https://wild4ever.slack.com/" target="_blank"><img class="imgbtn" src="logofooter/slack.png" alt="imgbtn"></a>
-     </div>
+    <a href="https://www.facebook.com/wildcodeschool/" target="_blank"><img class="imgbtn" src="logofooter/fb.png" alt="imgbtn"></a>
+    <a href="https://www.instagram.com/wildcodeschool/" target="_blank"><img class="imgbtn" src="logofooter/insta.png" alt="imgbtn"></a>
+    <a href="https://twitter.com/wildcodeschool" target="_blank"><img class="imgbtn" src="logofooter/twitter.png" alt="imgbtn"></a>
+    <a href="https://www.twitch.tv/khanaeleff" target="_blank"><img class="imgbtn" src="logofooter/twitch.png" alt="imgbtn"></a>
+    <a href="https://wild4ever.slack.com/" target="_blank"><img class="imgbtn" src="logofooter/slack.png" alt="imgbtn"></a>
+   </div>
+
 </footer>`
 
 
 // popup page accueil
 
- $(function () {
-    $('[data-toggle="popover"]').popover({html:true})
-  })
-
-// popup page accueil
+// $(function () {
+//   $('[data-toggle="popover"]').popover({
+//     html:true,
+//
+//   })
+// })
 $(function () {
 $('[data-toggle="popover"]').popover({html:true})
 })
+
 
 // DEBUT PAGE HELP
 const showAide = () => {
@@ -466,9 +485,6 @@ const showAide = () => {
     render(listerequeteHtml(requetes))
   }
 
-  // const showAide = () => {
-  //   render(aideHtml)
-  // }
 
 
 
