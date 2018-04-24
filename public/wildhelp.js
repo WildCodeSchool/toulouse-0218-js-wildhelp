@@ -19,197 +19,133 @@ const requetes = [
 
 
 const accueilhtml =
-/* @html */`
-<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4  bg-white border-bottom box-shadow" id="navBarAcc">
+/* @html */`<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4  bg-white border-bottom box-shadow" id="navBarAcc">
    <h4 class="my-0 mr-md-auto"></h4>
    <nav class="my-2 my-md-0 mr-md-3">
-    <button type="button" data-container="body" data-toggle="popover" tabindex="0" data-trigger="focus" data-placement="bottom" data-content=" <a href='/helper'>Inscris</a> toi afin d'aider les nouveaux élèves !">Alumni</button>
-
-
+      <a href='/helper' data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Inscris toi pour aider les nouveaux élèves !">Alumni</a>
    </nav>
    <a class="btn" href="/connexion">Connexion</a>
 </div>
 <!-- barre de recherche -->
-
-<div class="row background">
-  <!-- <img class="imgacc" src="/image/photo1.jpg" alt="imgacc" />  -->
-
-  <video class="videoAC" loop="0" src="/image/22.mp4" autoplay="true" width="140%"></video>
-   <div class="connexion">
+<!-- <div class="row background">
+   <video class="container-fluid" loop="0" autoplay="true">
+      <source src="/image/Projet04.mp4" type="video/mp4"/>
+   </video> -->
+    <div class="row background">
+  <img class ="container-fluid" src="/image/gif1.gif" type="image/gif" height="150%" loop="0" />
+   <div class="accInscription">
       <h1>Wild Help</h1>
       <p>Profite de la communauté des développeurs Alumni de la Wild pour t'aider à résoudre les casse-têtes les plus fous durant ta formation !</p>
       <a href="/wilder"><button type="button" class="btn">Inscription</button></a>
    </div>
- </div>
-
 </div>`
 
-$("[data-toggle=popover]").each(function(i, obj) {
 
-$(this).popover({
-  html: true,
-  content: function() {
-    var id = $(this).attr('id')
-    return $('#popover-content-' + id).html();
-  }
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover();
 });
-
-});
+$(document).hover(function(){
+       $("[data-toggle='popover']").popover('hide');
+   });
 
 const inscriptionHtml = (title, type) =>
-/* @html */ `
-  <div class="button"><a href="/connexion" class="btn btn-default btn-lg active" role="button" title="Connexion">Déjà inscrit ?</a></div>
-      <div class="container">
-         <form id="myForm" class="form-horizontal" method="POST" action="/register">
-            <input type="hidden" name="account-type" value="${type}" />
-            <div class="row">
-               <div class="col-md-3"></div>
-               <div class="col-md-6">
-                  <h1>${title}</h1>
-                  <hr>
-               </div>
-            </div>
-            <div class="formInscription mt-5 pt-5 pl-5">
-            <div class="row">
-               <div class="col-md-3 field-label-responsive">
-                  <label for="name">Nom Prénom</label>
-               </div>
-               <div class="col-md-6">
-                  <div class="form-group">
-                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+/* @html */ `<div class="container">
+   <form id="myForm" class="form-horizontal" method="POST" action="/register">
+      <input type="hidden" name="account-type" value="${type}" />
+      <div class="row">
+         <div class="col-md-3"></div>
+         <div class="col-md-6">
+            <h1>${title}</h1>
+            <hr>
+         </div>
+      </div>
+      <div class="col-md-12">
+         <div class="card">
+            <div class="card-body">
+               <div class="row">
+                  <div class="col-md-4">
+                     <label for="name">Prénom</label>
+                     <div class="form-group">
                         <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
-                        <input type="text" name="name" class="form-control" id="name" placeholder="Wilder Doe" required>
+                        <input type="text" name="name" class="form-control" id="name" placeholder="John" required>
                      </div>
-                  </div>
-               </div>
-               <div class="col-md-3">
-                  <div class="form-control-feedback">
-                     <span class="text-danger align-middle">
-                        <!-- Put name validation error messages here -->
-                     </span>
-                  </div>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-md-3 field-label-responsive">
-                  <label for="email">E-mail</label>
-               </div>
-               <div class="col-md-6">
-                  <div class="form-group">
-                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                     <label for="name">Nom</label>
+                     <div class="form-group">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
+                        <input type="text" name="name" class="form-control" id="name" placeholder="Doe" required>
+                     </div>
+                     <label for="email">E-mail</label>
+                     <div class="form-group">
                         <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
                         <input type="text" name="email" class="form-control" id="email" placeholder="wilder@example.com" required>
                      </div>
+                     <a href="/languages"><button type="button" class="btn btn-primary">
+                     S'inscrire
+                     </button></a>
+                     <a href="/connexion"><button type="button" class="btn btn-primary ml-5">
+                     Déjà inscrit ?
+                     </button></a>
                   </div>
-               </div>
-               <div class="col-md-3">
-                  <div class="form-control-feedback">
-                     <span class="text-danger align-middle">
-                        <!-- Put e-mail validation error messages here -->
-                     </span>
-                  </div>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-md-3 field-label-responsive">
-                  <label for="password">Mot de passe</label>
-               </div>
-               <div class="col-md-6">
-                  <div class="form-group has-danger">
-                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
-                        <input type="password" name="password" class="form-control" id="password" placeholder="Mot-de-passe" required>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-3">
-                  <div class="form-control-feedback">
-                     <span class="text-danger align-middle">
-                        <!-- <i class="fa fa-close">Champ obligatoire !</i> -->
-                     </span>
-                  </div>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-md-3 field-label-responsive">
-                  <label for="password">J'ai appris à la W.C.S</label>
-               </div>
-               <div class="col-md-6">
-                  <div class="form-group">
-                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                        <div class="input-group-addon" style="width: 2.6rem">
-                           <i class="fa fa-repeat"></i>
-                        </div>
-                        <select id="subject" name="subject" class="form-control" required="required">
-                           <option value="" selected="">Selectionnez</option>
-                           <option>JavaScript</option>
-                           <option>JAVA</option>
-                           <option>PHP</option>
-                        </select>
+                  <div class="container-fluid col-md-8">
+                     <div class="ImgInscription">
+                        <img class="d-block" src="/image/formInsc.jpg" alt="ImgInscription">
                      </div>
                   </div>
                </div>
             </div>
-            <div class="row mt-5 pt-5 mb-5 pb-4">
-               <div class="col-md-3"></div>
-               <div class="col-md-6">
-                  <a href="/languages"><button type="button" class="btn btn-primary">
-                  S'inscrire
-                  </button></a>
-               </div>
-            </div>
-         </form>
-       </div>
+         </div>
       </div>
-`
+   </form>
+</div>`
 
 const languageHtml = /* @html */`<div class="nav-side-menu">
-  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-     <a class="p-2 text-dark" href="/">
-        <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
-     </a>
-       <a class="btn btn-log-out" href="/"><span class="glyphicon glyphicon-log-out">Deconnexion </span> </a>
-       </div>
+   <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+      <a class="p-2 text-dark" href="/">
+         <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
+      </a>
+      <a class="btn btn-log-out" href="/"><span class="glyphicon glyphicon-log-out">Deconnexion </span> </a>
+   </div>
 </div>
-  <div class="titleLanguages">
-    <h1>Langages proposés</h1>
-  </div>
+<div class="titleLanguages">
+   <h1>Langages proposés</h1>
+</div>
 <div class="container">
-<div class="row" id="languages">
-   <div class="col-md-3 col-xs-6 logo">
-      <a href="/requete"><img src="https://developer.akamai.com/blog/wp-content/uploads/2017/03/android-logo.png" alt="Android Logo" id="logoLanguages"/></a>
+   <div class="row" id="languages">
+      <div class="col-md-3 col-xs-6 logo">
+         <a href="/requete"><img src="https://developer.akamai.com/blog/wp-content/uploads/2017/03/android-logo.png" alt="Android Logo" id="logoLanguages"/></a>
+      </div>
+      <div class="col-md-3 col-xs-6 logo">
+         <a href="/requete"><img src="http://blog.zenika.com/wp-content/uploads/2016/04/java-logo.png" alt="Java Logo" id="logoLanguages"/></a>
+      </div>
+      <div class="col-md-3 col-xs-6 logo">
+         <a href="/requete"><img src="http://edmundtian.com/images/nodejs.ico" alt="JavaScript Logo" id="logoLanguages"/></a>
+      </div>
+      <div class="col-md-3 col-xs-6 logo">
+         <a href="/requete"><img src="http://nikhilnanjappa.github.io/img/react-logo.png" alt="React Logo" id="logoLanguages"/></a>
+      </div>
+      <div class="col-md-3 col-xs-6 logo">
+         <a href="/requete">
+         <img src="https://camo.githubusercontent.com/0f946287c3cbcdd7d71f99ef18dcc506ba2e2186/687474703a2f2f7777772e69636f6e61747469747564652e636f6d2f69636f6e732f6f70656e5f69636f6e5f6c6962726172792f617070732f706e672f3235362f707974686f6e322e352e706e67" alt="Python Logo" id="logoLanguages" /></a>
+      </div>
+      <div class="col-md-3 col-xs-6 logo">
+         <a href="/requete"><img src="http://muchocodigo.com/wp-content/uploads/2013/11/php.jpg" alt="Php Logo" id="logoLanguages" /></a>
+      </div>
+      <div class="col-md-3 col-xs-6 logo">
+         <a href="/requete">
+         <img src="http://rodrigovenancio.info/wp-content/uploads/2017/04/1491199643_angular.png" alt="Angular Logo" id="logoLanguages" /></a>
+      </div>
+      <div class="col-md-3 col-xs-6 logo">
+         <a href="/requete"><img src="http://onusinfotech.com/wp-content/uploads/2_0.png" alt="Symfony Logo" id="logoLanguages" /></a>
+      </div>
+      <div class="col-md-3 col-xs-6 logo">
+         <a href="/requete">
+         <img src="https://silentbedlam.gallerycdn.vsassets.io/extensions/silentbedlam/vuejs-jquery-bootstrapprojecttemplate/1.0/1491418503089/257278/1/thumbnail.png" alt="VueJs Logo" id="logoLanguages" /></a>
+      </div>
+      <div class="col-md-3 col-xs-6 logo">
+         <a href="/requete"><img src="http://www.flook.co/img/skills/nodejs.ico" alt="NodeJs Logo" id="logoLanguages" /></a>
+      </div>
    </div>
-   <div class="col-md-3 col-xs-6 logo">
-      <a href="/requete"><img src="http://blog.zenika.com/wp-content/uploads/2016/04/java-logo.png" alt="Java Logo" id="logoLanguages"/></a>
-   </div>
-   <div class="col-md-3 col-xs-6 logo">
-      <a href="/requete"><img src="http://edmundtian.com/images/nodejs.ico" alt="JavaScript Logo" id="logoLanguages"/></a>
-   </div>
-   <div class="col-md-3 col-xs-6 logo">
-      <a href="/requete"><img src="http://nikhilnanjappa.github.io/img/react-logo.png" alt="React Logo" id="logoLanguages"/></a>
-   </div>
-   <div class="col-md-3 col-xs-6 logo">
-      <a href="/requete">
-         <img src="https://camo.githubusercontent.com/0f946287c3cbcdd7d71f99ef18dcc506ba2e2186/687474703a2f2f7777772e69636f6e61747469747564652e636f6d2f69636f6e732f6f70656e5f69636f6e5f6c6962726172792f617070732f706e672f3235362f707974686f6e322e352e706e67" alt="Python Logo" id="logoLanguages" />
-   </div>
-   <div class="col-md-3 col-xs-6 logo">
-   <a href="/requete"><img src="http://muchocodigo.com/wp-content/uploads/2013/11/php.jpg" alt="Php Logo" id="logoLanguages" /></a>
-   </div>
-   <div class="col-md-3 col-xs-6 logo">
-      <a href="/requete">
-         <img src="http://rodrigovenancio.info/wp-content/uploads/2017/04/1491199643_angular.png" alt="Angular Logo" id="logoLanguages" />
-   </div>
-   <div class="col-md-3 col-xs-6 logo">
-   <a href="/requete"><img src="http://onusinfotech.com/wp-content/uploads/2_0.png" alt="Symfony Logo" id="logoLanguages" /></a>
-   </div>
-   <div class="col-md-3 col-xs-6 logo">
-      <a href="/requete">
-         <img src="https://silentbedlam.gallerycdn.vsassets.io/extensions/silentbedlam/vuejs-jquery-bootstrapprojecttemplate/1.0/1491418503089/257278/1/thumbnail.png" alt="VueJs Logo" id="logoLanguages" />
-   </div>
-   <div class="col-md-3 col-xs-6 logo">
-   <a href="/requete"><img src="http://www.flook.co/img/skills/nodejs.ico" alt="NodeJs Logo" id="logoLanguages" /></a>
-   </div>
-</div></div>`
+</div>`
 
 const connexionHtml = /* @html */ `<section class="login-block">
    <div class="container" id="loginco">
@@ -259,8 +195,8 @@ const coursproposeHtml = /* @html */ `<div class="nav-side-menu">
          <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
       </a>
       <nav class="my-2 my-md-0 mr-md-3">
-        <a href="/" class="btn">
-          <span class="glyphicon glyphicon-log-out"></span> Deconnexion </a>
+         <a href="/" class="btn">
+         <span class="glyphicon glyphicon-log-out"></span> Deconnexion </a>
       </nav>
    </div>
 </div>
@@ -296,15 +232,15 @@ function getRequestItem(requete) {
 }
 
 const listerequeteHtml = (requetes) => /* @html */ `<div class="nav-side-menu">
-  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-     <a class="p-2 text-dark" href="/">
-        <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
-     </a>
-     <nav class="my-2 my-md-0 mr-md-3">
-       <a href="/" class="btn">
+   <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+      <a class="p-2 text-dark" href="/">
+         <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
+      </a>
+      <nav class="my-2 my-md-0 mr-md-3">
+         <a href="/" class="btn">
          <span class="glyphicon glyphicon-log-out"></span> Deconnexion </a>
-     </nav>
-  </div>
+      </nav>
+   </div>
 </div>
 <div class="container">
    <h1>Wild Help</h1>
@@ -361,16 +297,15 @@ const listerequeteHtml = (requetes) => /* @html */ `<div class="nav-side-menu">
       <div class="col-xs-12">
          <h3>Liste des requêtes</h3>
          <ul class="list-group">
-           ${
-             requetes.map(getRequestItem).join("")
-           }
-
+            ${
+            requetes.map(getRequestItem).join("")
+            }
          </ul>
       </div>
    </div>
    <div class="row">
       <div class="col-xs-12">
-          <a href="/aide" class="btn btn-warning btn-lg">Help Me !!!</button></a>
+         <a href="/aide"><button class="btn btn-warning btn-lg">Help Me !!!</button></a>
       </div>
    </div>
 </div>`
@@ -378,8 +313,7 @@ const listerequeteHtml = (requetes) => /* @html */ `<div class="nav-side-menu">
 
 // PAGE DEMANDE AIDE
 
-const aideHtml = /* @html */ `
-<div class="nav-side-menu">
+const aideHtml = /* @html */ `<div class="nav-side-menu">
    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
       <a class="p-2 text-dark" href="/">
          <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
@@ -437,9 +371,9 @@ const aideHtml = /* @html */ `
       </div>
     </form>
 </div>
-`
-const footerForAllPage = /* @html */ `<footer>
+    </div>`
 
+const footerForAllPage = /* @html */ `<footer>
    <div class="reseaux col-mg-6">
     <a href="https://www.facebook.com/wildcodeschool/" target="_blank"><img class="imgbtn" src="logofooter/fb.png" alt="imgbtn"></a>
     <a href="https://www.instagram.com/wildcodeschool/" target="_blank"><img class="imgbtn" src="logofooter/insta.png" alt="imgbtn"></a>
@@ -510,7 +444,7 @@ const showAide = () => {
   }
 
   const showInscriptionHelper = () => {
-    render(inscriptionHtml('Inscription Helper', 'Helper'))
+    render(inscriptionHtml('Inscription Alumni', 'Helper'))
   }
 
   const showLanguages = () => {
