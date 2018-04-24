@@ -314,7 +314,7 @@ const listerequeteHtml = (requetes) => /* @html */ `<div class="nav-side-menu">
 // PAGE DEMANDE AIDE
 
 const aideHtml = /* @html */ `<div class="nav-side-menu">
-   <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+   <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow" >
       <a class="p-2 text-dark" href="/">
          <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
       </a>
