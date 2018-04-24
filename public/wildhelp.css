@@ -128,20 +128,35 @@ font-weight:600;
     color:white;
 }
 /* page langages */
-.titleLanguages h1
-{
+h1{
   color-font: #563482;
   text-align: center;
 }
+
 .logo{
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   text-align: center;
 }
-.logoLanguages {
-  width: 50%;
+
+/* p {
+  text-align: center;
+} */
+
+/* PAGE HELP */
+#alert-wrapper-help
+{
+  position: fixed;
+  top: 70px;
+  right: 20px;
+  width: 350px;
+  transition: top 1s;
 }
 
+#alert-wrapper-help.visible
+{
+  top: 270px;
+}
 
 /* CSS Footer */
  footer {

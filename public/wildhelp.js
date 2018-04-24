@@ -17,6 +17,7 @@ const requetes = [
   }
 ]
 
+
 const accueilhtml =
 /* @html */`<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4  bg-white border-bottom box-shadow" id="navBarAcc">
    <h4 class="my-0 mr-md-auto"></h4>
@@ -210,34 +211,34 @@ const coursproposeHtml = /* @html */ `<div class="nav-side-menu">
          <a href="/" class="btn">
          <span class="glyphicon glyphicon-log-out"></span> Deconnexion </a>
       </nav>
-   </div>
-</div>
-<div class="container">
-   <div class="row">
-      <div class="col-xs-8">
-         <h3>Proposition de cours</h3>
-         <h4>Sujet traité</h4>
-         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas neque justo, pellentesque quis sagittis sed, placerat nec justo. Maecenas pulvinar lobortis lacus, vitae malesuada turpis mollis quis. Praesent sit amet nulla vitae velit luctus mollis. Aenean rhoncus aliquam viverra. Sed sed leo ligula.</p>
-      </div>
-      <div class="col-xs-3 col-xs-offset-1">
-         <h4>Profil helper</h4>
-         <p>Lorem ipsum dolor sit amet</p>
-      </div>
-   </div>
-   <div class="row">
-      <div class="col-xs-12">
-         <h4>Infos diverses</h4>
-         <p>Date : ## </p>
-         <p>Lieu : ## </p>
-         <p>Places: ## </p>
-      </div>
-   </div>
-   <div class="row">
-      <div class="col-xs-12 mb-2">
-         <button type="button" class="btn btn-warning btn-lg">Save me too !!!</button>
-      </div>
-   </div>
-</div>`
+    </div>
+    </div>
+    <div class="container">
+       <div class="row">
+          <div class="col-xs-8">
+             <h3>Proposition de cours</h3>
+             <h4>Sujet traité</h4>
+             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas neque justo, pellentesque quis sagittis sed, placerat nec justo. Maecenas pulvinar lobortis lacus, vitae malesuada turpis mollis quis. Praesent sit amet nulla vitae velit luctus mollis. Aenean rhoncus aliquam viverra. Sed sed leo ligula.</p>
+          </div>
+          <div class="col-xs-3 col-xs-offset-1">
+             <h4>Profil helper</h4>
+             <p>Lorem ipsum dolor sit amet</p>
+          </div>
+       </div>
+       <div class="row">
+          <div class="col-xs-12">
+             <h4>Infos diverses</h4>
+             <p>Date : ## </p>
+             <p>Lieu : ## </p>
+             <p>Places: ## </p>
+          </div>
+       </div>
+       <div class="row">
+          <div class="col-xs-12 mb-2">
+             <button type="button" class="btn btn-warning btn-lg">Save me too !!!</button>
+          </div>
+       </div>
+    </div>`
 
 function getRequestItem(requete) {
   return `<li class="list-group-item list-group-item-warning justify-content-between">${requete.description}</li>`
@@ -257,6 +258,53 @@ const listerequeteHtml = (requetes) => /* @html */ `<div class="nav-side-menu">
 <div class="container">
    <h1>Wild Help</h1>
 </div>
+
+
+<!-- Ajout icônes technologies proposées. -->
+
+<div class="container">
+      <h3>Technologies proposées</h3>
+        <div class="row">
+            <div class="col-md-1 offset-md-3 col-sm-2 logo">
+                <a href="/requete" target="_blank">
+                <img class="img-fluid" src="http://rodrigovenancio.info/wp-content/uploads/2017/04/1491199643_angular.png" alt="Angular Logo" />
+                <p>Angular</p>
+            </div>
+
+            <div class="col-md-1 col-sm-2 logo">
+                <a href="/requete" target="_blank">
+                <img class="img-fluid" src="http://www.flook.co/img/skills/nodejs.ico" alt="NodeJs Logo" />
+                <p>NodeJs</p>
+            </div>
+
+            <div class="col-md-1 col-sm-2 logo">
+                <a href="/requete" target="_blank">
+                <img class="img-fluid" src="http://nikhilnanjappa.github.io/img/react-logo.png" alt="React Logo" />
+                <p>React</p>
+            </div>
+
+            <div class="col-md-1 col-sm-2 logo">
+                <a href="/requete" target="_blank">
+                <img class="img-fluid" src="https://silentbedlam.gallerycdn.vsassets.io/extensions/silentbedlam/vuejs-jquery-bootstrapprojecttemplate/1.0/1491418503089/257278/1/thumbnail.png" alt="VueJs Logo" />
+                <p>VueJs</p>
+            </div>
+
+            <div class="col-md-1 col-sm-2 logo">
+                <a href="/requete" target="_blank">
+                <img class="img-fluid" src="http://onusinfotech.com/wp-content/uploads/2_0.png" alt="Symfony Logo" />
+                <p>Symfony</p>
+            </div>
+
+            <div class="col-md-1 col-sm-2 logo">
+                <a href="/requete" target="_blank">
+                <img class="img-fluid" src="https://developer.akamai.com/blog/wp-content/uploads/2017/03/android-logo.png" alt="Android Logo" />
+                <p>Android</p>
+                </a>
+            </div>
+    </div>
+</div>
+
+
 <div class="container">
    <div class="row">
       <div class="col-xs-12">
@@ -303,9 +351,9 @@ const aideHtml = /* @html */ `<div class="nav-side-menu">
              </div>
              <select id="subject" name="langage" class="form-control" required="required">
                <option value="" selected="">Selectionnez le langage</option>
-               <option>JavaScript</option>
-               <option>JAVA</option>
-               <option>PHP</option>
+               <option value="1">JavaScript</option>
+               <option value="2">JAVA</option>
+               <option value="3">PHP</option>
              </select>
            </div>
          </div>
