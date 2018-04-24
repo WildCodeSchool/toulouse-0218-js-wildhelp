@@ -60,7 +60,7 @@ app.post('/aide', (req, res) => {
     const request = `INSERT INTO wildRequest (id, userId, technoId, topic, description ) VALUES('${id}', '${userId}', '${technoId}', '${topic}', '${description}' )`
 
 
-  connection.request(request, (error, results) => {
+  connection.query(request, (error, results) => {
     // if (error) throw error
     if(error) {
       return res.status(500).json({
