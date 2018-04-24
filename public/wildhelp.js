@@ -198,34 +198,34 @@ const coursproposeHtml = /* @html */ `<div class="nav-side-menu">
          <a href="/" class="btn">
          <span class="glyphicon glyphicon-log-out"></span> Deconnexion </a>
       </nav>
-   </div>
-</div>
-<div class="container">
-   <div class="row">
-      <div class="col-xs-8">
-         <h3>Proposition de cours</h3>
-         <h4>Sujet traité</h4>
-         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas neque justo, pellentesque quis sagittis sed, placerat nec justo. Maecenas pulvinar lobortis lacus, vitae malesuada turpis mollis quis. Praesent sit amet nulla vitae velit luctus mollis. Aenean rhoncus aliquam viverra. Sed sed leo ligula.</p>
-      </div>
-      <div class="col-xs-3 col-xs-offset-1">
-         <h4>Profil helper</h4>
-         <p>Lorem ipsum dolor sit amet</p>
-      </div>
-   </div>
-   <div class="row">
-      <div class="col-xs-12">
-         <h4>Infos diverses</h4>
-         <p>Date : ## </p>
-         <p>Lieu : ## </p>
-         <p>Places: ## </p>
-      </div>
-   </div>
-   <div class="row">
-      <div class="col-xs-12 mb-2">
-         <button type="button" class="btn btn-warning btn-lg">Save me too !!!</button>
-      </div>
-   </div>
-</div>`
+    </div>
+    </div>
+    <div class="container">
+       <div class="row">
+          <div class="col-xs-8">
+             <h3>Proposition de cours</h3>
+             <h4>Sujet traité</h4>
+             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas neque justo, pellentesque quis sagittis sed, placerat nec justo. Maecenas pulvinar lobortis lacus, vitae malesuada turpis mollis quis. Praesent sit amet nulla vitae velit luctus mollis. Aenean rhoncus aliquam viverra. Sed sed leo ligula.</p>
+          </div>
+          <div class="col-xs-3 col-xs-offset-1">
+             <h4>Profil helper</h4>
+             <p>Lorem ipsum dolor sit amet</p>
+          </div>
+       </div>
+       <div class="row">
+          <div class="col-xs-12">
+             <h4>Infos diverses</h4>
+             <p>Date : ## </p>
+             <p>Lieu : ## </p>
+             <p>Places: ## </p>
+          </div>
+       </div>
+       <div class="row">
+          <div class="col-xs-12 mb-2">
+             <button type="button" class="btn btn-warning btn-lg">Save me too !!!</button>
+          </div>
+       </div>
+    </div>`
 
 function getRequestItem(requete) {
   return `<li class="list-group-item list-group-item-warning justify-content-between">${requete.description}</li>`
@@ -338,9 +338,9 @@ const aideHtml = /* @html */ `<div class="nav-side-menu">
              </div>
              <select id="subject" name="langage" class="form-control" required="required">
                <option value="" selected="">Selectionnez le langage</option>
-               <option>JavaScript</option>
-               <option>JAVA</option>
-               <option>PHP</option>
+               <option value="1">JavaScript</option>
+               <option value="2">JAVA</option>
+               <option value="3">PHP</option>
              </select>
            </div>
          </div>
