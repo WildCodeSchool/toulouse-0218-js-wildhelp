@@ -17,6 +17,7 @@ const requetes = [
   }
 ]
 
+
 const accueilhtml =
 /* @html */`
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4  bg-white border-bottom box-shadow" id="navBarAcc">
@@ -308,6 +309,53 @@ const listerequeteHtml = (requetes) => /* @html */ `<div class="nav-side-menu">
 <div class="container">
    <h1>Wild Help</h1>
 </div>
+
+
+<!-- Ajout icônes technologies proposées. -->
+
+<div class="container">
+      <h3>Technologies proposées</h3>
+        <div class="row">
+            <div class="col-md-1 offset-md-3 col-sm-2 logo">
+                <a href="/requete" target="_blank">
+                <img class="img-fluid" src="http://rodrigovenancio.info/wp-content/uploads/2017/04/1491199643_angular.png" alt="Angular Logo" />
+                <p>Angular</p>
+            </div>
+
+            <div class="col-md-1 col-sm-2 logo">
+                <a href="/requete" target="_blank">
+                <img class="img-fluid" src="http://www.flook.co/img/skills/nodejs.ico" alt="NodeJs Logo" />
+                <p>NodeJs</p>
+            </div>
+
+            <div class="col-md-1 col-sm-2 logo">
+                <a href="/requete" target="_blank">
+                <img class="img-fluid" src="http://nikhilnanjappa.github.io/img/react-logo.png" alt="React Logo" />
+                <p>React</p>
+            </div>
+
+            <div class="col-md-1 col-sm-2 logo">
+                <a href="/requete" target="_blank">
+                <img class="img-fluid" src="https://silentbedlam.gallerycdn.vsassets.io/extensions/silentbedlam/vuejs-jquery-bootstrapprojecttemplate/1.0/1491418503089/257278/1/thumbnail.png" alt="VueJs Logo" />
+                <p>VueJs</p>
+            </div>
+
+            <div class="col-md-1 col-sm-2 logo">
+                <a href="/requete" target="_blank">
+                <img class="img-fluid" src="http://onusinfotech.com/wp-content/uploads/2_0.png" alt="Symfony Logo" />
+                <p>Symfony</p>
+            </div>
+
+            <div class="col-md-1 col-sm-2 logo">
+                <a href="/requete" target="_blank">
+                <img class="img-fluid" src="https://developer.akamai.com/blog/wp-content/uploads/2017/03/android-logo.png" alt="Android Logo" />
+                <p>Android</p>
+                </a>
+            </div>
+    </div>
+</div>
+
+
 <div class="container">
    <div class="row">
       <div class="col-xs-12">
