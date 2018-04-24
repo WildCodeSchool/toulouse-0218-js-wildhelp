@@ -12,7 +12,7 @@ const staticPath = path.normalize(`${__dirname}/../public`)
 app.use(express.static(staticPath))
 const bodyParser = require('body-parser')
 app.use(bodyParser.json())
-const  connection = require('./db')
+const connection = require('./db')
 
 const html = /* @html */ `
 <!doctype html>
@@ -84,11 +84,53 @@ connection.query(query, (error, results) => {
 })
 // fin demande aide
 
+// partie Inscription !!!!
+const users = [
+  { name: 'Leila', surname:'DQIQI', email:'leila.dqiqi@yahoo.fr', password: 'abcdefg'},
+  { name: 'Layla', surname:'Tazia', email:'leila314tazia@gmail.com', password: 'abbcd'}
+]
+app.post('/login', (req, res) => {
+const {email, password} = req.body
+const foundUser = users.find(user => user.email === email)
+if(! foundUser || foundUser.password !== password) {
+  return res.status(401).json({ error: 'Mot de passe incorrect' })
+}
+req.session.user = foundUser
+res.json(foundUser)
+})
+
+app.get('/logout', (req, res) => {
+  delete req.session.users
+  res.json({ success: true})
+})
+app.post('/register', (req, res) => {
+
+console.log(req.body)
+res.json({
+  success: true
+})
+})
+
+
 app.get('*', (req, res) => {
   console.log('wildcard route')
   res.send(html)
   res.end()
 })
+
+
+// app.get('/test', (req, res) => {
+//   connection.query('SELECT name, surname, email, password FROM user', (error, results) => {
+//   if (error) {
+//     return res.status(500).json({
+//       error:error.message
+//     })
+//   }
+//   res.json(results)
+//   })
+// })
+//
+
 
 console.log('Server listening on http://127.0.0.1:4000')
 app.listen(4000)
