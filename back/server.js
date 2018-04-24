@@ -16,6 +16,7 @@ app.use(bodyParser.json())
 
 const requestAllHelp = require('./routes/requestAllHelp')
 const getIndex = require('./routes/getIndex')
+const checkLoggedInUser = require('./routes/checkLoggedInUser')
 
 app.post('/aide', requestAllHelp)
 app.get('*', getIndex)

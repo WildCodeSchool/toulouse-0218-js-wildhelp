@@ -107,6 +107,6 @@ app.get('/login', (req, res) => {
  * Pour pouvoir répondre aux requêtes, l'application
  * doit d'abord ECOUTER sur un "port" (un canal de communication)
  */
-const message = `Lancement de l'app Express: http://localhost:4000`
-console.log(message)
-app.listen(4000)
+module.exports = checkLoggedInUser
+  // body...
+};
