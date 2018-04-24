@@ -1,0 +1,184 @@
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: bold;
+
+}
+.formInscription
+{
+  background:grey;
+  border-radius: 10px;
+}
+
+/*  PAGE D ACCUEIL */
+.background .accInscription
+{
+  position: absolute;
+  margin-top: 20%;
+  color: white;
+  font-size: 4vw;
+}
+
+.accInscription h1
+{
+
+  color: white;
+  text-align: center;
+  font-size: 120px;
+}
+
+.accInscription p
+{
+
+  color: white;
+  text-align: center;
+  font-size: 35px;
+}
+
+.accInscription button
+{
+    display: block;
+    margin : auto;
+    padding: center;
+    background: #DE6262;
+    color:#fff;
+    font-weight:600;
+}
+
+.btn{
+background: #DE6262;
+color:#fff;
+font-weight:600;
+}
+
+.btn:hover{
+background: #DE6262;
+color:#fff;
+font-weight:600;
+}
+
+/* CSS PAGE CONNEXION */
+ .login-block
+{
+     background: white;
+     float:left;
+     width:100%;
+     padding : 50px 0;
+}
+ .banner-sec{
+    border-radius: 0 10px 10px 0;
+     padding:0;
+}
+ #loginco{
+     background:grey;
+     border-radius: 10px;
+}
+ .carousel-inner{
+    border-radius:0 10px 10px 0;
+}
+ .carousel-caption{
+    text-align:left;
+     left:5%;
+}
+ .login-sec{
+    padding: 50px 30px;
+     position:relative;
+}
+ .login-sec .copy-text{
+     position:absolute;
+     width:80%;
+     bottom:20px;
+     font-size:13px;
+     text-align:center;
+}
+
+ .login-sec .copy-text a{
+    color:#E36262;
+}
+ .login-sec h2
+{
+     margin-bottom:30px;
+     font-weight:800;
+     font-size:40px;
+     color: white;
+}
+
+ .btn-login
+{
+    background: #DE6262;
+     color:#fff;
+     font-weight:600;
+}
+
+ .banner-text
+{
+    width:70%;
+     position:absolute;
+     bottom:1px;
+     padding-left:20px;
+}
+
+ .banner-text h2
+{
+    color:white;
+     font-weight:600;
+}
+
+ .banner-text p
+{
+    color:white;
+}
+/* page langages */
+h1{
+  color-font: #563482;
+  text-align: center;
+}
+
+.logo{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+img {
+  width: 40%;
+}
+
+p {
+  text-align: center;
+}
+
+/* PAGE HELP */
+#alert-wrapper-help
+{
+  position: fixed;
+  top: 70px;
+  right: 20px;
+  width: 350px;
+  transition: top 1s;
+}
+
+#alert-wrapper-help.visible
+{
+  top: 270px;
+}
+
+/* CSS Footer */
+ footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 7%;
+    color: white;
+    text-align: center;
+    background-color: white;
+}
+
+ footer .imgbtn {
+     width:25px;
+     filter: grayscale(80%);
+     margin: 2%;
+}
+ footer .imgbtn:hover {
+     filter: grayscale(0);
+}
