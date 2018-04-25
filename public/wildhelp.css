@@ -139,13 +139,9 @@ h1{
   text-align: center;
 }
 
-img {
-  width: 40%;
-}
-
-p {
+/* p {
   text-align: center;
-}
+} */
 
 /* PAGE HELP */
 #alert-wrapper-help
