@@ -1,16 +1,24 @@
 const  connection = require('../db')
 
+const longueurMdpMin = '6'
+// const regexEMail =
+const champsObligatoires = ['name', 'surname', 'password', 'email']
+
 const getInscriptions =  (req, res) => {
   console.log(req.body)
-  const given = req.body.name
+  for (champ of champsObligatoires){
+    if(! req.body[champ]){
+      return res.status(400).json({
+        error: 'champs non remplis !'
+      })
+    }
+  }
+  const given = req.body['name']
   const family = req.body.surname
   const current = req.body.password
   const email = req.body.email
 
-
-const selectUser = `INSERT INTO user (name, surname, password, email, technoId) VALUES ('${given}', '${family}', '${current}', '${email}', 1)`
-
-
+  const selectUser = `INSERT INTO user (name, surname, password, email) VALUES ('${given}', '${family}', '${current}', '${email}')`
 
   connection.query(selectUser, (error, results, fields) => {
     if(error) {
