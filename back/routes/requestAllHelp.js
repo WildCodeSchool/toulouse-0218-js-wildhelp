@@ -17,7 +17,7 @@ const requestAllHelp = (req, res) => {
 
     const userId = 3
     const request = `INSERT INTO wildRequest (userId, technoId, topic, description ) VALUES (${userId}, ${technoId}, '${topic}', '${description}' )`
-    console.log(request)
+    
 
   connection.query(request, (error, results) => {
     // if (error) throw error
