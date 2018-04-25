@@ -32,17 +32,12 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `user` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `firstName` VARCHAR(50) NOT NULL,
-  `lastName` VARCHAR(50) NOT NULL,
+  `name` VARCHAR(50) NOT NULL,
+  `surname` VARCHAR(50) NOT NULL,
   `password` VARCHAR(12) NOT NULL,
   `email` VARCHAR(50) NOT NULL,
-  `city` VARCHAR(50) NOT NULL,
-  `technoId` INT NOT NULL,
   PRIMARY KEY (`id`),
   -- INDEX `fk_User_techno_idx` (`techno_id` ASC),
-  CONSTRAINT `fk_User_techno`
-    FOREIGN KEY (`technoId`)
-    REFERENCES `techno` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

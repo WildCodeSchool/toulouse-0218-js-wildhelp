@@ -50,8 +50,8 @@ $(document).hover(function(){
 
 const inscriptionHtml = (title, type) =>
 /* @html */ `<div class="container">
-   <form method="POST" id="myForm" class="form-horizontal"  action="/register">
-      <input type="hidden" name="account-type" value="${type}" />
+   <form method="POST" id="myFormulaireInscription" class="form-horizontal"  action="/register">
+      <input type="hidden" name="account-type" id="type" value="${type}" />
       <div class="row">
          <div class="col-md-3"></div>
          <div class="col-md-6">
@@ -67,22 +67,22 @@ const inscriptionHtml = (title, type) =>
                      <label for="name">Prénom</label>
                      <div class="form-group">
                         <div class="input-group-addon" style="width: 2.6rem"></div>
-                        <input type="text" name="name" class="form-control" id="name" placeholder="John" required />
+                        <input type="text" name="name" autocomplete="given-name" class="form-control" id="given" placeholder="John" required />
                      </div>
                      <label for="surname">Nom</label>
                      <div class="form-group">
                         <div class="input-group-addon" style="width: 2.6rem"></div>
-                        <input type="text" name="surname" class="form-control" id="surname" placeholder="Doe" required />
+                        <input type="text" name="surname" autocomplete="family-name" class="form-control" id="family" placeholder="Doe" required />
                      </div>
                      <label for="email">E-mail</label>
                      <div class="form-group">
                         <div class="input-group-addon" style="width: 2.6rem"></div>
-                        <input type="text" name="email" class="form-control" id="email" placeholder="wilder@example.com" required />
+                        <input type="text" name="email" autocomplete="email" class="form-control" id="email" placeholder="wilder@example.com" required />
                      </div>
                      <label for="password">Mot de passe</label>
                      <div class="form-group">
                         <div class="input-group-addon" style="width: 2.6rem"></div>
-                        <input type="password" name="password" class="form-control" id="password" placeholder="Mot-de-passe" required />
+                        <input type="password" name="password" autocomplete="current-password" class="form-control" id="current" placeholder="Mot-de-passe" required />
                      </div>
 
                      <!-- <a href="/languages"> -->
@@ -455,13 +455,13 @@ const showAide = () => {
   const showInscriptionWilder = () => {
     render(inscriptionHtml('Inscription Wilder', 'Wilder'))
 
-    const myForml = document.getElementById('myForm')
-    myForml.addEventListener('submit', e => {
+    const myForm = document.getElementById('myFormulaireInscription')
+    myForm.addEventListener('submit', e => {
 
       let data= {}
 
       e.preventDefault()
-      const inputs = myForml.getElementsByTagName('input')
+      const inputs = myForm.getElementsByTagName('input')
       for(let input of inputs) {
         if(input.name !== '') {
             data[input.name] = input.value
@@ -473,7 +473,7 @@ const showAide = () => {
         method: 'POST',
         body: body,
         headers: {
-          Accept: 'application/json',
+          Accept : 'application/json',
           'Content-Type': 'application/json'
         }
       })
@@ -486,36 +486,34 @@ const showAide = () => {
 
   const showInscriptionHelper = () => {
     render(inscriptionHtml('Inscription Alumni', 'Helper'))
+    const myForm = document.getElementById('myFormulaireInscription')
+    myForm.addEventListener('submit', e => {
 
-        const myForml = document.getElementById('myForm')
-        myForml.addEventListener('submit', e => {
+      let data= {}
 
-          let data= {}
-
-          e.preventDefault()
-          const inputs = myForml.getElementsByTagName('input')
-          for(let input of inputs) {
-            if(input.name !== '') {
-                data[input.name] = input.value
-            }
-          }
-          const body = JSON.stringify(data)
-          // console.log(body)
-          fetch('/register', {
-            method: 'POST',
-            body: body,
-            headers: {
-              Accept: 'application/json',
-              'Content-Type': 'application/json'
-            }
-          })
-          .then(response => response.json())
-          .then(data => {
-            console.log(data)
-          })
-          })
+      e.preventDefault()
+      const inputs = myForm.getElementsByTagName('input')
+      for(let input of inputs) {
+        if(input.name !== '') {
+            data[input.name] = input.value
+        }
+      }
+      const body = JSON.stringify(data)
+      // console.log(body)
+      fetch('/register', {
+        method: 'POST',
+        body: body,
+        headers: {
+          Accept : 'application/json',
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+      })
+      })
     }
-
 
   const showLanguages = () => {
     render(languageHtml)
@@ -524,37 +522,6 @@ const showAide = () => {
   const showConnexion = () => {
     render(connexionHtml)
 
-        const myForm = document.getElementById('loginForm')[0]
-        myForm.addEventListener('submit', e => {
-          e.preventDefault()
-          let data= {}
-          const inputs = myForm.getElementsByTagName('input')
-          for(let input of inputs) {
-            if(input.name !== '') {
-                data[input.name] = input.value
-            }
-          }
-          // console.log(body)
-          fetch('/login', {
-            method: 'POST',
-            headers: {
-              Accept: 'application/json',
-              'Content-Type': 'application/json'
-            },
-            credentials: 'include',
-            body: JSON.stringify(data)
-          })
-          .then(response => response.json())
-          .then(data => {
-            fetch('/connexion', {
-              credentials: 'include'
-            })
-            then(r => r.text())
-            .then(text => {
-              document.getElementById('result').innerHTML = text
-          })
-          })
-    })
 }
 
   const showAccueil = () => {

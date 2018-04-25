@@ -16,22 +16,11 @@ app.use(bodyParser.json())
 
 const requestAllHelp = require('./routes/requestAllHelp')
 const getIndex = require('./routes/getIndex')
+const getInscriptions = require('./routes/getInscriptions')
 
+app.post('/register', getInscriptions)
 app.post('/aide', requestAllHelp)
 app.get('*', getIndex)
-
-
-// app.get('/test', (req, res) => {
-//   connection.query('SELECT name, surname, email, password FROM user', (error, results) => {
-//   if (error) {
-//     return res.status(500).json({
-//       error:error.message
-//     })
-//   }
-//   res.json(results)
-//   })
-// })
-//
 
 
 console.log('Server listening on http://127.0.0.1:4000')
