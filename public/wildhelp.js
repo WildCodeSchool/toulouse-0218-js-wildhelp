@@ -147,14 +147,15 @@ const languageHtml = /* @html */`<div class="nav-side-menu">
    </div>
 </div>`
 
-const connexionHtml = /* @html */ `<section class="login-block">
+const connexionHtml = /* @html */ `
+  <section class="login-block">
    <div class="container" id="loginco">
       <div class="row">
          <div class="col-md-4 login-sec">
             <h2 class="text-center">Connexion</h2>
             <form class="login-form">
                <div class="form-group">
-                  <label for="exampleInputEmail1" class="text-uppercase">E-mail</label>
+                  <label for="exampleInputEmail1" class="text-uppercase">Email</label>
                   <input id="exampleInputEmail1" type="text" class="form-control" placeholder="">
                </div>
                <div class="form-group">
@@ -187,7 +188,44 @@ const connexionHtml = /* @html */ `<section class="login-block">
          </div>
       </div>
    </div>
-</section>`
+ </section>`
+
+ const showConnexion = () => {
+   render(connexionHtml)
+
+
+    const form = document.getElementsByTagName('form')[0]
+    form.addEventListener('submit', evt => {
+      evt.preventDefault()
+      //Recupère
+      const data = {}
+      const inputs = document.getElementsByTagName('input')
+      for(let input of inputs) {
+        data[input.name] = input.value
+      }
+      fetch('/connexion', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        credentials: 'include',
+        body: JSON.stringify(data)
+      })
+      .then(r => r.json())
+      .then(data => {
+        fetch('/', {
+          //4 Permettre l'échange de cookies
+          credentials: 'include'
+        })
+        .then(r => r.text())
+        .then(text => {
+          document.getElementById('result').innerHTML = text
+        })
+      })
+    })
+  }
+
 
 const coursproposeHtml = /* @html */ `<div class="nav-side-menu">
    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
@@ -451,9 +489,7 @@ const showAide = () => {
     render(languageHtml)
   }
 
-  const showConnexion = () => {
-    render(connexionHtml)
-  }
+
 
   const showAccueil = () => {
     render(accueilhtml)

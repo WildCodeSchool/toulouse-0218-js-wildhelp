@@ -20,6 +20,8 @@ const checkLoggedInUser = require('./routes/checkLoggedInUser')
 
 app.post('/aide', requestAllHelp)
 app.get('*', getIndex)
+app.post('/connexion', checkLoggedInUser)
+// app.get('/connexion', checkLoggedInUser)
 
 console.log('Server listening on http://127.0.0.1:4000')
 app.listen(4000)
