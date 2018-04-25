@@ -51,7 +51,7 @@ $(document).hover(function(){
 const inscriptionHtml = (title, type) =>
 /* @html */ `<div class="container">
    <form method="POST" id="myFormulaireInscription" class="form-horizontal"  action="/register">
-      <input type="hidden" name="account-type" id="type" value="${type}" />
+      <input type="hidden" name="account-type" value="${type}" />
       <div class="row">
          <div class="col-md-3"></div>
          <div class="col-md-6">
@@ -455,65 +455,66 @@ const showAide = () => {
   const showInscriptionWilder = () => {
     render(inscriptionHtml('Inscription Wilder', 'Wilder'))
 
-    const myForm = document.getElementById('myFormulaireInscription')
-    myForm.addEventListener('submit', e => {
+    const myForml = document.getElementById('myFormulaireInscription')
+  myForml.addEventListener('submit', e => {
+   let data= {}
 
-      let data= {}
-
-      e.preventDefault()
-      const inputs = myForm.getElementsByTagName('input')
-      for(let input of inputs) {
-        if(input.name !== '') {
-            data[input.name] = input.value
-        }
-      }
-      const body = JSON.stringify(data)
-      // console.log(body)
-      fetch('/register', {
+       e.preventDefault()
+        const inputs = myForml.getElementsByTagName('input')
+       for(let input of inputs) {
+           if(input.name !== '') {
+             data[input.name] = input.value
+              }
+           }
+         const body = JSON.stringify(data)
+           // console.log(body)
+        fetch('/register', {
         method: 'POST',
-        body: body,
-        headers: {
-          Accept : 'application/json',
-          'Content-Type': 'application/json'
-        }
-      })
-      .then(response => response.json())
-      .then(data => {
-        console.log(data)
-      })
-      })
-    }
+         body: body,
+          headers: {
+             Accept: 'application/json',
+            'Content-Type': 'application/json'
+       }
+         })
+         .then(response => response.json())
+       .then(data => {
+          console.log(data)
+         })
+         })
+   }
 
   const showInscriptionHelper = () => {
     render(inscriptionHtml('Inscription Alumni', 'Helper'))
-    const myForm = document.getElementById('myFormulaireInscription')
-    myForm.addEventListener('submit', e => {
 
-      let data= {}
+        const myForml = document.getElementById('myFormulaireInscription')
+      myForml.addEventListener('submit', e => {
+       let data= {}
 
-      e.preventDefault()
-      const inputs = myForm.getElementsByTagName('input')
-      for(let input of inputs) {
-        if(input.name !== '') {
-            data[input.name] = input.value
-        }
-      }
-      const body = JSON.stringify(data)
-      // console.log(body)
-      fetch('/register', {
-        method: 'POST',
-        body: body,
-        headers: {
-          Accept : 'application/json',
-          'Content-Type': 'application/json'
-        }
-      })
-      .then(response => response.json())
-      .then(data => {
-        console.log(data)
-      })
-      })
-    }
+           e.preventDefault()
+            const inputs = myForml.getElementsByTagName('input')
+           for(let input of inputs) {
+               if(input.name !== '') {
+                 data[input.name] = input.value
+                  }
+               }
+             const body = JSON.stringify(data)
+               // console.log(body)
+            fetch('/register', {
+            method: 'POST',
+             body: body,
+              headers: {
+                 Accept: 'application/json',
+                'Content-Type': 'application/json'
+           }
+             })
+             .then(response => response.json())
+           .then(data => {
+              console.log(data)
+             })
+             })
+       }
+
+
 
   const showLanguages = () => {
     render(languageHtml)
