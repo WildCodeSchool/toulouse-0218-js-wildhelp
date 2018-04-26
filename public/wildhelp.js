@@ -156,11 +156,11 @@ const connexionHtml = /* @html */ `
             <form class="login-form">
                <div class="form-group">
                   <label for="exampleInputEmail1" class="text-uppercase">Email</label>
-                  <input id="exampleInputEmail1" type="text" class="form-control" placeholder="">
+                  <input name="email" id="exampleInputEmail1" type="text" class="form-control" placeholder="">
                </div>
                <div class="form-group">
                   <label for="exampleInputPassword1" class="text-uppercase">Mot de Passe</label>
-                  <input id="exampleInputPassword1" type="password" class="form-control" placeholder="">
+                  <input name="password" id="exampleInputPassword1" type="password" class="form-control" placeholder="">
                </div>
                <div class="form-check">
                   <label class="form-check-label">
@@ -213,15 +213,13 @@ const connexionHtml = /* @html */ `
         body: JSON.stringify(data)
       })
       .then(r => r.json())
-      .then(data => {
-        fetch('/', {
-          //4 Permettre l'échange de cookies
-          credentials: 'include'
-        })
-        .then(r => r.text())
-        .then(text => {
-          document.getElementById('result').innerHTML = text
-        })
+      .then(user => {
+        if (user.accountType=="Wilder"){
+          page('/aide')
+        }
+        else{
+          page('/requete')
+        }
       })
     })
   }
