@@ -44,13 +44,13 @@ const getInscriptions =  (req, res) => {
       error: 'email incorrect !'
     })
   }
-  for(champ['email'] of champsObligatoires){
-    if(email ) {
-      return res.status(400).json({
-        error: 'Email déjà enregistré, vérifiez votre adresse ou connectez vous via la page connexion !'
-      })
-    }
-  }
+  // for(champ['email'] of champsObligatoires){
+  //   if(connection.email === error) {
+  //     return res.status(400).json({
+  //       error: 'Email déjà enregistré, vérifiez votre adresse ou connectez vous via la page connexion !'
+  //     })
+  //   }
+  // }
 
 
 
@@ -64,8 +64,9 @@ const getInscriptions =  (req, res) => {
 
   connection.query(selectUser, (error, results, fields) => {
     if(error) {
+      console.error(error)
       return res.status(500).json({
-        error: error.inscription
+        error: ('Email déjà enregistré, vérifiez votre adresse ou connectez vous via la page connexion !')
       })
     }
     console.log(results)
