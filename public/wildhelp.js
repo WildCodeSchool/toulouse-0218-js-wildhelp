@@ -51,7 +51,7 @@ $(document).hover(function(){
 const inscriptionHtml = (title, type) =>
 /* @html */ `<div class="container">
    <form method="POST" id="myFormulaireInscription" class="form-horizontal"  action="/register">
-      <input type="hidden" name="account-type" value="${type}" />
+      <input type="hidden" name="accountType" value="${type}" />
       <div class="row">
          <div class="col-md-3"></div>
          <div class="col-md-6">

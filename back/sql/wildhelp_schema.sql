@@ -36,10 +36,9 @@ CREATE TABLE IF NOT EXISTS `user` (
   `surname` VARCHAR(50) NOT NULL,
   `password` VARCHAR(12) NOT NULL,
   `email` VARCHAR(50) NOT NULL,
-  PRIMARY KEY (`id`),
-  -- INDEX `fk_User_techno_idx` (`techno_id` ASC),
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  `accountType` enum('Wilder', 'Helper'),
+  PRIMARY KEY (`id`)
+)
 ENGINE = InnoDB;
 
 
