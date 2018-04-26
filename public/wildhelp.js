@@ -203,39 +203,6 @@ const connexionHtml = /* @html */ `
    </div>
  </section>`
 
- const showConnexion = () => {
-   render(connexionHtml)
-
-
-    const form = document.getElementsByTagName('form')[0]
-    form.addEventListener('submit', evt => {
-      evt.preventDefault()
-      //Recupère
-      const data = {}
-      const inputs = document.getElementsByTagName('input')
-      for(let input of inputs) {
-        data[input.name] = input.value
-      }
-      fetch('/connexion', {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json'
-        },
-        credentials: 'include',
-        body: JSON.stringify(data)
-      })
-      .then(r => r.json())
-      .then(user => {
-        if (user.accountType=="Wilder"){
-          page('/aide')
-        }
-        else{
-          page('/requete')
-        }
-      })
-    })
-  }
 
 
 const coursproposeHtml = /* @html */ `<div class="nav-side-menu">
@@ -558,7 +525,38 @@ const showAide = () => {
 
   const showConnexion = () => {
     render(connexionHtml)
-}
+
+
+     const form = document.getElementsByTagName('form')[0]
+     form.addEventListener('submit', evt => {
+       evt.preventDefault()
+       //Recupère
+       const data = {}
+       const inputs = document.getElementsByTagName('input')
+       for(let input of inputs) {
+         data[input.name] = input.value
+       }
+       fetch('/connexion', {
+         method: 'POST',
+         headers: {
+           Accept: 'application/json',
+           'Content-Type': 'application/json'
+         },
+         credentials: 'include',
+         body: JSON.stringify(data)
+       })
+       .then(r => r.json())
+       .then(user => {
+         if (user.accountType=="Wilder"){
+           page('/aide')
+         }
+         else{
+           page('/requete')
+         }
+       })
+     })
+   }
+
 
   const showAccueil = () => {
     render(accueilhtml)

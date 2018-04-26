@@ -44,13 +44,7 @@ const getInscriptions =  (req, res) => {
       error: 'email incorrect !'
     })
   }
-  for(champ['email'] of champsObligatoires){
-    if(email ) {
-      return res.status(400).json({
-        error: 'Email déjà enregistré, vérifiez votre adresse ou connectez vous via la page connexion !'
-      })
-    }
-  }
+
 
 
 
