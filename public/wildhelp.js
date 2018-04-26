@@ -358,7 +358,7 @@ const aideHtml = /* @html */ `
            <div class="col-md-12">
              <p>
                <textarea name="description" id="description" class="form-control" rows="10" cols="50" required="required"
-        placeholder="Décris ici en détail ton problème"></textarea>
+        placeholder="Décris ici, en détail, ton problème."></textarea>
             </p>
           </div>
         </div>
@@ -403,7 +403,7 @@ $('[data-toggle="popover"]').popover({html:true})
 // DEBUT PAGE HELP
 const showAide = () => {
     render(aideHtml)
-
+// Envois du formulaire vers la database
     const formCours = document.getElementById('formHelp')
     formCours.addEventListener('submit', event => {
 
@@ -430,6 +430,12 @@ const showAide = () => {
       })
       .then(response => response.json())
       .then(data => {
+// alerte de validation du formulaire
+        if (data.success) {
+          alert(data.success)
+        }
+// permet de revenir sur un formulaire vierge
+        showAide()
         console.log(data)
       })
     })

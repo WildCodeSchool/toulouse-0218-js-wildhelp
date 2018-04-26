@@ -27,9 +27,16 @@ const requestAllHelp = (req, res) => {
         error: error.message
         })
     }
+    else {
+      return res.status(200).json({
+        success : 'Félicitation, votre requête est bien pris en compte ! Un Alumni vous contactera pour prendre rendez-vous.'
+      })
+    }
     console.log(results)
+
     const topic = results[0]
     res.json( {results: results[0]})
+
   })
 }
 
