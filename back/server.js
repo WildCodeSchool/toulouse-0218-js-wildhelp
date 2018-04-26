@@ -16,9 +16,12 @@ app.use(bodyParser.json())
 
 const requestAllHelp = require('./routes/requestAllHelp')
 const getIndex = require('./routes/getIndex')
+const getInscriptions = require('./routes/getInscriptions')
 
+app.post('/register', getInscriptions)
 app.post('/aide', requestAllHelp)
 app.get('*', getIndex)
+
 
 console.log('Server listening on http://127.0.0.1:4000')
 app.listen(4000)
