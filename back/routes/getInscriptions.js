@@ -12,7 +12,7 @@ const getInscriptions =  (req, res) => {
       return res.status(400).json({
         error: 'champs non remplis !'
       })
-    }
+    }  
   }
 
   for (champ['password'] of champsObligatoires){
@@ -44,15 +44,6 @@ const getInscriptions =  (req, res) => {
       error: 'email incorrect !'
     })
   }
-  // for(champ['email'] of champsObligatoires){
-  //   if(connection.email === error) {
-  //     return res.status(400).json({
-  //       error: 'Email déjà enregistré, vérifiez votre adresse ou connectez vous via la page connexion !'
-  //     })
-  //   }
-  // }
-
-
 
   const given = mysqlEscape(req.body['name'])
   const family = mysqlEscape(req.body['surname'])

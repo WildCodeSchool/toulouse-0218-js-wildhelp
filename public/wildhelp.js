@@ -26,11 +26,6 @@ const accueilhtml =
    </nav>
    <a class="btn" href="/connexion">Connexion</a>
 </div>
-<!-- barre de recherche -->
-<!-- <div class="row background">
-   <video class="container-fluid" loop="0" autoplay="true">
-      <source src="/image/Projet04.mp4" type="video/mp4"/>
-   </video> -->
     <div class="row background">
   <img class ="container-fluid" src="/image/gif1.gif" type="image/gif" height="150%" loop="0" />
    <div class="accInscription">
@@ -85,13 +80,7 @@ const inscriptionHtml = (title, type) =>
                         <input type="password" name="password" autocomplete="current-password" class="form-control" id="current" placeholder="Mot-de-passe" />
                      </div>
 
-                     <!-- <a href="/languages"> -->
-                       <!-- <button type="submit" value="submit" class="btn btn-primary">
-                     S'inscrire
-                     </button> -->
-                     <input type="submit" value="S'inscrire" />
-                     <!-- <input type="submit" value="Déjà inscrit ?" /> -->
-                   <!-- </a> -->
+                     <input type="submit" value="S'inscrire" id="sinscrire" />
                      <a href="/connexion">
                         <button type="submit" value="submit" class="btn btn-primary ml-5" a href="/connexion">
                      Déjà inscrit ?
@@ -454,10 +443,10 @@ const showAide = () => {
 
   const showInscriptionWilder = () => {
     render(inscriptionHtml('Inscription Wilder', 'Wilder'))
+    const element = document.getElementById('sinscrire')
     const myForml = document.getElementById('myFormulaireInscription')
     myForml.addEventListener('submit', e => {
       let data= {}
-
       e.preventDefault()
       const inputs = myForml.getElementsByTagName('input')
       for(let input of inputs) {
@@ -466,7 +455,6 @@ const showAide = () => {
         }
       }
       const body = JSON.stringify(data)
-      // console.log(body)
       fetch('/register', {
         method: 'POST',
         body: body,
@@ -477,14 +465,21 @@ const showAide = () => {
       })
       .then(response => response.json())
       .then(data => {
+        if (data.error) {
+          alert (data.error)
+          e.preventDefault()
+        }
         console.log(data)
       })
+      element.addEventListener('click', function() {
+          page ('/aide')
+      })
     })
-
-  }
+    }
 
    const showInscriptionHelper = () => {
      render(inscriptionHtml('Inscription Alumni', 'Helper'))
+     const element = document.getElementById('sinscrire')
      const myForml = document.getElementById('myFormulaireInscription')
      myForml.addEventListener('submit', e => {
        let data= {}
@@ -508,11 +503,15 @@ const showAide = () => {
        .then(data => {
          if (data.error) {
            alert (data.error)
+           e.preventDefault()
          }
          console.log(data)
        })
+       element.addEventListener('click', function() {
+           page ('/requete')
+       })
      })
-   }
+     }
 
 
 
