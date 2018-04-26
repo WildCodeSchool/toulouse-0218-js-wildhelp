@@ -4,5 +4,4 @@ const connection = mysql.createConnection(settings)
 
 connection.connect()
 
-
 module.exports = connection
