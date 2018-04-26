@@ -67,29 +67,29 @@ const inscriptionHtml = (title, type) =>
                      <label for="name">Prénom</label>
                      <div class="form-group">
                         <div class="input-group-addon" style="width: 2.6rem"></div>
-                        <input type="text" name="name" autocomplete="given-name" class="form-control" id="given" placeholder="John" required="required" />
+                        <input type="text" name="name" autocomplete="given-name" class="form-control" id="given" placeholder="John" />
                      </div>
                      <label for="surname">Nom</label>
                      <div class="form-group">
                         <div class="input-group-addon" style="width: 2.6rem"></div>
-                        <input type="text" name="surname" autocomplete="family-name" class="form-control" id="family" placeholder="Doe" required="required" />
+                        <input type="text" name="surname" autocomplete="family-name" class="form-control" id="family" placeholder="Doe" />
                      </div>
                      <label for="email">E-mail</label>
                      <div class="form-group">
                         <div class="input-group-addon" style="width: 2.6rem"></div>
-                        <input type="text" name="email" autocomplete="email" class="form-control" id="email" placeholder="wilder@example.com" required="required" />
+                        <input type="text" name="email" autocomplete="email" class="form-control" id="email" placeholder="wilder@example.com" />
                      </div>
                      <label for="password">Mot de passe</label>
                      <div class="form-group">
                         <div class="input-group-addon" style="width: 2.6rem"></div>
-                        <input type="password" name="password" autocomplete="current-password" class="form-control" id="current" placeholder="Mot-de-passe" required="required" />
+                        <input type="password" name="password" autocomplete="current-password" class="form-control" id="current" placeholder="Mot-de-passe" />
                      </div>
 
                      <!-- <a href="/languages"> -->
                        <!-- <button type="submit" value="submit" class="btn btn-primary">
                      S'inscrire
                      </button> -->
-                     <input type="submit" value="S'inscrire" id="bouton_envoi" />
+                     <input type="submit" value="S'inscrire" />
                      <!-- <input type="submit" value="Déjà inscrit ?" /> -->
                    <!-- </a> -->
                      <a href="/connexion">
@@ -455,64 +455,64 @@ const showAide = () => {
   const showInscriptionWilder = () => {
     render(inscriptionHtml('Inscription Wilder', 'Wilder'))
     const myForml = document.getElementById('myFormulaireInscription')
-  myForml.addEventListener('submit', e => {
-   let data= {}
+    myForml.addEventListener('submit', e => {
+      let data= {}
 
-       e.preventDefault()
-        const inputs = myForml.getElementsByTagName('input')
-       for(let input of inputs) {
-           if(input.name !== '') {
-             data[input.name] = input.value
-              }
-           }
-         const body = JSON.stringify(data)
-           // console.log(body)
-        fetch('/register', {
+      e.preventDefault()
+      const inputs = myForml.getElementsByTagName('input')
+      for(let input of inputs) {
+        if(input.name !== '') {
+          data[input.name] = input.value
+        }
+      }
+      const body = JSON.stringify(data)
+      // console.log(body)
+      fetch('/register', {
         method: 'POST',
-         body: body,
-          headers: {
-             Accept: 'application/json',
-            'Content-Type': 'application/json'
-       }
-         })
-         .then(response => response.json())
-       .then(data => {
-          console.log(data)
-         })
-         })
+        body: body,
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+      })
+    })
 
-   }
+  }
 
-  const showInscriptionHelper = () => {
-    render(inscriptionHtml('Inscription Alumni', 'Helper'))
-
-        const myForml = document.getElementById('myFormulaireInscription')
-      myForml.addEventListener('submit', e => {
+   const showInscriptionHelper = () => {
+     render(inscriptionHtml('Inscription Alumni', 'Helper'))
+     const myForml = document.getElementById('myFormulaireInscription')
+     myForml.addEventListener('submit', e => {
        let data= {}
-
-           e.preventDefault()
-            const inputs = myForml.getElementsByTagName('input')
-           for(let input of inputs) {
-               if(input.name !== '') {
-                 data[input.name] = input.value
-                  }
-               }
-             const body = JSON.stringify(data)
-               // console.log(body)
-            fetch('/register', {
-            method: 'POST',
-             body: body,
-              headers: {
-                 Accept: 'application/json',
-                'Content-Type': 'application/json'
-           }
-             })
-             .then(response => response.json())
-           .then(data => {
-              console.log(data)
-             })
-             })
+       e.preventDefault()
+       const inputs = myForml.getElementsByTagName('input')
+       for(let input of inputs) {
+         if(input.name !== '') {
+           data[input.name] = input.value
+         }
        }
+       const body = JSON.stringify(data)
+       fetch('/register', {
+         method: 'POST',
+         body: body,
+         headers: {
+           Accept: 'application/json',
+           'Content-Type': 'application/json'
+         }
+       })
+       .then(response => response.json())
+       .then(data => {
+         if (data.error) {
+           alert (data.error)
+         }
+         console.log(data)
+       })
+     })
+   }
 
 
 
