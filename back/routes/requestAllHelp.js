@@ -12,7 +12,7 @@ const requestAllHelp = (req, res) => {
 
   if(description.length < 30) {
     return res.status(400).json({
-      error: 'Description trop court (30 caractères minimum)'
+      error : 'Description trop court (30 caractères minimum)'
     })
   }
 
@@ -24,7 +24,7 @@ const requestAllHelp = (req, res) => {
     // if (error) throw error
     if(error) {
       return res.status(500).json({
-        error: error.message
+        error : error.message
         })
     }
     else {

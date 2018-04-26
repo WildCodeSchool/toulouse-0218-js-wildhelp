@@ -202,17 +202,35 @@ h1{
     background-color: white;
 }
 
- footer .imgbtn {
-     width:25px;
+ footer .imgbtn
+ {
+     width: 2%;
      filter: grayscale(80%);
      margin: 0% 2%;
 }
- footer .imgbtn:hover {
-     filter: grayscale(0);
+
+footer .slack
+{
+  width: 3.5%;
 }
+
+ footer .imgbtn:hover
+ {
+   filter: grayscale(0);
+ }
 
 footer p
 {
   font-size: 10px;
-  margin: 1%;
+  margin: 0,5%;
+}
+
+a
+{
+  color: black;
+}
+
+a:hover
+{
+  color: black;
 }

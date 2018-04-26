@@ -381,10 +381,14 @@ const footerForAllPage = /* @html */ `<footer>
     <a href="https://www.instagram.com/wildcodeschool/" target="_blank"><img class="imgbtn" src="logofooter/insta.png" alt="imgbtn"></a>
     <a href="https://twitter.com/wildcodeschool" target="_blank"><img class="imgbtn" src="logofooter/twitter.png" alt="imgbtn"></a>
     <a href="https://www.twitch.tv/khanaeleff" target="_blank"><img class="imgbtn" src="logofooter/twitch.png" alt="imgbtn"></a>
-    <a href="https://wild4ever.slack.com/" target="_blank"><img class="imgbtn" src="logofooter/slack.png" alt="imgbtn"></a>
+    <a href="https://wild4ever.slack.com/" target="_blank"><img class="imgbtn slack" src="logofooter/slack.png" alt="imgbtn"></a>
    </div>
    <div class="made col-md-12">
-     <p>Made by <a href="https://www.linkedin.com/in/leila-dqiqi-b55518160/">Leïla</a>, <a href="https://www.linkedin.com/in/nicolas-nivlet-b3aab6a3/">Nicolas</a>, <a href="https://www.linkedin.com/in/thientamtran/">Thien Tam</a>, <a href="https://www.linkedin.com/in/florentin-hauton-479a64156/">Florentin</a>.</p>
+     <p>Made by <a href="https://www.linkedin.com/in/leila-dqiqi-b55518160/" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="LinkedIn de Leïla !">Leïla</a>,
+       <a href="https://www.linkedin.com/in/florentin-hauton-479a64156/" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="LinkedIn de Florentin !">Florentin</a>,
+       <a href="https://www.linkedin.com/in/thientamtran/" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="LinkedIn de Thien Tam !">Thien Tam</a>,
+       <a href="https://www.linkedin.com/in/nicolas-nivlet-b3aab6a3/" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="LinkedIn de Jack !">Jack
+       </a> of WildCodeSchool 2018.</p>
    </div>
 
 </footer>`
