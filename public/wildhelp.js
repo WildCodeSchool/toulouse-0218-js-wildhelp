@@ -383,6 +383,9 @@ const footerForAllPage = /* @html */ `<footer>
     <a href="https://www.twitch.tv/khanaeleff" target="_blank"><img class="imgbtn" src="logofooter/twitch.png" alt="imgbtn"></a>
     <a href="https://wild4ever.slack.com/" target="_blank"><img class="imgbtn" src="logofooter/slack.png" alt="imgbtn"></a>
    </div>
+   <div class="made col-md-12">
+     <p>Made by <a href="https://www.linkedin.com/in/leila-dqiqi-b55518160/">Leïla</a>, <a href="https://www.linkedin.com/in/nicolas-nivlet-b3aab6a3/">Nicolas</a>, <a href="https://www.linkedin.com/in/thientamtran/">Thien Tam</a>, <a href="https://www.linkedin.com/in/florentin-hauton-479a64156/">Florentin</a>.</p>
+   </div>
 
 </footer>`
 
