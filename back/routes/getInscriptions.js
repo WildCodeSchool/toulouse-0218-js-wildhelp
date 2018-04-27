@@ -12,7 +12,7 @@ const getInscriptions =  (req, res) => {
       return res.status(400).json({
         error: 'champs non remplis !'
       })
-    }  
+    }
   }
 
   for (champ['password'] of champsObligatoires){

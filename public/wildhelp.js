@@ -155,7 +155,8 @@ const languageHtml = /* @html */`<div class="nav-side-menu">
    </div>
 </div>`
 
-const connexionHtml = /* @html */ `<section class="login-block">
+const connexionHtml = /* @html */ `
+  <section class="login-block">
    <div class="container" id="loginco">
       <div class="row">
          <div class="col-md-4 login-sec">
@@ -166,7 +167,7 @@ const connexionHtml = /* @html */ `<section class="login-block">
                   <input type="text" name="email" autocomplete="email" class="form-control" id="email" placeholder="wilder@example.com" required />
                </div>
                <div class="form-group">
-                  <label for="passeword" class="text-uppercase">Mot de Passe</label>
+                  <label for="password" class="text-uppercase">Mot de Passe</label>
                   <input type="password" autocomplete="current-password" name="password" class="form-control" id="password" placeholder="Mot-de-passe" required />
                </div>
                <div class="form-check">
@@ -196,7 +197,9 @@ const connexionHtml = /* @html */ `<section class="login-block">
          </div>
       </div>
    </div>
-</section>`
+ </section>`
+
+
 
 const coursproposeHtml = /* @html */ `<div class="nav-side-menu">
    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
@@ -544,7 +547,38 @@ const showAide = () => {
 
   const showConnexion = () => {
     render(connexionHtml)
-}
+
+
+     const form = document.getElementsByTagName('form')[0]
+     form.addEventListener('submit', evt => {
+       evt.preventDefault()
+       //Recupère
+       const data = {}
+       const inputs = document.getElementsByTagName('input')
+       for(let input of inputs) {
+         data[input.name] = input.value
+       }
+       fetch('/connexion', {
+         method: 'POST',
+         headers: {
+           Accept: 'application/json',
+           'Content-Type': 'application/json'
+         },
+         credentials: 'include',
+         body: JSON.stringify(data)
+       })
+       .then(r => r.json())
+       .then(user => {
+         if (user.accountType=="Wilder"){
+           page('/aide')
+         }
+         else{
+           page('/requete')
+         }
+       })
+     })
+   }
+
 
   const showAccueil = () => {
     render(accueilhtml)
