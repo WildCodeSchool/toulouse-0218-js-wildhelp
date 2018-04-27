@@ -21,10 +21,12 @@ const requestAllHelp = require('./routes/requestAllHelp')
 const getIndex = require('./routes/getIndex')
 const checkLoggedInUser = require('./routes/checkLoggedInUser')
 const getInscriptions = require('./routes/getInscriptions')
+const listerRequest = require('./routes/listerRequest')
 
 app.post('/register', getInscriptions)
 app.post('/connexion', checkLoggedInUser)
 app.post('/aide', requestAllHelp)
+app.get('/liste-requete', listerRequest)
 
 // en dernier
 app.get('*', getIndex)

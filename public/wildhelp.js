@@ -1,28 +1,28 @@
   'use strict'
 const targetElement = document.getElementById('main')
 
-const requetes = [
-  {
-    id : 1,
-    description : "Bonjour, j'ai besoin d'aide sur les fonctions.",
-    topic : "JavaScript",
-    date : "2018-04-20",
-  },
-
-  {
-    id : 2,
-    description : "Bonjour, j'ai besoin d'aide sur la créations de bases de données.",
-    topic : "MySQL",
-    date : "2018-04-24",
-  },
-
-  {
-    id : 3,
-    description : "Bonjour, j'ai besoin d'aide sur la créations de fonctions objet.",
-    topic : "JavaScript",
-    date : "2018-04-24",
-  }
-]
+// const requetes = [
+//   {
+//     id : 1,
+//     description : "Bonjour, j'ai besoin d'aide sur les fonctions.",
+//     topic : "JavaScript",
+//     date : "2018-04-20",
+//   },
+//
+//   {
+//     id : 2,
+//     description : "Bonjour, j'ai besoin d'aide sur la créations de bases de données.",
+//     topic : "MySQL",
+//     date : "2018-04-24",
+//   },
+//
+//   {
+//     id : 3,
+//     description : "Bonjour, j'ai besoin d'aide sur la créations de fonctions objet.",
+//     topic : "JavaScript",
+//     date : "2018-04-24",
+//   }
+// ]
 
 
 const accueilhtml =
@@ -201,50 +201,47 @@ const connexionHtml = /* @html */ `
 
 
 
-const coursproposeHtml = /* @html */ `<div class="nav-side-menu">
-   <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-      <a class="p-2 text-dark" href="/">
-         <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
-      </a>
-      <nav class="my-2 my-md-0 mr-md-3">
-         <a href="/" class="btn">
-         <span class="glyphicon glyphicon-log-out"></span> Deconnexion </a>
-      </nav>
-    </div>
-    </div>
-    <div class="container">
-       <div class="row">
-          <div class="col-xs-8">
-             <h3>Proposition de cours</h3>
-             <h4>Sujet traité</h4>
-             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas neque justo, pellentesque quis sagittis sed, placerat nec justo. Maecenas pulvinar lobortis lacus, vitae malesuada turpis mollis quis. Praesent sit amet nulla vitae velit luctus mollis. Aenean rhoncus aliquam viverra. Sed sed leo ligula.</p>
-          </div>
-          <div class="col-xs-3 col-xs-offset-1">
-             <h4>Profil helper</h4>
-             <p>Lorem ipsum dolor sit amet</p>
-          </div>
-       </div>
-       <div class="row">
-          <div class="col-xs-12">
-             <h4>Infos diverses</h4>
-             <p>Date : ## </p>
-             <p>Lieu : ## </p>
-             <p>Places: ## </p>
-          </div>
-       </div>
-       <div class="row">
-          <div class="col-xs-12 mb-2">
-             <button type="button" class="btn btn-warning btn-lg">Save me too !!!</button>
-          </div>
-       </div>
-    </div>`
+// const coursproposeHtml = /* @html */ `<div class="nav-side-menu">
+//    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+//       <a class="p-2 text-dark" href="/">
+//          <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
+//       </a>
+//       <nav class="my-2 my-md-0 mr-md-3">
+//          <a href="/" class="btn">
+//          <span class="glyphicon glyphicon-log-out"></span> Deconnexion </a>
+//       </nav>
+//     </div>
+//     </div>
+//     <div class="container">
+//        <div class="row">
+//           <div class="col-xs-8">
+//              <h3>Proposition de cours</h3>
+//              <h4>Sujet traité</h4>
+//              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas neque justo, pellentesque quis sagittis sed, placerat nec justo. Maecenas pulvinar lobortis lacus, vitae malesuada turpis mollis quis. Praesent sit amet nulla vitae velit luctus mollis. Aenean rhoncus aliquam viverra. Sed sed leo ligula.</p>
+//           </div>
+//           <div class="col-xs-3 col-xs-offset-1">
+//              <h4>Profil helper</h4>
+//              <p>Lorem ipsum dolor sit amet</p>
+//           </div>
+//        </div>
+//        <div class="row">
+//           <div class="col-xs-12">
+//              <h4>Infos diverses</h4>
+//              <p>Date : ## </p>
+//              <p>Lieu : ## </p>
+//              <p>Places: ## </p>
+//           </div>
+//        </div>
+//        <div class="row">
+//           <div class="col-xs-12 mb-2">
+//              <button type="button" class="btn btn-warning btn-lg">Save me too !!!</button>
+//           </div>
+//        </div>
+//     </div>`
 
-function getRequestItem(requete) {
 
-  return `<li class="list-group-item list-group-item-warning justify-content-between">${requete.description}</li>`
-}
 
-const listerequeteHtml = (requetes) => /* @html */ `<div class="nav-side-menu">
+const listerequeteHtml = requetes => /* @html */ `<div class="nav-side-menu">
    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
       <a class="p-2 text-dark" href="/">
          <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
@@ -310,9 +307,7 @@ const listerequeteHtml = (requetes) => /* @html */ `<div class="nav-side-menu">
       <div class="col-xs-12">
          <h3>Liste des requêtes</h3>
          <ul class="list-group">
-            ${
-            requetes.map(getRequestItem).join("")
-            }
+            ${requetes.map(getRequestItem).join("")}
          </ul>
       </div>
    </div>
@@ -322,6 +317,37 @@ const listerequeteHtml = (requetes) => /* @html */ `<div class="nav-side-menu">
       </div>
    </div>
 </div>`
+
+// const getRequestItem = requete => /* @html */ `
+//     <ul class="list-group">
+//        ${requetes.map(getRequestItem).join("")}
+//     </ul>
+// `
+
+function getRequestItem(requete) {
+
+  return `<li class="list-group-item list-group-item-warning justify-content-between">${requete.description}</li>`
+}
+
+const showListeRequete = () => {
+
+
+
+
+
+  fetch('/liste-requete', {
+    method: 'GET',
+    credentials: 'include',
+    headers: {
+      Accpet: 'application/json',
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(response => response.json())
+  .then(requetes => {
+    render(listerequeteHtml(requetes))
+  })
+}
 
 
 // PAGE DEMANDE AIDE
@@ -579,9 +605,7 @@ const showAide = () => {
     render(coursproposeHtml)
   }
 
-  const showListeRequete = () => {
-    render(listerequeteHtml(requetes))
-  }
+
 
 
 
