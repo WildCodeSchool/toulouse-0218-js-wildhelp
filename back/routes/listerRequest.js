@@ -27,7 +27,4 @@ const requetes = `SELECT * FROM wildRequest`
   })
 }
 
-
-
-
 module.exports = listerRequest

@@ -331,10 +331,6 @@ function getRequestItem(requete) {
 
 const showListeRequete = () => {
 
-
-
-
-
   fetch('/liste-requete', {
     method: 'GET',
     credentials: 'include',
