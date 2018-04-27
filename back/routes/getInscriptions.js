@@ -66,5 +66,4 @@ const getInscriptions =  (req, res) => {
 }
 
 
-
 module.exports = getInscriptions
