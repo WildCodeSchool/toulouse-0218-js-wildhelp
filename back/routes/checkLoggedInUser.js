@@ -1,11 +1,9 @@
 const  connection = require('../db')
 const mysqlEscape = require('../mysqlEscape')
-
-// const middleware = (req, res, next) => {
-//   console.log ('Tentative de connexion, passage du middleware')
-//   next()
-// }
-// app.use(middleware)
+// const session = require('express-session')
+// app.use(session({secret:"cats", resave:true, saveUninitialized: true}))
+// app.use(bodyParser.json())
+// app.use(bodyParser.urlencoded({extended: true}))
 
 const checkLoggedInUser = (req,res) => {
   const {email, password} = req.body

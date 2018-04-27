@@ -406,6 +406,15 @@ const footerForAllPage = /* @html */ `<footer>
 
 </footer>`
 
+
+// popup page accueil
+
+// $(function () {
+//   $('[data-toggle="popover"]').popover({
+//     html:true,
+//
+//   })
+// })
 $(function () {
 $('[data-toggle="popover"]').popover({html:true})
 })
