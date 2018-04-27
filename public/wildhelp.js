@@ -298,11 +298,6 @@ const listerequeteHtml = requetes => /* @html */ `<div class="nav-side-menu">
          </ul>
       </div>
    </div>
-   <div class="row">
-      <div class="col-xs-12">
-         <a href="/aide"><button class="btn btn-warning btn-lg">Help Me !!!</button></a>
-      </div>
-   </div>
 </div>`
 
 // const getRequestItem = requete => /* @html */ `
