@@ -235,6 +235,7 @@ const coursproposeHtml = /* @html */ `<div class="nav-side-menu">
     </div>`
 
 function getRequestItem(requete) {
+  
   return `<li class="list-group-item list-group-item-warning justify-content-between">${requete.description}</li>`
 }
 
