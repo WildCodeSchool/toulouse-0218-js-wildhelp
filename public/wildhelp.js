@@ -263,46 +263,33 @@ const listerequeteHtml = (requetes) => /* @html */ `<div class="nav-side-menu">
 <!-- Ajout icônes technologies proposées. -->
 
 <div class="container">
-      <h3>Technologies proposées</h3>
-        <div class="row">
-            <div class="col-md-1 offset-md-3 col-sm-2 logo">
-                <a href="/requete" target="_blank">
-                <img class="img-fluid" src="http://rodrigovenancio.info/wp-content/uploads/2017/04/1491199643_angular.png" alt="Angular Logo" />
-                <p>Angular</p>
-            </div>
+  <h3>Technologies proposées</h3>
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <div class="row">
+        <div class="col-md-4 col-sm logo">
+          <a href="/requete" target="_blank">
+            <img class="img-fluid" src="http://blog.zenika.com/wp-content/uploads/2016/04/java-logo.png" alt="Java Logo" />
+            <p>Java</p>
+        </div>
 
-            <div class="col-md-1 col-sm-2 logo">
-                <a href="/requete" target="_blank">
-                <img class="img-fluid" src="http://www.flook.co/img/skills/nodejs.ico" alt="NodeJs Logo" />
-                <p>NodeJs</p>
-            </div>
+          <div class="col-md-4 col-sm logo">
+            <a href="/requete" target="_blank">
+              <img class="img-fluid" src="http://edmundtian.com/images/nodejs.ico" alt="JavaScript Logo" />
+              <p>JavaScript</p>
+          </div>
 
-            <div class="col-md-1 col-sm-2 logo">
-                <a href="/requete" target="_blank">
-                <img class="img-fluid" src="http://nikhilnanjappa.github.io/img/react-logo.png" alt="React Logo" />
-                <p>React</p>
+            <div class="col-md-4 col-sm logo">
+              <a href="/requete" target="_blank">
+                <img class="img-fluid" src="http://muchocodigo.com/wp-content/uploads/2013/11/php.jpg" alt="Php Logo" />
+                <p>Php</p>
             </div>
-
-            <div class="col-md-1 col-sm-2 logo">
-                <a href="/requete" target="_blank">
-                <img class="img-fluid" src="https://silentbedlam.gallerycdn.vsassets.io/extensions/silentbedlam/vuejs-jquery-bootstrapprojecttemplate/1.0/1491418503089/257278/1/thumbnail.png" alt="VueJs Logo" />
-                <p>VueJs</p>
-            </div>
-
-            <div class="col-md-1 col-sm-2 logo">
-                <a href="/requete" target="_blank">
-                <img class="img-fluid" src="http://onusinfotech.com/wp-content/uploads/2_0.png" alt="Symfony Logo" />
-                <p>Symfony</p>
-            </div>
-
-            <div class="col-md-1 col-sm-2 logo">
-                <a href="/requete" target="_blank">
-                <img class="img-fluid" src="https://developer.akamai.com/blog/wp-content/uploads/2017/03/android-logo.png" alt="Android Logo" />
-                <p>Android</p>
-                </a>
-            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
+
+
 
 
 <div class="container">
