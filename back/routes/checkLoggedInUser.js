@@ -20,8 +20,8 @@ const checkLoggedInUser = (req,res) => {
         error: error.message
       })
     }
-    console.log(results)
-    res.json({results})
+
+    res.json(results[0])
   })
 }
 module.exports = checkLoggedInUser
