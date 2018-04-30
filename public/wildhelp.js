@@ -326,7 +326,7 @@ function getRequestItem(requete) {
           ${requete.description}<br>
 
           <p>Comment me contacter ?</p>
-          <form id="choix-contact">
+          <form class="choix-contact">
 
             <input type="radio" name="contact" value="email" checked />par e-mail<br>
             <input type="radio" name="contact" value="slack" />sur Slack
@@ -353,24 +353,27 @@ const showListeRequete = () => {
   .then(response => response.json())
   .then(requetes => {
     render(listerequeteHtml(requetes))
-      const formulaire = document.getElementById('choix-contact')
-      const inputs = formulaire.getElementsByTagName('input')
-      const inputPseudoSlack = inputs[2]
-      for (let i = 0; i <= 1; i++ ) {
-        const bouton = inputs[i]
-        bouton.addEventListener("click", function () {
-        console.dir(bouton)
+      const formulaires = document.getElementsByClassName('choix-contact')
+      for (const formulaire of formulaires) {
+        const inputs = formulaire.getElementsByTagName('input')
+        const inputPseudoSlack = inputs[2]
+        for (let i = 0; i <= 1; i++ ) {
+          const bouton = inputs[i]
+          bouton.addEventListener("click", function () {
+          console.dir(bouton)
 
 
-         if (bouton.value == "slack") {
-          inputPseudoSlack.style.display="inline"
-         }
+           if (bouton.value == "slack") {
+            inputPseudoSlack.style.display="inline"
+           }
 
-         else {
-          inputPseudoSlack.style.display="none"
-         }
-        })
+           else {
+            inputPseudoSlack.style.display="none"
+           }
+          })
+        }
       }
+
   })
 }
 
