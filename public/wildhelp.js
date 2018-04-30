@@ -268,18 +268,21 @@ const listerequeteHtml = requetes => /* @html */ `<div class="nav-side-menu">
           <a href="/requete" target="_blank">
             <img class="img-fluid" src="http://blog.zenika.com/wp-content/uploads/2016/04/java-logo.png" alt="Java Logo" />
             <p>Java</p>
+          </a>
         </div>
 
           <div class="col-md-4 col-sm logo">
             <a href="/requete" target="_blank">
               <img class="img-fluid" src="http://edmundtian.com/images/nodejs.ico" alt="JavaScript Logo" />
               <p>JavaScript</p>
+            </a>
           </div>
 
             <div class="col-md-4 col-sm logo">
               <a href="/requete" target="_blank">
                 <img class="img-fluid" src="http://muchocodigo.com/wp-content/uploads/2013/11/php.jpg" alt="Php Logo" />
                 <p>Php</p>
+              </a>
             </div>
           </div>
         </div>
@@ -295,6 +298,7 @@ const listerequeteHtml = requetes => /* @html */ `<div class="nav-side-menu">
          <h3>Liste des requêtes</h3>
          <ul class="list-group">
             ${requetes.map(getRequestItem).join("")}
+
          </ul>
       </div>
    </div>
@@ -308,7 +312,21 @@ const listerequeteHtml = requetes => /* @html */ `<div class="nav-side-menu">
 
 function getRequestItem(requete) {
 
-  return `<li class="list-group-item list-group-item-warning justify-content-between">${requete.description}</li>`
+  return `<div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          ${requete.topic}
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+          ${requete.description}
+      </div>
+    </div>
+  </div>`
 }
 
 const showListeRequete = () => {
