@@ -294,11 +294,11 @@ const listerequeteHtml = requetes => /* @html */ `<div class="nav-side-menu">
 
 <div class="container">
    <div class="row">
-      <div class="col-xs-12">
+      <div class="col-md-12">
          <h3>Liste des requêtes</h3>
-         <ul class="list-group">
+         <div id="accordion">
             ${requetes.map(getRequestItem).join("")}
-
+          </div>
          </ul>
       </div>
    </div>
@@ -315,15 +315,26 @@ function getRequestItem(requete) {
   return `<div class="card">
     <div class="card-header" id="headingOne">
       <h5 class="mb-0">
-        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#${requete.id}" aria-expanded="true" aria-controls="collapseOne">
           ${requete.topic}
         </button>
       </h5>
     </div>
 
-    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+    <div id="${requete.id}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body">
-          ${requete.description}
+          ${requete.description}<br>
+
+          <p>Comment me contacter ?</p>
+          <form id="choix-contact">
+
+            <input type="radio" name="contact" value="email" checked />par e-mail<br>
+            <input type="radio" name="contact" value="slack" />sur Slack
+
+
+            <input type="text" name="pseudoSlack" value="" style="display:none" /><br>
+            <button type="submit" class="btn btn-primary">A l'aide !</button>
+          </form>
       </div>
     </div>
   </div>`
@@ -342,6 +353,24 @@ const showListeRequete = () => {
   .then(response => response.json())
   .then(requetes => {
     render(listerequeteHtml(requetes))
+      const formulaire = document.getElementById('choix-contact')
+      const inputs = formulaire.getElementsByTagName('input')
+      const inputPseudoSlack = inputs[2]
+      for (let i = 0; i <= 1; i++ ) {
+        const bouton = inputs[i]
+        bouton.addEventListener("click", function () {
+        console.dir(bouton)
+
+
+         if (bouton.value == "slack") {
+          inputPseudoSlack.style.display="inline"
+         }
+
+         else {
+          inputPseudoSlack.style.display="none"
+         }
+        })
+      }
   })
 }
 
