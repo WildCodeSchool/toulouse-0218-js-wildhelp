@@ -496,7 +496,7 @@ const showAide = () => {
          page ('/requete')
        })
      })
-     }
+    }
 
 
 
@@ -530,9 +530,11 @@ const showAide = () => {
        .then(user => {
          if (user.accountType=="Wilder"){
            page('/aide')
+           credentials: 'include'
          }
          else{
            page('/requete')
+           credentials: 'include'
          }
        })
      })
