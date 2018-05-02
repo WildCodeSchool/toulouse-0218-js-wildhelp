@@ -24,7 +24,7 @@ const checkLoggedInUser = require('./routes/checkLoggedInUser')
 const getInscriptions = require('./routes/getInscriptions')
 const logOut = require('./routes/logOut')
 const listerRequest = require('./routes/listerRequest')
-<<<<<<< HEAD
+
 //
 // const middleware = (req, res, next) => {
 //    if(req.session !== undefined && req.session.user !== undefined){
@@ -38,7 +38,6 @@ const listerRequest = require('./routes/listerRequest')
 // }
 //
 //
-=======
 
 const middleware = (req, res, next) => {
    if(req.session !== undefined && req.session.user !== undefined){
@@ -50,9 +49,6 @@ const middleware = (req, res, next) => {
      })
    }
 }
-
-
->>>>>>> pageHelp
 
 app.post('/register', getInscriptions)
 app.post('/connexion', checkLoggedInUser)

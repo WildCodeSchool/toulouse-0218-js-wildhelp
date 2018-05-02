@@ -32,10 +32,7 @@ const html = user => /* @html */ `
 
 
 const getIndex = (req, res) => {
-<<<<<<< HEAD
 
-=======
->>>>>>> pageHelp
   console.log(req.session.user)
   res.send(html(req.session.user))
   res.end()
