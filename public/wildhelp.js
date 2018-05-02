@@ -223,7 +223,7 @@ function getRequestItem(requete) {
             <input type="text" name="pseudoSlack" value="" style="display:none" /><br>
 
           </form> -->
-          <button type="submit" class="jelaide btn btn-primary">Je l'aide</button>
+          <button type="submit" class="jelaide btn">Je l'aide</button>
       </div>
     </div>
   </div>`

@@ -20,7 +20,6 @@ body {
 
 .accInscription p
 {
-
   color: white;
   text-align: center;
   font-size: 35px;
@@ -146,6 +145,7 @@ h3{
 h6{
   text-align: center;
   font-size: 10px;
+  padding-bottom: 15px;
 }
 
 .logo{
@@ -206,6 +206,10 @@ h6{
   margin-bottom: 9%;
   font-weight: normal;
   font-size: 16px;
+}
+
+btn-link{
+  background: #FFF;
 }
 
 .jelaide{
