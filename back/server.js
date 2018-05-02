@@ -38,7 +38,7 @@ const middleware = (req, res, next) => {
 app.post('/register', getInscriptions)
 app.post('/connexion', checkLoggedInUser)
 app.post('/aide', middleware, requestAllHelp)
-
+app.get('/liste-requete', listerRequest)
 app.get('/logout', logOut)
 app.get('*', getIndex)
 
