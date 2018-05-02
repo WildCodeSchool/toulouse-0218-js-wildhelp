@@ -25,7 +25,7 @@ const listerRequest = require('./routes/listerRequest')
 
 const middleware = (req, res, next) => {
    if(req.session !== undefined && req.session.user !== undefined){
-      const user = req.session.email
+      const user = req.session.user
       next()
    } else {
      res.status(401).json({

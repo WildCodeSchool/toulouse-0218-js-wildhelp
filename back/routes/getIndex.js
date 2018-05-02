@@ -24,15 +24,15 @@ const html = user => /* @html */ `
     <script src="page.js"></script>
     <script>
    // On transforme l'user passé en paramètre en string
-   let loggedInUser = ${ JSON.stringify(user) }
-   </script>
+     let loggedInUser = ${ JSON.stringify(user) }
+     </script>
     <script src="wildhelp.js"></script>
   </body>
 </html>`
 
 
 const getIndex = (req, res) => {
-  console.log('wildcard route')
+  console.log(req.session.user)
   res.send(html(req.session.user))
   res.end()
 }

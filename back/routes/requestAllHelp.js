@@ -15,7 +15,7 @@ const requestAllHelp =  (req, res) => {
     })
   }
       const userId = req.session.user.id
-      const request = `INSERT INTO wildRequest (userId, technoId, topic, description ) VALUES (${userId}, ${technoId}, '${topic}', '${description}' )`
+      const request = `INSERT INTO wildRequest (userId, technoId, topic, description ) VALUES (${userId}, ${technoId}, '${topic}', '${description}')`
 
 
   connection.query(request, (error, results) => {

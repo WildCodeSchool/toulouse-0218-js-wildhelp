@@ -24,7 +24,9 @@ const checkLoggedInUser = (req, res) => {
         error: 'Identifiant ou mot de passe incorrect'
       })
     }
-    console.log(results[0])
+
+    req.session.user =results[0]
+    console.log(req.session.user)
     res.json(results[0])
   })
 }
