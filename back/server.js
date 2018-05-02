@@ -24,7 +24,7 @@ const logOut = require('./routes/logOut')
 const listerRequest = require('./routes/listerRequest')
 
 const middleware = (req, res, next) => {
-   if(req.session !== undefined && req.session.email !== undefined){
+   if(req.session !== undefined && req.session.user !== undefined){
       const user = req.session.email
       next()
    } else {

@@ -25,7 +25,7 @@ const checkLoggedInUser = (req, res) => {
       })
     }
     console.log(results[0])
-    res.json({results})
+    res.json(results[0])
   })
 }
 

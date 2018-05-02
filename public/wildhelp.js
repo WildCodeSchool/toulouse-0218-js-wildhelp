@@ -1,35 +1,12 @@
   'use strict'
 const targetElement = document.getElementById('main')
 
-// const requetes = [
-//   {
-//     id : 1,
-//     description : "Bonjour, j'ai besoin d'aide sur les fonctions.",
-//     topic : "JavaScript",
-//     date : "2018-04-20",
-//   },
-//
-//   {
-//     id : 2,
-//     description : "Bonjour, j'ai besoin d'aide sur la créations de bases de données.",
-//     topic : "MySQL",
-//     date : "2018-04-24",
-//   },
-//
-//   {
-//     id : 3,
-//     description : "Bonjour, j'ai besoin d'aide sur la créations de fonctions objet.",
-//     topic : "JavaScript",
-//     date : "2018-04-24",
-//   }
-// ]
-
 
 const accueilhtml =
 /* @html */`<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4  bg-white border-bottom box-shadow" id="navBarAcc">
    <h4 class="my-0 mr-md-auto">Wild Help</h4>
    <nav class="my-2 my-md-0 mr-md-3">
-      <a href='/helper' data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Inscris toi pour aider les nouveaux élèves !">Alumni</a>
+      <a href='/helper' data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom"  data-content="Inscris toi pour aider les nouveaux élèves !">Alumni</a>
    </nav>
    <a class="btn" href="/connexion">Connexion</a>
 </div>
@@ -47,9 +24,6 @@ const accueilhtml =
 $(document).ready(function(){
     $('[data-toggle="popover"]').popover();
 });
-$(document).hover(function(){
-       $("[data-toggle='popover']").popover('hide');
-   });
 
 const inscriptionHtml = (title, text, type) =>
 /* @html */ `
@@ -423,29 +397,10 @@ const footerForAllPage = /* @html */ `<footer>
 </footer>`
 
 
-// popup page accueil
-
-
-$(function () {
-$('[data-toggle="popover"]').popover({html:true})
-})
-
-
-
 // DEBUT PAGE HELP
 const showAide = () => {
     render(aideHtml)
 
-      const middleware = (req, res, next) => {
-         if(req.session !== undefined && req.session.email !== undefined){
-            const user = req.session.email
-            next()
-         } else {
-           res.status(401).json({
-             error: 'Unauthorized Access'
-           })
-         }
-      }
 // Envois du formulaire vers la database
     const formCours = document.getElementById('formHelp')
     formCours.addEventListener('submit', event => {
@@ -530,6 +485,9 @@ const showAide = () => {
 
    const showInscriptionHelper = () => {
      render(inscriptionHtml('Inscription Alumni', 'Un élève de la Wild Code School est en détresse. Seras-tu l\'aider ?', 'Helper'))
+
+         $('[data-toggle="popover"]').remove();
+
      const element = document.getElementById('sinscrire')
      const myForml = document.getElementById('myFormulaireInscription')
      myForml.addEventListener('submit', e => {
@@ -599,8 +557,14 @@ const showAide = () => {
           alert(data.error)
         }
         else {
-          page ('/requete')
+           loggedInUser = data
+          if (data.accountType=="Wilder"){
+           page('/aide')
+         }
+         else{
+           page('/requete')
         }
+      }
         console.log(data)
       })
     })
