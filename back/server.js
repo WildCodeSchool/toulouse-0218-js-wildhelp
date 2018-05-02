@@ -21,6 +21,7 @@ const getIndex = require('./routes/getIndex')
 const checkLoggedInUser = require('./routes/checkLoggedInUser')
 const getInscriptions = require('./routes/getInscriptions')
 const logOut = require('./routes/logOut')
+const listerRequest = require('./routes/listerRequest')
 
 const middleware = (req, res, next) => {
    if(req.session !== undefined && req.session.email !== undefined){
