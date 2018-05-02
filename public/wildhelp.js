@@ -115,7 +115,7 @@ const languageHtml = /* @html */`<div class="nav-side-menu">
       <a class="p-2 text-dark" href="/">
          <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
       </a>
-      <a class="btn btn-log-out" href="/"><span class="glyphicon glyphicon-log-out">Deconnexion </span> </a>
+      <a class="btn btn-log-out" href="/logout"><span class="glyphicon glyphicon-log-out">Deconnexion </span> </a>
    </div>
 </div>
 <div class="titleLanguages">
@@ -215,8 +215,7 @@ const listerequeteHtml = (requetes) => /* @html */ `<div class="nav-side-menu">
          <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
       </a>
       <nav class="my-2 my-md-0 mr-md-3">
-         <a href="/" class="btn">
-         <span class="glyphicon glyphicon-log-out"></span> Deconnexion </a>
+           <a class="btn btn-log-out" href="/logout"><span class="glyphicon glyphicon-log-out">Deconnexion </span> </a>
       </nav>
    </div>
 </div>
@@ -234,18 +233,21 @@ const listerequeteHtml = (requetes) => /* @html */ `<div class="nav-side-menu">
           <a href="/requete" target="_blank">
             <img class="img-fluid" src="http://blog.zenika.com/wp-content/uploads/2016/04/java-logo.png" alt="Java Logo" />
             <p>Java</p>
+          </a>
         </div>
 
           <div class="col-md-4 col-sm logo">
             <a href="/requete" target="_blank">
               <img class="img-fluid" src="http://edmundtian.com/images/nodejs.ico" alt="JavaScript Logo" />
               <p>JavaScript</p>
+            </a>
           </div>
 
             <div class="col-md-4 col-sm logo">
               <a href="/requete" target="_blank">
                 <img class="img-fluid" src="http://muchocodigo.com/wp-content/uploads/2013/11/php.jpg" alt="Php Logo" />
                 <p>Php</p>
+              </a>
             </div>
           </div>
         </div>
@@ -257,10 +259,11 @@ const listerequeteHtml = (requetes) => /* @html */ `<div class="nav-side-menu">
 
 <div class="container">
    <div class="row">
-      <div class="col-xs-12">
+      <div class="col-md-12">
          <h3>Liste des requêtes</h3>
-         <ul class="list-group">
+         <div id="accordion">
             ${requetes.map(getRequestItem).join("")}
+          </div>
          </ul>
       </div>
    </div>
@@ -274,7 +277,32 @@ const listerequeteHtml = (requetes) => /* @html */ `<div class="nav-side-menu">
 
 function getRequestItem(requete) {
 
-  return `<li class="list-group-item list-group-item-warning justify-content-between">${requete.description}</li>`
+  return `<div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#${requete.id}" aria-expanded="true" aria-controls="collapseOne">
+          ${requete.topic}
+        </button>
+      </h5>
+    </div>
+
+    <div id="${requete.id}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+          ${requete.description}<br>
+
+          <p>Comment me contacter ?</p>
+          <form class="choix-contact">
+
+            <input type="radio" name="contact" value="email" checked />par e-mail<br>
+            <input type="radio" name="contact" value="slack" />sur Slack
+
+
+            <input type="text" name="pseudoSlack" value="" style="display:none" /><br>
+            <button type="submit" class="btn btn-primary">A l'aide !</button>
+          </form>
+      </div>
+    </div>
+  </div>`
 }
 
 const showListeRequete = () => {
@@ -290,6 +318,27 @@ const showListeRequete = () => {
   .then(response => response.json())
   .then(requetes => {
     render(listerequeteHtml(requetes))
+      const formulaires = document.getElementsByClassName('choix-contact')
+      for (const formulaire of formulaires) {
+        const inputs = formulaire.getElementsByTagName('input')
+        const inputPseudoSlack = inputs[2]
+        for (let i = 0; i <= 1; i++ ) {
+          const bouton = inputs[i]
+          bouton.addEventListener("click", function () {
+          console.dir(bouton)
+
+
+           if (bouton.value == "slack") {
+            inputPseudoSlack.style.display="inline"
+           }
+
+           else {
+            inputPseudoSlack.style.display="none"
+           }
+          })
+        }
+      }
+
   })
 }
 
@@ -304,10 +353,7 @@ const aideHtml = /* @html */ `
            <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
         </a>
       </nav>
-      <a href="/" class="btn btn-info btn-lg">
-        <span class="glyphicon glyphicon-log-out">
-        </span> Deconnexion
-      </a>
+       <a class="btn btn-log-out" href="/logout"><span class="glyphicon glyphicon-log-out">Deconnexion </span> </a>
    </div>
    <div class="container">
      <form id="formHelp" class="form-horizontal" method="POST" action="/aide">
@@ -379,20 +425,27 @@ const footerForAllPage = /* @html */ `<footer>
 
 // popup page accueil
 
-// $(function () {
-//   $('[data-toggle="popover"]').popover({
-//     html:true,
-//
-//   })
-// })
+
 $(function () {
 $('[data-toggle="popover"]').popover({html:true})
 })
 
 
+
 // DEBUT PAGE HELP
 const showAide = () => {
     render(aideHtml)
+
+      const middleware = (req, res, next) => {
+         if(req.session !== undefined && req.session.email !== undefined){
+            const user = req.session.email
+            next()
+         } else {
+           res.status(401).json({
+             error: 'Unauthorized Access'
+           })
+         }
+      }
 // Envois du formulaire vers la database
     const formCours = document.getElementById('formHelp')
     formCours.addEventListener('submit', event => {
@@ -416,7 +469,9 @@ const showAide = () => {
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json'
-        }
+        },
+        credentials: 'include',
+        body: JSON.stringify(data)
       })
       .then(response => response.json())
       .then(data => {
@@ -457,7 +512,9 @@ const showAide = () => {
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json'
-        }
+        },
+        credentials: 'include',
+        body: JSON.stringify(data)
       })
       .then(response => response.json())
       .then(data => {
@@ -491,7 +548,9 @@ const showAide = () => {
          headers: {
            Accept: 'application/json',
            'Content-Type': 'application/json'
-         }
+         },
+         credentials: 'include',
+         body: JSON.stringify(data)
        })
        .then(response => response.json())
        .then(data => {
@@ -514,36 +573,37 @@ const showAide = () => {
   const showConnexion = () => {
     render(connexionHtml)
 
-
-     const form = document.getElementsByTagName('form')[0]
-     form.addEventListener('submit', evt => {
-       evt.preventDefault()
-       //Recupère
-       const data = {}
-       const inputs = document.getElementsByTagName('input')
-       for(let input of inputs) {
-         data[input.name] = input.value
-       }
-       fetch('/connexion', {
-         method: 'POST',
-         headers: {
-           Accept: 'application/json',
-           'Content-Type': 'application/json'
-         },
-         credentials: 'include',
-         body: JSON.stringify(data)
-       })
-       .then(r => r.json())
-       .then(user => {
-         if (user.accountType=="Wilder"){
-           page('/aide')
-         }
-         else{
-           page('/requete')
-         }
-       })
-     })
-   }
+    const form = document.getElementsByTagName('form')[0]
+    form.addEventListener('submit', evt => {
+      evt.preventDefault()
+      const inputs = form.getElementsByTagName('input')
+      let data = {}
+      for (let input of inputs) {
+        if (input.name !== '') {
+          data[input.name] = input.value
+        }
+      }
+      fetch('/connexion', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        credentials: 'include',
+        body: JSON.stringify(data)
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.error) {
+          alert(data.error)
+        }
+        else {
+          page ('/requete')
+        }
+        console.log(data)
+      })
+    })
+  }
 
 
   const showAccueil = () => {
@@ -553,6 +613,7 @@ const showAide = () => {
   const showCoursPropose = () => {
     render(coursproposeHtml)
   }
+
 
 
 
