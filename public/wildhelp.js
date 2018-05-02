@@ -1,90 +1,65 @@
   'use strict'
 const targetElement = document.getElementById('main')
 
-// const requetes = [
-//   {
-//     id : 1,
-//     description : "Bonjour, j'ai besoin d'aide sur les fonctions.",
-//     topic : "JavaScript",
-//     date : "2018-04-20",
-//   },
-//
-//   {
-//     id : 2,
-//     description : "Bonjour, j'ai besoin d'aide sur la créations de bases de données.",
-//     topic : "MySQL",
-//     date : "2018-04-24",
-//   },
-//
-//   {
-//     id : 3,
-//     description : "Bonjour, j'ai besoin d'aide sur la créations de fonctions objet.",
-//     topic : "JavaScript",
-//     date : "2018-04-24",
-//   }
-// ]
-
 
 const accueilhtml =
 /* @html */`<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4  bg-white border-bottom box-shadow" id="navBarAcc">
-   <h4 class="my-0 mr-md-auto"></h4>
+   <h4 class="my-0 mr-md-auto">Wild Help</h4>
    <nav class="my-2 my-md-0 mr-md-3">
-      <a href='/helper' data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Inscris toi pour aider les nouveaux élèves !">Alumni</a>
+      <a href='/helper' data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom"  data-content="Inscris toi pour aider les nouveaux élèves !">Alumni</a>
    </nav>
    <a class="btn" href="/connexion">Connexion</a>
 </div>
     <div class="row background">
   <img class ="container-fluid" src="/image/gif1.gif" type="image/gif" height="150%" loop="0" />
    <div class="accInscription">
-      <h1>Wild Help</h1>
       <p>Profite de la communauté des développeurs Alumni de la Wild pour t'aider à résoudre les casse-têtes les plus fous durant ta formation !</p>
+  </div>
+  <div class="btnWild">
       <a href="/wilder"><button type="button" class="btn">Inscription</button></a>
-   </div>
+  </div>
 </div>`
 
 
 $(document).ready(function(){
     $('[data-toggle="popover"]').popover();
 });
-$(document).hover(function(){
-       $("[data-toggle='popover']").popover('hide');
-   });
 
-const inscriptionHtml = (title, type) =>
-/* @html */ `<div class="container">
-   <form method="POST" id="myFormulaireInscription" class="form-horizontal"  action="/register">
+const inscriptionHtml = (title, text, type) =>
+/* @html */ `
+
+  <section class="FormulaireInsc">
+  <form method="POST" id="myFormulaireInscription" class="form-horizontal"  action="/register" >
       <input type="hidden" name="accountType" value="${type}" />
-      <div class="row">
-         <div class="col-md-3"></div>
-         <div class="col-md-6">
-            <h1>${title}</h1>
-            <hr>
-         </div>
-      </div>
-      <div class="col-md-12">
+      <div class="container">
          <div class="card">
             <div class="card-body">
                <div class="row">
-                  <div class="col-md-4">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6"> <h1>${title}</h1></div>
+                    <div class="col-md-12 text-center">
+                       <p>${text}</p>
+                    </div>
+                  <div class="col-md-6">
                      <label for="name">Prénom</label>
                      <div class="form-group">
                         <div class="input-group-addon" style="width: 2.6rem"></div>
-                        <input type="text" name="name" autocomplete="given-name" class="form-control" id="given" placeholder="John" />
+                        <input type="text" name="name" autocomplete="given-name" class="form-control" id="given" placeholder="John" required="required"/>
                      </div>
                      <label for="surname">Nom</label>
                      <div class="form-group">
                         <div class="input-group-addon" style="width: 2.6rem"></div>
-                        <input type="text" name="surname" autocomplete="family-name" class="form-control" id="family" placeholder="Doe" />
+                        <input type="text" name="surname" autocomplete="family-name" class="form-control" id="family" placeholder="Doe" required="required"/>
                      </div>
                      <label for="email">E-mail</label>
                      <div class="form-group">
                         <div class="input-group-addon" style="width: 2.6rem"></div>
-                        <input type="text" name="email" autocomplete="email" class="form-control" id="email" placeholder="wilder@example.com" />
+                        <input type="text" name="email" autocomplete="email" class="form-control" id="email" placeholder="wilder@example.com" required="required"/>
                      </div>
                      <label for="password">Mot de passe</label>
                      <div class="form-group">
                         <div class="input-group-addon" style="width: 2.6rem"></div>
-                        <input type="password" name="password" autocomplete="current-password" class="form-control" id="current" placeholder="Mot-de-passe" />
+                        <input type="password" name="password" autocomplete="current-password" class="form-control" id="current" placeholder="Mot-de-passe" required="required"/>
                      </div>
 
                      <input type="submit" value="S'inscrire" id="sinscrire" />
@@ -94,9 +69,9 @@ const inscriptionHtml = (title, type) =>
                      </button>
                     </a>
                   </div>
-                  <div class="container-fluid col-md-8">
+                  <div class="container col-md-6">
                      <div class="ImgInscription">
-                        <img class="d-block" src="/image/formInsc.jpg" alt="ImgInscription">
+                        <img class="img-fluid" src="/image/formInsc.jpg" id="imageInscription"  alt="ImgInscription">
                      </div>
                   </div>
                </div>
@@ -104,14 +79,17 @@ const inscriptionHtml = (title, type) =>
          </div>
       </div>
    </form>
-</div>`
+ </section>`
+
+
+
 
 const languageHtml = /* @html */`<div class="nav-side-menu">
    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
       <a class="p-2 text-dark" href="/">
          <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
       </a>
-      <a class="btn btn-log-out" href="/"><span class="glyphicon glyphicon-log-out">Deconnexion </span> </a>
+      <a class="btn btn-log-out" href="/logout"><span class="glyphicon glyphicon-log-out">Deconnexion </span> </a>
    </div>
 </div>
 <div class="titleLanguages">
@@ -175,7 +153,7 @@ const connexionHtml = /* @html */ `
                   <input type="checkbox" class="form-check-input">
                   <small>Se souvenir de moi</small>
                   </label>
-                  <input type="submit" value="Connexion" />
+                  <input type="submit" class="btn-login" value="Connexion" />
                </div>
             </form>
             <div id="result"></div>
@@ -184,13 +162,12 @@ const connexionHtml = /* @html */ `
             <div id="carousel" class="carousel slide" data-ride="carousel">
                <div class="carousel-inner" role="listbox">
                   <div class="carousel-item active">
-                     <img class="d-block img-fluid" src="https://images.unsplash.com/photo-1497171156029-51dfc973e5f9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c8e7ca2e7514a9e0e66fcc2091dc2ad5&auto=format&fit=crop&w=1050&q=80" alt="First slide">
+                    <img class="d-block img-fluid" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=37c91c8e3f63462e0739c676dfe8fee8&auto=format&fit=crop&w=1050&q=80" alt="Second slide">
+
                   </div>
+
                   <div class="carousel-item">
-                     <img class="d-block img-fluid" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=37c91c8e3f63462e0739c676dfe8fee8&auto=format&fit=crop&w=1050&q=80" alt="Second slide">
-                  </div>
-                  <div class="carousel-item">
-                     <img class="d-block img-fluid" src="https://images.unsplash.com/photo-1506452819137-0422416856b8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=35c3a22e647b11004efd8135de82164c&auto=format&fit=crop&w=966&q=80" alt="Third slide">
+                    <img class="d-block img-fluid" src="https://images.unsplash.com/photo-1497171156029-51dfc973e5f9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c8e7ca2e7514a9e0e66fcc2091dc2ad5&auto=format&fit=crop&w=1050&q=80" alt="First slide">
                   </div>
                </div>
             </div>
@@ -201,60 +178,22 @@ const connexionHtml = /* @html */ `
 
 
 
-// const coursproposeHtml = /* @html */ `<div class="nav-side-menu">
-//    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-//       <a class="p-2 text-dark" href="/">
-//          <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
-//       </a>
-//       <nav class="my-2 my-md-0 mr-md-3">
-//          <a href="/" class="btn">
-//          <span class="glyphicon glyphicon-log-out"></span> Deconnexion </a>
-//       </nav>
-//     </div>
-//     </div>
-//     <div class="container">
-//        <div class="row">
-//           <div class="col-xs-8">
-//              <h3>Proposition de cours</h3>
-//              <h4>Sujet traité</h4>
-//              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas neque justo, pellentesque quis sagittis sed, placerat nec justo. Maecenas pulvinar lobortis lacus, vitae malesuada turpis mollis quis. Praesent sit amet nulla vitae velit luctus mollis. Aenean rhoncus aliquam viverra. Sed sed leo ligula.</p>
-//           </div>
-//           <div class="col-xs-3 col-xs-offset-1">
-//              <h4>Profil helper</h4>
-//              <p>Lorem ipsum dolor sit amet</p>
-//           </div>
-//        </div>
-//        <div class="row">
-//           <div class="col-xs-12">
-//              <h4>Infos diverses</h4>
-//              <p>Date : ## </p>
-//              <p>Lieu : ## </p>
-//              <p>Places: ## </p>
-//           </div>
-//        </div>
-//        <div class="row">
-//           <div class="col-xs-12 mb-2">
-//              <button type="button" class="btn btn-warning btn-lg">Save me too !!!</button>
-//           </div>
-//        </div>
-//     </div>`
+function getRequestItem(requete) {
 
+  return `<li class="list-group-item list-group-item-warning justify-content-between">${requete.description}</li>`
+}
 
-
-const listerequeteHtml = requetes => /* @html */ `<div class="nav-side-menu">
+const listerequeteHtml = (requetes) => /* @html */ `<div class="nav-side-menu">
    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
       <a class="p-2 text-dark" href="/">
          <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
       </a>
       <nav class="my-2 my-md-0 mr-md-3">
-         <a href="/" class="btn">
-         <span class="glyphicon glyphicon-log-out"></span> Deconnexion </a>
+           <a class="btn btn-log-out" href="/logout"><span class="glyphicon glyphicon-log-out">Deconnexion </span> </a>
       </nav>
    </div>
 </div>
-<div class="container">
-   <h1>Wild Help</h1>
-</div>
+
 
 
 <!-- Ajout icônes technologies proposées. -->
@@ -389,10 +328,7 @@ const aideHtml = /* @html */ `
            <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
         </a>
       </nav>
-      <a href="/" class="btn btn-info btn-lg">
-        <span class="glyphicon glyphicon-log-out">
-        </span> Deconnexion
-      </a>
+       <a class="btn btn-log-out" href="/logout"><span class="glyphicon glyphicon-log-out">Deconnexion </span> </a>
    </div>
    <div class="container">
      <form id="formHelp" class="form-horizontal" method="POST" action="/aide">
@@ -418,7 +354,7 @@ const aideHtml = /* @html */ `
            <div class="col-md-12">
              <p>
                <label for="topic">Sujet requête :</label>
-               <input type="text" class="form-control" name="topic" id="topic" placeholder="Ex : Algorithme" size="40" maxlength="50" required="required" />
+               <input type="text" class="form-control" name="topic" id="topic" placeholder="Ex : React, Symfony ..." size="40" maxlength="50" required="required" />
              </p>
            </div>
          </div>
@@ -461,14 +397,11 @@ const footerForAllPage = /* @html */ `<footer>
 
 </footer>`
 
-$(function () {
-$('[data-toggle="popover"]').popover({html:true})
-})
-
 
 // DEBUT PAGE HELP
 const showAide = () => {
     render(aideHtml)
+
 // Envois du formulaire vers la database
     const formCours = document.getElementById('formHelp')
     formCours.addEventListener('submit', event => {
@@ -492,7 +425,9 @@ const showAide = () => {
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json'
-        }
+        },
+        credentials: 'include',
+        body: JSON.stringify(data)
       })
       .then(response => response.json())
       .then(data => {
@@ -514,7 +449,7 @@ const showAide = () => {
   }
 
   const showInscriptionWilder = () => {
-    render(inscriptionHtml('Inscription Wilder', 'Wilder'))
+    render(inscriptionHtml('Inscription Wilder', 'Un alumni de la Wild Code School peut t\'aider, même au bout de la France ou du monde !', 'Wilder'))
     const element = document.getElementById('sinscrire')
     const myForml = document.getElementById('myFormulaireInscription')
     myForml.addEventListener('submit', e => {
@@ -533,24 +468,27 @@ const showAide = () => {
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json'
-        }
+        },
+        credentials: 'include',
+        body: JSON.stringify(data)
       })
       .then(response => response.json())
       .then(data => {
         if (data.error) {
           alert (data.error)
-          e.preventDefault()
+          return
         }
         console.log(data)
-      })
-      element.addEventListener('click', function() {
           page ('/aide')
       })
     })
     }
 
    const showInscriptionHelper = () => {
-     render(inscriptionHtml('Inscription Alumni', 'Helper'))
+     render(inscriptionHtml('Inscription Alumni', 'Un élève de la Wild Code School est en détresse. Seras-tu l\'aider ?', 'Helper'))
+
+         $('[data-toggle="popover"]').remove();
+
      const element = document.getElementById('sinscrire')
      const myForml = document.getElementById('myFormulaireInscription')
      myForml.addEventListener('submit', e => {
@@ -569,18 +507,18 @@ const showAide = () => {
          headers: {
            Accept: 'application/json',
            'Content-Type': 'application/json'
-         }
+         },
+         credentials: 'include',
+         body: JSON.stringify(data)
        })
        .then(response => response.json())
        .then(data => {
          if (data.error) {
            alert (data.error)
-           e.preventDefault()
+           return
          }
          console.log(data)
-       })
-       element.addEventListener('click', function() {
-           page ('/requete')
+         page ('/requete')
        })
      })
      }
@@ -594,36 +532,43 @@ const showAide = () => {
   const showConnexion = () => {
     render(connexionHtml)
 
-
-     const form = document.getElementsByTagName('form')[0]
-     form.addEventListener('submit', evt => {
-       evt.preventDefault()
-       //Recupère
-       const data = {}
-       const inputs = document.getElementsByTagName('input')
-       for(let input of inputs) {
-         data[input.name] = input.value
-       }
-       fetch('/connexion', {
-         method: 'POST',
-         headers: {
-           Accept: 'application/json',
-           'Content-Type': 'application/json'
-         },
-         credentials: 'include',
-         body: JSON.stringify(data)
-       })
-       .then(r => r.json())
-       .then(user => {
-         if (user.accountType=="Wilder"){
+    const form = document.getElementsByTagName('form')[0]
+    form.addEventListener('submit', evt => {
+      evt.preventDefault()
+      const inputs = form.getElementsByTagName('input')
+      let data = {}
+      for (let input of inputs) {
+        if (input.name !== '') {
+          data[input.name] = input.value
+        }
+      }
+      fetch('/connexion', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        credentials: 'include',
+        body: JSON.stringify(data)
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.error) {
+          alert(data.error)
+        }
+        else {
+           loggedInUser = data
+          if (data.accountType=="Wilder"){
            page('/aide')
          }
          else{
            page('/requete')
-         }
-       })
-     })
-   }
+        }
+      }
+        console.log(data)
+      })
+    })
+  }
 
 
   const showAccueil = () => {
@@ -633,6 +578,7 @@ const showAide = () => {
   const showCoursPropose = () => {
     render(coursproposeHtml)
   }
+
 
 
 

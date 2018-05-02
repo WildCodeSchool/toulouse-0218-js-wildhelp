@@ -1,10 +1,9 @@
 const  connection = require('../db')
 const mysqlEscape = require('../mysqlEscape')
-
 const requestCourse= []
 let id = 1
+const requestAllHelp =  (req, res) => {
 
-const requestAllHelp = (req, res) => {
   console.log(req.body)
   const technoId = req.body.langage
   const topic = mysqlEscape(req.body.topic)
@@ -21,6 +20,7 @@ const requestAllHelp = (req, res) => {
 
 
   connection.query(request, (error, results) => {
+
     // if (error) throw error
     if(error) {
       return res.status(500).json({
