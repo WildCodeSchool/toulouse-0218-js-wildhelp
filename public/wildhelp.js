@@ -82,8 +82,6 @@ const inscriptionHtml = (title, text, type) =>
  </section>`
 
 
-
-
 const languageHtml = /* @html */`<div class="nav-side-menu">
    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
       <a class="p-2 text-dark" href="/">
@@ -374,7 +372,8 @@ const aideHtml = /* @html */ `
   </form>
 </div>`
 
-const footerForAllPage = /* @html */ `<footer>
+const footerForAllPage = /* @html */ `
+  <footer>
    <div class="reseaux col-md-12">
     <a href="https://www.facebook.com/wildcodeschool/" target="_blank"><img class="imgbtn" src="logofooter/fb.png" alt="imgbtn"></a>
     <a href="https://www.instagram.com/wildcodeschool/" target="_blank"><img class="imgbtn" src="logofooter/insta.png" alt="imgbtn"></a>
@@ -389,8 +388,7 @@ const footerForAllPage = /* @html */ `<footer>
        <a href="https://www.linkedin.com/in/nicolas-nivlet-b3aab6a3/" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="LinkedIn de Jack !">Jack
        </a> _ WildCodeSchool Toulouse 2018.</p>
    </div>
-
-</footer>`
+ </footer>`
 
 
 // DEBUT PAGE HELP
@@ -516,7 +514,7 @@ const showAide = () => {
          page ('/requete')
        })
      })
-     }
+    }
 
 
 
