@@ -263,6 +263,7 @@ function getRequestItem(requete) {
 
     <div id="${requete.id}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body">
+          <p>Requête de: ${requete.name} ${requete.surname}</p><br>
           ${requete.description}<br>
 
           <p>Comment me contacter ?</p>
