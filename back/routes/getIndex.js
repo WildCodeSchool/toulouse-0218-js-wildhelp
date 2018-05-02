@@ -5,7 +5,7 @@ const html = user => /* @html */ `
 <html class="no-js" lang="fr">
   <head>
     <meta charset="utf-8">
-    <title>Formulaires</title>
+    <title>Wild Help</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
     <link rel="stylesheet" href="wildhelp.css" />
 
