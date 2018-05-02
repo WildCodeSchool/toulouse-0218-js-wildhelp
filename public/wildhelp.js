@@ -583,6 +583,7 @@ const showAide = () => {
           data[input.name] = input.value
         }
       }
+
       fetch('/connexion', {
         method: 'POST',
         headers: {

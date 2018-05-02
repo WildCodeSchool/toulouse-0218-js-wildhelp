@@ -14,9 +14,8 @@ const requestAllHelp =  (req, res) => {
       error : 'Description trop court (30 caractères minimum)'
     })
   }
-
-    const userId = 3
-    const request = `INSERT INTO wildRequest (userId, technoId, topic, description ) VALUES (${userId}, ${technoId}, '${topic}', '${description}' )`
+      const userId = req.session.user.id
+      const request = `INSERT INTO wildRequest (userId, technoId, topic, description ) VALUES (${userId}, ${technoId}, '${topic}', '${description}' )`
 
 
   connection.query(request, (error, results) => {
