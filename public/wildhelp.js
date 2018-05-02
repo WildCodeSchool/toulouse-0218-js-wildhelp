@@ -263,8 +263,7 @@ const listerequeteHtml = (requetes) => /* @html */ `<div class="nav-side-menu">
          <h3>Liste des requêtes</h3>
          <div id="accordion">
             ${requetes.map(getRequestItem).join("")}
-          </div>
-         </ul>
+         </div>
       </div>
    </div>
 </div>`
@@ -277,7 +276,8 @@ const listerequeteHtml = (requetes) => /* @html */ `<div class="nav-side-menu">
 
 function getRequestItem(requete) {
 
-  return `<div class="card">
+  return /* @html */ `
+   <div class="card">
     <div class="card-header" id="headingOne">
       <h5 class="mb-0">
         <button class="btn btn-link" data-toggle="collapse" data-target="#${requete.id}" aria-expanded="true" aria-controls="collapseOne">
@@ -288,7 +288,7 @@ function getRequestItem(requete) {
 
     <div id="${requete.id}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body">
-          ${requete.description}<br>
+          ${requete.description}<br/>
 
           <p>Comment me contacter ?</p>
           <form class="choix-contact">
@@ -298,7 +298,7 @@ function getRequestItem(requete) {
 
 
             <input type="text" name="pseudoSlack" value="" style="display:none" /><br>
-            <button type="submit" class="btn btn-primary">A l'aide !</button>
+            <button type="submit" class="btn btn-primary">Je l'aide</button>
           </form>
       </div>
     </div>
@@ -318,27 +318,24 @@ const showListeRequete = () => {
   .then(response => response.json())
   .then(requetes => {
     render(listerequeteHtml(requetes))
-      const formulaires = document.getElementsByClassName('choix-contact')
-      for (const formulaire of formulaires) {
-        const inputs = formulaire.getElementsByTagName('input')
-        const inputPseudoSlack = inputs[2]
-        for (let i = 0; i <= 1; i++ ) {
-          const bouton = inputs[i]
-          bouton.addEventListener("click", function () {
+    const formulaires = document.getElementsByClassName('choix-contact')
+    for (const formulaire of formulaires) {
+      const inputs = formulaire.getElementsByTagName('input')
+      const inputPseudoSlack = inputs[2]
+      for (let i = 0; i <= 1; i++ ) {
+        const bouton = inputs[i]
+        bouton.addEventListener("click", function () {
           console.dir(bouton)
 
-
-           if (bouton.value == "slack") {
-            inputPseudoSlack.style.display="inline"
-           }
-
-           else {
+          if (bouton.value == "slack") {
+          inputPseudoSlack.style.display="inline"
+          }
+          else {
             inputPseudoSlack.style.display="none"
-           }
-          })
-        }
+          }
+        })
       }
-
+    }
   })
 }
 
@@ -346,66 +343,65 @@ const showListeRequete = () => {
 // PAGE DEMANDE AIDE
 
 const aideHtml = /* @html */ `
-   <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4  bg-white border-bottom box-shadow" id="navBarAide">
-      <h5 class="my-0 mr-md-auto">WildHelp</h5>
-      <nav class="my-2 my-md-0 mr-md-3">
-        <a class="p-2 text-dark" href="/">
-           <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
-        </a>
-      </nav>
-       <a class="btn btn-log-out" href="/logout"><span class="glyphicon glyphicon-log-out">Deconnexion </span> </a>
-   </div>
-   <div class="container">
-     <form id="formHelp" class="form-horizontal" method="POST" action="/aide">
-       <div class="bodyHelp">
-         <div class="row">
-           <div class="col-md-12">
-             <h2>Demande d'aide</h2>
-           </div>
-         </div>
-         <div class="row">
-           <div class="col-md-9 offset-md-3">
-             <div class="input-group">
-               <select id="subject" name="langage" class="form-control" required="required">
-                 <option value="" selected="">Selectionnez le langage</option>
-                 <option value="1">JavaScript</option>
-                 <option value="2">JAVA</option>
-                 <option value="3">PHP</option>
-               </select>
-             </div>
-           </div>
-         </div>
-         <div class="row">
-           <div class="col-md-12">
-             <p>
-               <label for="topic">Sujet requête :</label>
-               <input type="text" class="form-control" name="topic" id="topic" placeholder="Ex : React, Symfony ..." size="40" maxlength="50" required="required" />
-             </p>
-           </div>
-         </div>
-         <div class="row">
-           <div class="col-md-12">
-             <p>
-               <textarea name="description" id="description" class="form-control" rows="10" cols="50" required="required"
-        placeholder="Décris ici, en détail, ton problème."></textarea>
-            </p>
-          </div>
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4  bg-white border-bottom box-shadow" id="navBarAide">
+  <h5 class="my-0 mr-md-auto">WildHelp</h5>
+  <nav class="my-2 my-md-0 mr-md-3">
+    <a class="p-2 text-dark" href="/">
+      <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
+    </a>
+  </nav>
+  <a class="btn btn-log-out" href="/logout"><span class="glyphicon glyphicon-log-out">Deconnexion </span> </a>
+</div>
+<div class="container">
+  <form id="formHelp" class="form-horizontal" method="POST" action="/aide">
+    <div class="bodyHelp">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Demande d'aide</h2>
         </div>
-        <div class="row buttonHelp">
-          <div class="col-md-6 mb-2">
-            <input class="btn btn-outline" type="submit" value="Save me !"/>
-          </div>
-          <div class="col-md-6">
-            <a href="/"><button type="reset" class="btn btn-outline-danger">Annuler</button></a>
+      </div>
+      <div class="row">
+        <div class="col-md-9 offset-md-3">
+          <div class="input-group">
+            <select id="subject" name="langage" class="form-control" required="required">
+              <option value="" selected="">Selectionnez le langage</option>
+              <option value="1">JavaScript</option>
+              <option value="2">JAVA</option>
+              <option value="3">PHP</option>
+            </select>
           </div>
         </div>
       </div>
-    </form>
-</div>
-    </div>`
+      <div class="row">
+        <div class="col-md-12">
+          <p>
+            <label for="topic">Sujet requête :</label>
+            <input type="text" class="form-control" name="topic" id="topic" placeholder="Ex : React, Symfony ..." size="40" maxlength="50" required="required" />
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <p>
+            <textarea name="description" id="description" class="form-control" rows="10" cols="50" required="required"
+            placeholder="Décris ici, en détail, ton problème."></textarea>
+          </p>
+        </div>
+      </div>
+      <div class="row buttonHelp">
+        <div class="col-md-6">
+          <a href="/"><button type="reset" class="btn btn-outline-danger">Annuler</button></a>
+        </div>
+        <div class="col-md-6">
+          <input class="btn btn-outline" type="submit" value="Aidez-moi !"/>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>`
 
 const footerForAllPage = /* @html */ `<footer>
-   <div class="reseaux col-mg-6">
+   <div class="reseaux col-md-12">
     <a href="https://www.facebook.com/wildcodeschool/" target="_blank"><img class="imgbtn" src="logofooter/fb.png" alt="imgbtn"></a>
     <a href="https://www.instagram.com/wildcodeschool/" target="_blank"><img class="imgbtn" src="logofooter/insta.png" alt="imgbtn"></a>
     <a href="https://twitter.com/wildcodeschool" target="_blank"><img class="imgbtn" src="logofooter/twitter.png" alt="imgbtn"></a>
@@ -417,7 +413,7 @@ const footerForAllPage = /* @html */ `<footer>
        <a href="https://www.linkedin.com/in/florentin-hauton-479a64156/" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="LinkedIn de Florentin !">Florentin</a>,
        <a href="https://www.linkedin.com/in/thientamtran/" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="LinkedIn de Thien Tam !">Thien Tam</a>,
        <a href="https://www.linkedin.com/in/nicolas-nivlet-b3aab6a3/" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="LinkedIn de Jack !">Jack
-       </a> of WildCodeSchool 2018.</p>
+       </a> _ WildCodeSchool Toulouse 2018.</p>
    </div>
 
 </footer>`
@@ -529,7 +525,7 @@ const showAide = () => {
     }
 
    const showInscriptionHelper = () => {
-     render(inscriptionHtml('Inscription Alumni', 'Un élève de la Wild Code School est en détresse. Seras-tu l\'aider ?', 'Helper'))
+     render(inscriptionHtml('Inscription Alumni', 'Un élève de la Wild Code School est en détresse. Sauras-tu l\'aider ?', 'Helper'))
      const element = document.getElementById('sinscrire')
      const myForml = document.getElementById('myFormulaireInscription')
      myForml.addEventListener('submit', e => {
@@ -613,12 +609,6 @@ const showAide = () => {
   const showCoursPropose = () => {
     render(coursproposeHtml)
   }
-
-
-
-
-
-
 
 page('/', showAccueil)
 page('/connexion', showConnexion)
