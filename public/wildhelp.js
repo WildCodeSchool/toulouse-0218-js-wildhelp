@@ -81,56 +81,6 @@ const inscriptionHtml = (title, text, type) =>
    </form>
  </section>`
 
-
-const languageHtml = /* @html */`<div class="nav-side-menu">
-   <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-      <a class="p-2 text-dark" href="/">
-         <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
-      </a>
-      <a class="btn btn-log-out" href="/logout"><span class="glyphicon glyphicon-log-out">Deconnexion </span> </a>
-   </div>
-</div>
-<div class="titleLanguages">
-   <h1>Langages proposés</h1>
-</div>
-<div class="container">
-   <div class="row" id="languages">
-      <div class="col-md-3 col-xs-6 logo">
-         <a href="/requete"><img src="https://developer.akamai.com/blog/wp-content/uploads/2017/03/android-logo.png" alt="Android Logo" id="logoLanguages"/></a>
-      </div>
-      <div class="col-md-3 col-xs-6 logo">
-         <a href="/requete"><img src="http://blog.zenika.com/wp-content/uploads/2016/04/java-logo.png" alt="Java Logo" id="logoLanguages"/></a>
-      </div>
-      <div class="col-md-3 col-xs-6 logo">
-         <a href="/requete"><img src="http://edmundtian.com/images/nodejs.ico" alt="JavaScript Logo" id="logoLanguages"/></a>
-      </div>
-      <div class="col-md-3 col-xs-6 logo">
-         <a href="/requete"><img src="http://nikhilnanjappa.github.io/img/react-logo.png" alt="React Logo" id="logoLanguages"/></a>
-      </div>
-      <div class="col-md-3 col-xs-6 logo">
-         <a href="/requete">
-         <img src="https://camo.githubusercontent.com/0f946287c3cbcdd7d71f99ef18dcc506ba2e2186/687474703a2f2f7777772e69636f6e61747469747564652e636f6d2f69636f6e732f6f70656e5f69636f6e5f6c6962726172792f617070732f706e672f3235362f707974686f6e322e352e706e67" alt="Python Logo" id="logoLanguages" /></a>
-      </div>
-      <div class="col-md-3 col-xs-6 logo">
-         <a href="/requete"><img src="http://muchocodigo.com/wp-content/uploads/2013/11/php.jpg" alt="Php Logo" id="logoLanguages" /></a>
-      </div>
-      <div class="col-md-3 col-xs-6 logo">
-         <a href="/requete">
-         <img src="http://rodrigovenancio.info/wp-content/uploads/2017/04/1491199643_angular.png" alt="Angular Logo" id="logoLanguages" /></a>
-      </div>
-      <div class="col-md-3 col-xs-6 logo">
-         <a href="/requete"><img src="http://onusinfotech.com/wp-content/uploads/2_0.png" alt="Symfony Logo" id="logoLanguages" /></a>
-      </div>
-      <div class="col-md-3 col-xs-6 logo">
-         <a href="/requete">
-         <img src="https://silentbedlam.gallerycdn.vsassets.io/extensions/silentbedlam/vuejs-jquery-bootstrapprojecttemplate/1.0/1491418503089/257278/1/thumbnail.png" alt="VueJs Logo" id="logoLanguages" /></a>
-      </div>
-      <div class="col-md-3 col-xs-6 logo">
-         <a href="/requete"><img src="http://www.flook.co/img/skills/nodejs.ico" alt="NodeJs Logo" id="logoLanguages" /></a>
-      </div>
-   </div>
-</div>`
-
 const connexionHtml = /* @html */ `
   <section class="login-block">
    <div class="container" id="loginco">
@@ -181,15 +131,15 @@ function getRequestItem(requete) {
   return `<li class="list-group-item list-group-item-warning justify-content-between">${requete.description}</li>`
 }
 
-const listerequeteHtml = (requetes) => /* @html */ `<div class="nav-side-menu">
-   <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-      <a class="p-2 text-dark" href="/">
-         <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
-      </a>
-      <nav class="my-2 my-md-0 mr-md-3">
-           <a class="btn btn-log-out" href="/logout"><span class="glyphicon glyphicon-log-out">Deconnexion </span> </a>
-      </nav>
-   </div>
+const listerequeteHtml = (requetes) => /* @html */ `
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4  bg-white border-bottom box-shadow" id="navBarAide">
+  <h5 class="my-0 mr-md-auto">WildHelp</h5>
+  <nav class="my-2 my-md-0 mr-md-3">
+    <a class="p-2 text-dark" href="/">
+      <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
+    </a>
+  </nav>
+  <a class="btn btn-log-out" href="/logout"><span class="glyphicon glyphicon-log-out">Deconnexion </span> </a>
 </div>
 
 
@@ -218,7 +168,7 @@ const listerequeteHtml = (requetes) => /* @html */ `<div class="nav-side-menu">
             <div class="col-md-4 col-sm logo">
               <a href="/requete" target="_blank">
                 <img class="img-fluid" src="http://muchocodigo.com/wp-content/uploads/2013/11/php.jpg" alt="Php Logo" />
-                <p>Php</p>
+                <p>PHP</p>
               </a>
             </div>
           </div>
@@ -233,6 +183,7 @@ const listerequeteHtml = (requetes) => /* @html */ `<div class="nav-side-menu">
    <div class="row">
       <div class="col-md-12">
          <h3>Liste des requêtes</h3>
+         <h6>Cliquez sur une requête pour la dérouler</h6>
          <div id="accordion">
             ${requetes.map(getRequestItem).join("")}
          </div>
@@ -262,7 +213,7 @@ function getRequestItem(requete) {
       <div class="card-body">
           ${requete.description}<br/>
 
-          <p>Comment me contacter ?</p>
+          <!-- <p>Comment me contacter ?</p>
           <form class="choix-contact">
 
             <input type="radio" name="contact" value="email" checked />par e-mail<br>
@@ -270,8 +221,9 @@ function getRequestItem(requete) {
 
 
             <input type="text" name="pseudoSlack" value="" style="display:none" /><br>
-            <button type="submit" class="btn btn-primary">Je l'aide</button>
-          </form>
+
+          </form> -->
+          <button type="submit" class="jelaide btn btn-primary">Je l'aide</button>
       </div>
     </div>
   </div>`

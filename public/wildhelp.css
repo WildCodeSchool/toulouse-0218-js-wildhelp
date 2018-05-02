@@ -1,8 +1,6 @@
 body {
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: bold;
-  height:91%;
-
 }
 
 /*  PAGE D ACCUEIL */
@@ -145,18 +143,22 @@ h3{
   text-align: center;
 }
 
+h6{
+  text-align: center;
+  font-size: 10px;
+}
+
 .logo{
   margin-top: 50px;
   margin-bottom: 20px;
   text-align: center;
 }
 
-
-
 /* PAGE HELP */
 #navBarAide
 {
   height: 5em;
+  text-align:right;
 }
 
 #formHelp
@@ -199,20 +201,21 @@ h3{
   top: 270px;
 }
 
-.card
-{
-  height: 100%;
-}
-
 /* CSS Accordéon */
 #accordion{
   margin-bottom: 9%;
+  font-weight: normal;
+  font-size: 16px;
+}
+
+.jelaide{
+  margin-left:91%;
 }
 
 /* CSS Footer */
  footer {
     position:fixed;
-    bottom: 0.1px;
+    bottom: 0;
     width: 100%;
     height: 9%;
     color: black;
