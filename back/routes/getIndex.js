@@ -32,7 +32,8 @@ const html = user => /* @html */ `
 
 
 const getIndex = (req, res) => {
-  console.log('wildcard route')
+
+  console.log(req.session.user)
   res.send(html(req.session.user))
   res.end()
 }

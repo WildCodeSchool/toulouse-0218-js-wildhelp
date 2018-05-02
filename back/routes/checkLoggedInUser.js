@@ -1,11 +1,32 @@
 const  connection = require('../db')
 const mysqlEscape = require('../mysqlEscape')
 
+// 
+//
+// const checkLogInUser = (req, res, next) => {
+//   if(req.session !== undefined &&
+//      req.session.user !== undefined
+//   ) {
+//     // Je sais que j'ai un user connecté
+//     const user = req.session.user
+//     next()
+//   }
+//   else {
+//     res.status(401).json({
+//       error: 'Unauthorized Access'
+//     })
+//   }
+// }
+
+
 const checkLoggedInUser = (req, res) => {
+
       console.log(req.body)
-  const query = `SELECT * FROM user WHERE email='${req.body.email}' AND password='${req.body.password}'`
-  const userConnexion = req.body.email
-  const passwordConnexion = req.body.password
+
+      const query = `SELECT * FROM user WHERE email='${req.body.email}' AND password='${req.body.password}'`
+
+      const userConnexion = req.body.email
+      const passwordConnexion = req.body.password
 
   connection.query(query, (error, results) => {
   console.log(results)
@@ -24,8 +45,10 @@ const checkLoggedInUser = (req, res) => {
         error: 'Identifiant ou mot de passe incorrect'
       })
     }
+
     console.log(results[0])
     res.json(results[0])
+
   })
 }
 

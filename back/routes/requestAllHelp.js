@@ -3,6 +3,15 @@ const mysqlEscape = require('../mysqlEscape')
 const requestCourse= []
 let id = 1
 const requestAllHelp =  (req, res) => {
+  if((req.session !== undefined) && (req.session.user !== undefined)) {
+   const user = req.session.user
+   next()
+ }
+ else {
+   res.status(401).json({
+     error: 'Unauthorized Access'
+   })
+ }
 
   console.log(req.body)
   const technoId = req.body.langage
@@ -15,7 +24,7 @@ const requestAllHelp =  (req, res) => {
     })
   }
 
-    const userId = 3
+
     const request = `INSERT INTO wildRequest (userId, technoId, topic, description ) VALUES (${userId}, ${technoId}, '${topic}', '${description}' )`
 
 
