@@ -188,6 +188,7 @@ const listerequeteHtml = (requetes) => /* @html */ `<div class="nav-side-menu">
       <a class="p-2 text-dark" href="/">
          <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
       </a>
+
       <nav class="my-2 my-md-0 mr-md-3">
            <a class="btn btn-log-out" href="/logout"><span class="glyphicon glyphicon-log-out">Deconnexion </span> </a>
       </nav>
@@ -400,7 +401,7 @@ const footerForAllPage = /* @html */ `<footer>
 // DEBUT PAGE HELP
 const showAide = () => {
     render(aideHtml)
-
+  
 // Envois du formulaire vers la database
     const formCours = document.getElementById('formHelp')
     formCours.addEventListener('submit', event => {
@@ -577,9 +578,6 @@ const showAide = () => {
   const showCoursPropose = () => {
     render(coursproposeHtml)
   }
-
-
-
 
 
 
