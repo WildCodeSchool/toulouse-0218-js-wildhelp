@@ -401,7 +401,7 @@ const footerForAllPage = /* @html */ `<footer>
 // DEBUT PAGE HELP
 const showAide = () => {
     render(aideHtml)
-  
+
 // Envois du formulaire vers la database
     const formCours = document.getElementById('formHelp')
     formCours.addEventListener('submit', event => {
@@ -478,6 +478,7 @@ const showAide = () => {
           alert (data.error)
           return
         }
+        loggedInUser = data
         console.log(data)
           page ('/aide')
       })
@@ -517,6 +518,7 @@ const showAide = () => {
            alert (data.error)
            return
          }
+         loggedInUser = data
          console.log(data)
          page ('/requete')
        })
@@ -542,6 +544,7 @@ const showAide = () => {
           data[input.name] = input.value
         }
       }
+
       fetch('/connexion', {
         method: 'POST',
         headers: {

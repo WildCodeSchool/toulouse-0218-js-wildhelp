@@ -24,8 +24,8 @@ const html = user => /* @html */ `
     <script src="page.js"></script>
     <script>
    // On transforme l'user passé en paramètre en string
-   let loggedInUser = ${ JSON.stringify(user) }
-   </script>
+     let loggedInUser = ${ JSON.stringify(user) }
+     </script>
     <script src="wildhelp.js"></script>
   </body>
 </html>`

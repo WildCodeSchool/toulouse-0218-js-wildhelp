@@ -1,7 +1,7 @@
 const  connection = require('../db')
 const mysqlEscape = require('../mysqlEscape')
 
-// 
+//
 //
 // const checkLogInUser = (req, res, next) => {
 //   if(req.session !== undefined &&
@@ -46,7 +46,8 @@ const checkLoggedInUser = (req, res) => {
       })
     }
 
-    console.log(results[0])
+    req.session.user =results[0]
+    console.log(req.session.user)
     res.json(results[0])
 
   })
