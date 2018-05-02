@@ -115,7 +115,7 @@ const languageHtml = /* @html */`<div class="nav-side-menu">
       <a class="p-2 text-dark" href="/">
          <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
       </a>
-      <a class="btn btn-log-out" href="/"><span class="glyphicon glyphicon-log-out">Deconnexion </span> </a>
+      <a class="btn btn-log-out" href="/logout"><span class="glyphicon glyphicon-log-out">Deconnexion </span> </a>
    </div>
 </div>
 <div class="titleLanguages">
@@ -215,8 +215,7 @@ const listerequeteHtml = (requetes) => /* @html */ `<div class="nav-side-menu">
          <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
       </a>
       <nav class="my-2 my-md-0 mr-md-3">
-         <a href="/" class="btn">
-         <span class="glyphicon glyphicon-log-out"></span> Deconnexion </a>
+           <a class="btn btn-log-out" href="/logout"><span class="glyphicon glyphicon-log-out">Deconnexion </span> </a>
       </nav>
    </div>
 </div>
@@ -304,10 +303,7 @@ const aideHtml = /* @html */ `
            <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
         </a>
       </nav>
-      <a href="/" class="btn btn-info btn-lg">
-        <span class="glyphicon glyphicon-log-out">
-        </span> Deconnexion
-      </a>
+       <a class="btn btn-log-out" href="/logout"><span class="glyphicon glyphicon-log-out">Deconnexion </span> </a>
    </div>
    <div class="container">
      <form id="formHelp" class="form-horizontal" method="POST" action="/aide">
@@ -379,20 +375,27 @@ const footerForAllPage = /* @html */ `<footer>
 
 // popup page accueil
 
-// $(function () {
-//   $('[data-toggle="popover"]').popover({
-//     html:true,
-//
-//   })
-// })
+
 $(function () {
 $('[data-toggle="popover"]').popover({html:true})
 })
 
 
+
 // DEBUT PAGE HELP
 const showAide = () => {
     render(aideHtml)
+
+      const middleware = (req, res, next) => {
+         if(req.session !== undefined && req.session.email !== undefined){
+            const user = req.session.email
+            next()
+         } else {
+           res.status(401).json({
+             error: 'Unauthorized Access'
+           })
+         }
+      }
 // Envois du formulaire vers la database
     const formCours = document.getElementById('formHelp')
     formCours.addEventListener('submit', event => {
@@ -416,7 +419,9 @@ const showAide = () => {
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json'
-        }
+        },
+        credentials: 'include',
+        body: JSON.stringify(data)
       })
       .then(response => response.json())
       .then(data => {
@@ -457,7 +462,9 @@ const showAide = () => {
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json'
-        }
+        },
+        credentials: 'include',
+        body: JSON.stringify(data)
       })
       .then(response => response.json())
       .then(data => {
@@ -491,7 +498,9 @@ const showAide = () => {
          headers: {
            Accept: 'application/json',
            'Content-Type': 'application/json'
-         }
+         },
+         credentials: 'include',
+         body: JSON.stringify(data)
        })
        .then(response => response.json())
        .then(data => {
@@ -514,36 +523,37 @@ const showAide = () => {
   const showConnexion = () => {
     render(connexionHtml)
 
-
-     const form = document.getElementsByTagName('form')[0]
-     form.addEventListener('submit', evt => {
-       evt.preventDefault()
-       //Recupère
-       const data = {}
-       const inputs = document.getElementsByTagName('input')
-       for(let input of inputs) {
-         data[input.name] = input.value
-       }
-       fetch('/connexion', {
-         method: 'POST',
-         headers: {
-           Accept: 'application/json',
-           'Content-Type': 'application/json'
-         },
-         credentials: 'include',
-         body: JSON.stringify(data)
-       })
-       .then(r => r.json())
-       .then(user => {
-         if (user.accountType=="Wilder"){
-           page('/aide')
-         }
-         else{
-           page('/requete')
-         }
-       })
-     })
-   }
+    const form = document.getElementsByTagName('form')[0]
+    form.addEventListener('submit', evt => {
+      evt.preventDefault()
+      const inputs = form.getElementsByTagName('input')
+      let data = {}
+      for (let input of inputs) {
+        if (input.name !== '') {
+          data[input.name] = input.value
+        }
+      }
+      fetch('/connexion', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        credentials: 'include',
+        body: JSON.stringify(data)
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.error) {
+          alert(data.error)
+        }
+        else {
+          page ('/requete')
+        }
+        console.log(data)
+      })
+    })
+  }
 
 
   const showAccueil = () => {
@@ -553,6 +563,7 @@ const showAide = () => {
   const showCoursPropose = () => {
     render(coursproposeHtml)
   }
+
 
 
 
