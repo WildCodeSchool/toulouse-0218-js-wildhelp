@@ -33,32 +33,33 @@ const inscriptionHtml = (text, type) =>
          <div class="card">
             <div class="card-body">
                <div class="row">
-                  <div class="col-md-6">
+                  <div class="col-md-6 champForm">
                     <p>${text}</p>
-                     <div class="form-group">
-                        <div class="input-group-addon" style="width: 2.6rem"></div>
+                     <div>
                         <label for="name">Prénom</label>
-                          <input type="text" name="name" autocomplete="given-name" class="form-control" id="given" placeholder="John" required="required"/>
+                        <div></div>
+                          <input type="text" size=30 name="name" autocomplete="given-name" id="given" placeholder="John" required="required"/>
                      </div>
-                     <label for="surname">Nom</label>
-                     <div class="form-group">
-                        <div class="input-group-addon" style="width: 2.6rem"></div>
-                        <input type="text" name="surname" autocomplete="family-name" class="form-control" id="family" placeholder="Doe" required="required"/>
+                     <div>
+                         <label for="surname">Nom</label>
+                         <div></div>
+                        <input type="text" size=30 name="surname" autocomplete="family-name" id="family" placeholder="Doe" required="required"/>
                      </div>
-                     <label for="email">E-mail</label>
-                     <div class="form-group">
-                        <div class="input-group-addon" style="width: 2.6rem"></div>
-                        <input type="text" name="email" autocomplete="email" class="form-control" id="email" placeholder="wilder@example.com" required="required"/>
+                     <div>
+                        <label for="email">E-mail</label>
+                        <div></div>
+                        <input type="text" size=30 name="email" autocomplete="email" id="email" placeholder="wilder@example.com" required="required"/>
                      </div>
-                     <label for="password">Mot de passe</label>
-                     <div class="form-group">
-                        <div class="input-group-addon" style="width: 2.6rem"></div>
-                        <input type="password" name="password" autocomplete="current-password" class="form-control" id="current" placeholder="Mot-de-passe" required="required"/>
+                     <div>
+                         <label for="password">Mot de passe</label>
+                         <div></div>
+                        <input type="password" size=30 name="password" autocomplete="current-password"  id="current" placeholder="Mot-de-passe" required="required"/>
                      </div>
-                     <label for="slack">Slack</label>
                      <div class="form-group">
-                        <div class="input-group-addon" style="width: 2.6rem"></div>
-                        <input type="text" name="slack" autocomplete="slack" class="form-control" id="slack" placeholder="Slack optionnel"/>
+
+                        <label for="slack">Slack</label>
+                        <div></div>
+                        <input type="text" size=30 name="slack" autocomplete="slack"  id="slack" placeholder="Slack optionnel"/>
                      </div>
 
                      <input type="submit" value="S'inscrire" id="sinscrire" />
