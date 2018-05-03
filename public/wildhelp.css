@@ -107,6 +107,17 @@ margin: : 50px 50px;
   margin-left: 20%;
 }
 
+.col-md-12 h3{
+  text-align: left;
+}
+.col-md-12 h6{
+  text-align: left;
+}
+
+.btn-log-out{
+  margin-left: 80%;
+}
+
  .btn-login
 {
   background: #ff6090;

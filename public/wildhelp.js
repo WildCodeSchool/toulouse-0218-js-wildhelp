@@ -64,12 +64,12 @@ const inscriptionHtml = (title, text, type) =>
                      <label for="slack">Slack</label>
                      <div class="form-group">
                         <div class="input-group-addon" style="width: 2.6rem"></div>
-                        <input type="text" name="slack" autocomplete="slack" class="form-control" id="slack" placeholder="Slack optionnel"/>
+                        <input type="text" name="slack" autocomplete="slack" class="form-control" id="slack" placeholder="(optionnel)"/>
                      </div>
 
                      <input type="submit" class="btn" value="S'inscrire" id="sinscrire" />
                      <a href="/connexion">
-                        <button type="submit" value="submit" class="btn btn-primary ml-5" a href="/connexion">
+                        <button type="submit" value="submit" class="btn ml-5" a href="/connexion">
                      Déjà inscrit ?
                      </button>
                     </a>
@@ -131,13 +131,10 @@ const connexionHtml = /* @html */ `
 
  const listerequeteHtml = (requetes, name) => /* @html */ `
  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4  bg-white border-bottom box-shadow" id="navBarAide">
-   <h5 class="my-0 mr-md-auto">WildHelp</h5>
-   <nav class="my-2 my-md-0 mr-md-3">
-     <a class="p-2 text-dark" href="/">
-         <p>Hello ${name}</p>
-     </a>
-   </nav>
-   <a class="btn btn-log-out" href="/logout"><span class="glyphicon glyphicon-log-out">Deconnexion </span> </a>
+   <a class="p-2 text-dark" href="/">
+       <p>Hello ${name}</p>
+   </a>
+   <a class="btn btn-log-out" href="/logout"><span class="glyphicon glyphicon-log-out">Deconnexion</span> </a>
  </div>
  <div class="container">
    <h3>Technologies proposées</h3>
@@ -165,7 +162,7 @@ const connexionHtml = /* @html */ `
        <div class="container">
          <div class="row">
            <div class="col-md-12">
-             <h3>Liste des requêtes</h3>
+             <h3>Wilder en détresse</h3>
              <h6>Cliquez sur une requête pour la dérouler</h6>
              <div id="accordion">
                ${requetes.map(getRequestItem).join("")}
@@ -187,18 +184,9 @@ const connexionHtml = /* @html */ `
 
            <div id="req-${requete.id}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
              <div class="card-body">
-               <p>Requête de: ${requete.name} ${requete.surname}</p><br>
+               <p>Demande de: ${requete.name} ${requete.surname}</p><br>
                ${requete.description}<br>
                <p>Comment me contacter ?</p>
-               <form class="choix-contact">
-
-                 <input type="radio" name="contact" value="email" checked />par e-mail<br>
-                 <input type="radio" name="contact" value="slack" />sur Slack
-
-
-                 <input type="text" name="pseudoSlack" value="" style="display:none" /><br>
-
-          </form>
           <button type="button" onClick="Message('${requete.email}', ${requete.id})" class="jelaide btn">Je l'aide</button>
       </div>
     </div>
@@ -206,7 +194,7 @@ const connexionHtml = /* @html */ `
 }
 // Alerte de validation d'aide
 function Message(email, requestId) {
-    if (confirm(`Pour aider ce Wilder, tu peux lui envoyer un mail à ${email}.\nAttention si tu appuis sur OK, la demande va disparaître, tu seras le seul à pouvoir contacter ce Wilder !\nSinon appuis sur CANCEL.`)) {
+    if (confirm(`Pour aider ce Wilder, tu peux lui envoyer un mail à ${email}.\nAttention si tu appuies sur OK, la demande va disparaître, tu seras le seul à pouvoir contacter ce Wilder !\nSinon appuies sur CANCEL.`)) {
       fetch(`/request/${requestId}`, {
         method: 'DELETE',
       })
@@ -297,7 +285,7 @@ const aideHtml = (name) => /* @html */ `
          </div>
 
          <div class="row">
-           <div class="col-md-7">
+           <div class="col-md-9">
              <div class="input-group">
                <select id="subject" name="langage" class="form-control" required="required">
                  <option value="" selected="">Selectionnez le langage</option>
