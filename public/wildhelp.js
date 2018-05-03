@@ -11,13 +11,11 @@ const accueilhtml =
    <a class="btn" href="/connexion">Connexion</a>
 </div>
     <div class="row background">
+      <div class="accInscription">
+         <p>Profite de la communauté des Alumnis de la Wild </br>pour t'aider à résoudre les casse-têtes</br> les plus fous durant ta formation ! <a href="/wilder"><button type="button" class="btn">Inscription</button></a>
+     </p>
+   </div>
   <img class ="container-fluid" src="/image/gif1.gif" type="image/gif" height="150%" loop="0" />
-   <div class="accInscription">
-      <p>Profite de la communauté des Alumnis de la Wild<br> pour t'aider à résoudre les casse-têtes<br> les plus fous durant ta formation !</p>
-  </div>
-  <div class="btnWild">
-      <a href="/wilder"><button type="button" class="btn">Inscription</button></a>
-  </div>
 </div>`
 
 
@@ -25,26 +23,22 @@ $(document).ready(function(){
     $('[data-toggle="popover"]').popover();
 });
 
-const inscriptionHtml = (title, text, type) =>
+const inscriptionHtml = (text, type) =>
 /* @html */ `
 
   <section class="FormulaireInsc">
-  <form method="POST" id="myFormulaireInscription" class="form-horizontal"  action="/register" >
+  <form method="POST" id="myFormulaireInscription" class="form-horizontal" action="/register" >
       <input type="hidden" name="accountType" value="${type}" />
       <div class="container">
          <div class="card">
             <div class="card-body">
                <div class="row">
-                    <div class="col-md-3"></div>
-                    <div class="col-md-6"> <h1>${title}</h1></div>
-                    <div class="col-md-12 text-center">
-                       <p>${text}</p>
-                    </div>
                   <div class="col-md-6">
-                     <label for="name">Prénom</label>
+                    <p>${text}</p>
                      <div class="form-group">
                         <div class="input-group-addon" style="width: 2.6rem"></div>
-                        <input type="text" name="name" autocomplete="given-name" class="form-control" id="given" placeholder="John" required="required"/>
+                        <label for="name">Prénom</label>
+                          <input type="text" name="name" autocomplete="given-name" class="form-control" id="given" placeholder="John" required="required"/>
                      </div>
                      <label for="surname">Nom</label>
                      <div class="form-group">
@@ -387,7 +381,7 @@ const showAide = () => {
   }
 
   const showInscriptionWilder = () => {
-    render(inscriptionHtml('Inscription Wilder', 'Un alumni de la Wild Code School peut t\'aider, même au bout de la France ou du monde !', 'Wilder'))
+    render(inscriptionHtml('Un alumni de la Wild Code School peut t\'aider, <br> même au bout de la France ou du monde !', 'Wilder'))
     const element = document.getElementById('sinscrire')
     const myForml = document.getElementById('myFormulaireInscription')
     myForml.addEventListener('submit', e => {
@@ -425,7 +419,7 @@ const showAide = () => {
 
    const showInscriptionHelper = () => {
         $('#popover-alumni').popover('hide')
-     render(inscriptionHtml('Inscription Alumni', 'Un élève de la Wild Code School est en détresse. Sauras-tu l\'aider ?', 'Helper'))
+     render(inscriptionHtml('Un élève de la Wild Code School est en détresse. </br> Sauras-tu l\'aider ?', 'Helper'))
 
 
      const element = document.getElementById('sinscrire')
