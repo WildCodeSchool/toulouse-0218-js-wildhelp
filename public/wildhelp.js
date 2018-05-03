@@ -263,14 +263,14 @@ const aideHtml = /* @html */ `
      <form id="formHelp" class="form-horizontal" method="POST" action="/aide">
        <div class="bodyHelp">
          <div class="row">
-           <div class="col-md-12">
-             <h2>Demande d'aide</h2>
+           <div class="col-md-7">
+             <h2>Dis-nous sur quoi tu as besoin d'aide !</h2>
            </div>
          </div>
 
 
          <div class="row">
-           <div class="col-md-9 col-offset-md-3">
+           <div class="col-md-7">
              <div class="input-group">
                <select id="subject" name="langage" class="form-control" required="required">
                  <option value="" selected="">Selectionnez le langage</option>
@@ -281,11 +281,9 @@ const aideHtml = /* @html */ `
              </div>
            </div>
          </div>
-
          <div class="row">
            <div class="col-md-12">
              <p>
-               <label for="topic">Dis-nous sur quoi tu as besoin d'aide !</label>
                <input type="text" class="form-control" name="topic" id="topic" placeholder="Ex : React, Symfony ..." size="40" maxlength="50" required="required" />
              </p>
            </div>
