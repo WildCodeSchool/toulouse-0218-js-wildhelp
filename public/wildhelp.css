@@ -102,6 +102,10 @@ margin: : 50px 50px;
      color: white;
 }
 
+#sinscrire{
+  margin-left: 20%;
+}
+
  .btn-login
 {
   background: #ff6090;
@@ -227,7 +231,13 @@ btn-link{
     background-color: white;
 }
 
- footer .imgbtn
+footer p{
+  font-weight: bold;
+  font-style: italic;
+  text-align: center;
+}
+
+footer .imgbtn
  {
      width: 2%;
      filter: grayscale(80%);

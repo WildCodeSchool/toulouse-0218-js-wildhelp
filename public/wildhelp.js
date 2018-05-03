@@ -63,8 +63,8 @@ const inscriptionHtml = (title, text, type) =>
                      </div>
 
                      <input type="submit" value="S'inscrire" id="sinscrire" />
-                     <a href="/connexion">
-                        <button type="submit" value="submit" class="btn btn-primary ml-5" a href="/connexion">
+                    <a href="/connexion">
+                        <button type="submit" value="submit" class="btn-deja btn ml-5" a href="/connexion">
                      Déjà inscrit ?
                      </button>
                     </a>
@@ -329,7 +329,7 @@ const footerForAllPage = /* @html */ `
        <a href="https://www.linkedin.com/in/florentin-hauton-479a64156/" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="LinkedIn de Florentin !">Florentin</a>,
        <a href="https://www.linkedin.com/in/thientamtran/" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="LinkedIn de Thien Tam !">Thien Tam</a>,
        <a href="https://www.linkedin.com/in/nicolas-nivlet-b3aab6a3/" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="LinkedIn de Jack !">Jack
-       </a> _ WildCodeSchool Toulouse 2018.</p>
+       </a> _ WildCodeSchool Toulouse 2018</p>
    </div>
  </footer>`
 
