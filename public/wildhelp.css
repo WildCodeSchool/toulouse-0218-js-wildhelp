@@ -7,28 +7,27 @@ body {
 .background .accInscription
 {
   position: absolute;
-  margin-top: 20%;
+  margin-top: 25%;
+  margin-left: 4%;
   color: white;
-  font-size: 4vw;
+
 }
 
 .background .btnWild {
   position: absolute;
-  margin-top: 35%;
-  margin-left: 45%;
+  margin-top: 31.5%;
+  margin-left: 38%;
 }
 
 .accInscription p
 {
   color: white;
-  text-align: center;
-  font-size: 35px;
+  text-align: left;
+  font-size: 30px;
 }
 
 .accInscription button
 {
-    display: block;
-    margin : auto;
     padding: center;
     background: #DE6262;
     color:#fff;
@@ -146,11 +145,16 @@ h1{
 
 h3{
   color-font: #563482;
+  text-align: left;
+}
+
+h4{
+  color-font: #563482;
   text-align: center;
 }
 
 h6{
-  text-align: center;
+  text-align: left;
   font-size: 10px;
   padding-bottom: 15px;
 }
