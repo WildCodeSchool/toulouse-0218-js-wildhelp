@@ -11,7 +11,7 @@ const accueilhtml =
    <a class="btn" href="/connexion">Connexion</a>
 </div>
     <div class="row background">
-  <img class ="container-fluid" src="/image/gif1.gif" type="image/gif" height="150%" loop="0" />
+  <img class ="container-fluid" src="/image/finale.gif" type="image/gif" height="150%" loop="0" />
    <div class="accInscription">
       <p>Profite de la communauté des développeurs Alumni de la Wild pour t'aider à résoudre les casse-têtes les plus fous durant ta formation !</p>
   </div>
