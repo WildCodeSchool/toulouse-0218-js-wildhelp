@@ -4,7 +4,7 @@ const targetElement = document.getElementById('main')
 
 const accueilhtml =
 /* @html */`<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4  bg-white border-bottom box-shadow" id="navBarAcc">
-   <h4 class="my-0 mr-md-auto">Wild Help</h4>
+   <h4 class="my-0 mr-md-auto"><span>Wild Help</span></h4>
    <nav class="my-2 my-md-0 mr-md-3">
       <a href='/helper' data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom"  data-content="Inscris toi pour aider les nouveaux élèves !">Alumni</a>
    </nav>
