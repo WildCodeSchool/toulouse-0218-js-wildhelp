@@ -13,7 +13,7 @@ const accueilhtml =
     <div class="row background">
   <img class ="container-fluid" src="/image/gif1.gif" type="image/gif" height="150%" loop="0" />
    <div class="accInscription">
-      <p>Profite de la communauté des développeurs Alumni de la Wild pour t'aider à résoudre les casse-têtes les plus fous durant ta formation !</p>
+      <p>Profite de la communauté des Alumnis de la Wild<br> pour t'aider à résoudre les casse-têtes<br> les plus fous durant ta formation !</p>
   </div>
   <div class="btnWild">
       <a href="/wilder"><button type="button" class="btn">Inscription</button></a>
@@ -144,7 +144,7 @@ const listerequeteHtml = (requetes) => /* @html */ `
 
 
 <div class="container">
-  <h3>Technologies proposées</h3>
+  <h4>Tu peux filtrer par technologies</h4>
   <div class="row justify-content-center">
     <div class="col-4">
       <div class="row">
@@ -176,7 +176,7 @@ const listerequeteHtml = (requetes) => /* @html */ `
 <div class="container">
    <div class="row">
       <div class="col-md-12">
-         <h3>Liste des requêtes</h3>
+         <h3>Wilders en détresse</h3>
          <h6>Cliquez sur une requête pour la dérouler</h6>
          <div id="accordion">
             ${requetes.map(getRequestItem).join("")}
