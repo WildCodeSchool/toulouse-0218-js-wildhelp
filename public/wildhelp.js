@@ -81,58 +81,6 @@ const inscriptionHtml = (title, text, type) =>
    </form>
  </section>`
 
-
-
-
-const languageHtml = /* @html */`<div class="nav-side-menu">
-   <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-      <a class="p-2 text-dark" href="/">
-         <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
-      </a>
-      <a class="btn btn-log-out" href="/logout"><span class="glyphicon glyphicon-log-out">Deconnexion </span> </a>
-   </div>
-</div>
-<div class="titleLanguages">
-   <h1>Langages proposés</h1>
-</div>
-<div class="container">
-   <div class="row" id="languages">
-      <div class="col-md-3 col-xs-6 logo">
-         <a href="/requete"><img src="https://developer.akamai.com/blog/wp-content/uploads/2017/03/android-logo.png" alt="Android Logo" id="logoLanguages"/></a>
-      </div>
-      <div class="col-md-3 col-xs-6 logo">
-         <a href="/requete"><img src="http://blog.zenika.com/wp-content/uploads/2016/04/java-logo.png" alt="Java Logo" id="logoLanguages"/></a>
-      </div>
-      <div class="col-md-3 col-xs-6 logo">
-         <a href="/requete"><img src="http://edmundtian.com/images/nodejs.ico" alt="JavaScript Logo" id="logoLanguages"/></a>
-      </div>
-      <div class="col-md-3 col-xs-6 logo">
-         <a href="/requete"><img src="http://nikhilnanjappa.github.io/img/react-logo.png" alt="React Logo" id="logoLanguages"/></a>
-      </div>
-      <div class="col-md-3 col-xs-6 logo">
-         <a href="/requete">
-         <img src="https://camo.githubusercontent.com/0f946287c3cbcdd7d71f99ef18dcc506ba2e2186/687474703a2f2f7777772e69636f6e61747469747564652e636f6d2f69636f6e732f6f70656e5f69636f6e5f6c6962726172792f617070732f706e672f3235362f707974686f6e322e352e706e67" alt="Python Logo" id="logoLanguages" /></a>
-      </div>
-      <div class="col-md-3 col-xs-6 logo">
-         <a href="/requete"><img src="http://muchocodigo.com/wp-content/uploads/2013/11/php.jpg" alt="Php Logo" id="logoLanguages" /></a>
-      </div>
-      <div class="col-md-3 col-xs-6 logo">
-         <a href="/requete">
-         <img src="http://rodrigovenancio.info/wp-content/uploads/2017/04/1491199643_angular.png" alt="Angular Logo" id="logoLanguages" /></a>
-      </div>
-      <div class="col-md-3 col-xs-6 logo">
-         <a href="/requete"><img src="http://onusinfotech.com/wp-content/uploads/2_0.png" alt="Symfony Logo" id="logoLanguages" /></a>
-      </div>
-      <div class="col-md-3 col-xs-6 logo">
-         <a href="/requete">
-         <img src="https://silentbedlam.gallerycdn.vsassets.io/extensions/silentbedlam/vuejs-jquery-bootstrapprojecttemplate/1.0/1491418503089/257278/1/thumbnail.png" alt="VueJs Logo" id="logoLanguages" /></a>
-      </div>
-      <div class="col-md-3 col-xs-6 logo">
-         <a href="/requete"><img src="http://www.flook.co/img/skills/nodejs.ico" alt="NodeJs Logo" id="logoLanguages" /></a>
-      </div>
-   </div>
-</div>`
-
 const connexionHtml = /* @html */ `
   <section class="login-block">
    <div class="container" id="loginco">
@@ -183,22 +131,20 @@ function getRequestItem(requete) {
   return `<li class="list-group-item list-group-item-warning justify-content-between">${requete.description}</li>`
 }
 
-const listerequeteHtml = (requetes) => /* @html */ `<div class="nav-side-menu">
-   <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-      <a class="p-2 text-dark" href="/">
-         <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
-      </a>
-      <nav class="my-2 my-md-0 mr-md-3">
-           <a class="btn btn-log-out" href="/logout"><span class="glyphicon glyphicon-log-out">Deconnexion </span> </a>
-      </nav>
-   </div>
+const listerequeteHtml = (requetes) => /* @html */ `
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4  bg-white border-bottom box-shadow" id="navBarAide">
+  <h5 class="my-0 mr-md-auto">WildHelp</h5>
+  <nav class="my-2 my-md-0 mr-md-3">
+    <a class="p-2 text-dark" href="/">
+      <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
+    </a>
+  </nav>
+  <a class="btn btn-log-out" href="/logout"><span class="glyphicon glyphicon-log-out">Deconnexion </span> </a>
 </div>
 
 
-
-<!-- Ajout icônes technologies proposées. -->
-
 <div class="container">
+
   <h3>Technologies proposées</h3>
   <div class="row justify-content-center">
     <div class="col-4">
@@ -220,7 +166,7 @@ const listerequeteHtml = (requetes) => /* @html */ `<div class="nav-side-menu">
             <div class="col-md-4 col-sm logo">
               <a href="/requete" target="_blank">
                 <img class="img-fluid" src="http://muchocodigo.com/wp-content/uploads/2013/11/php.jpg" alt="Php Logo" />
-                <p>Php</p>
+                <p>PHP</p>
               </a>
             </div>
           </div>
@@ -228,30 +174,22 @@ const listerequeteHtml = (requetes) => /* @html */ `<div class="nav-side-menu">
       </div>
     </div>
 
-
-
-
 <div class="container">
    <div class="row">
       <div class="col-md-12">
          <h3>Liste des requêtes</h3>
+         <h6>Cliquez sur une requête pour la dérouler</h6>
          <div id="accordion">
             ${requetes.map(getRequestItem).join("")}
-          </div>
-         </ul>
+         </div>
       </div>
    </div>
 </div>`
 
-// const getRequestItem = requete => /* @html */ `
-//     <ul class="list-group">
-//        ${requetes.map(getRequestItem).join("")}
-//     </ul>
-// `
-
 function getRequestItem(requete) {
 
-  return `<div class="card">
+  return /* @html */ `
+   <div class="card">
     <div class="card-header" id="headingOne">
       <h5 class="mb-0">
         <button class="btn btn-link" data-toggle="collapse" data-target="#${requete.id}" aria-expanded="true" aria-controls="collapseOne">
@@ -262,9 +200,10 @@ function getRequestItem(requete) {
 
     <div id="${requete.id}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body">
+          <p>Requête de: ${requete.name} ${requete.surname}</p><br>
           ${requete.description}<br>
 
-          <p>Comment me contacter ?</p>
+          <!-- <p>Comment me contacter ?</p>
           <form class="choix-contact">
 
             <input type="radio" name="contact" value="email" checked />par e-mail<br>
@@ -272,8 +211,9 @@ function getRequestItem(requete) {
 
 
             <input type="text" name="pseudoSlack" value="" style="display:none" /><br>
-            <button type="submit" class="btn btn-primary">A l'aide !</button>
-          </form>
+
+          </form> -->
+          <button type="submit" class="jelaide btn">Je l'aide</button>
       </div>
     </div>
   </div>`
@@ -292,33 +232,31 @@ const showListeRequete = () => {
   .then(response => response.json())
   .then(requetes => {
     render(listerequeteHtml(requetes))
-      const formulaires = document.getElementsByClassName('choix-contact')
-      for (const formulaire of formulaires) {
-        const inputs = formulaire.getElementsByTagName('input')
-        const inputPseudoSlack = inputs[2]
-        for (let i = 0; i <= 1; i++ ) {
-          const bouton = inputs[i]
-          bouton.addEventListener("click", function () {
+    const formulaires = document.getElementsByClassName('choix-contact')
+    for (const formulaire of formulaires) {
+      const inputs = formulaire.getElementsByTagName('input')
+      const inputPseudoSlack = inputs[2]
+      for (let i = 0; i <= 1; i++ ) {
+        const bouton = inputs[i]
+        bouton.addEventListener("click", function () {
           console.dir(bouton)
 
-
-           if (bouton.value == "slack") {
-            inputPseudoSlack.style.display="inline"
-           }
-
-           else {
+          if (bouton.value == "slack") {
+          inputPseudoSlack.style.display="inline"
+          }
+          else {
             inputPseudoSlack.style.display="none"
-           }
-          })
-        }
+          }
+        })
       }
-
+    }
   })
 }
 
 
 
 // PAGE DEMANDE AIDE
+
 
 const aideHtml = /* @html */ `
    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4  bg-white border-bottom box-shadow" id="navBarAide">
@@ -327,6 +265,7 @@ const aideHtml = /* @html */ `
         <a class="p-2 text-dark" href="/">
            <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
         </a>
+        <p> Hello ${loggedInUser}</p>
       </nav>
        <a class="btn btn-log-out" href="/logout"><span class="glyphicon glyphicon-log-out">Deconnexion </span> </a>
    </div>
@@ -365,22 +304,22 @@ const aideHtml = /* @html */ `
         placeholder="Décris ici, en détail, ton problème."></textarea>
             </p>
           </div>
+      </div>
+      <div class="row buttonHelp">
+        <div class="col-md-6">
+          <a href="/"><button type="reset" class="btn btn-outline-danger">Annuler</button></a>
         </div>
-        <div class="row buttonHelp">
-          <div class="col-md-6 mb-2">
-            <input class="btn btn-outline" type="submit" value="Save me !"/>
-          </div>
-          <div class="col-md-6">
-            <a href="/"><button type="reset" class="btn btn-outline-danger">Annuler</button></a>
-          </div>
+        <div class="col-md-6">
+          <input class="btn btn-outline" type="submit" value="Aidez-moi !"/>
         </div>
       </div>
-    </form>
-</div>
-    </div>`
+    </div>
+  </form>
+</div>`
 
-const footerForAllPage = /* @html */ `<footer>
-   <div class="reseaux col-mg-6">
+const footerForAllPage = /* @html */ `
+  <footer>
+   <div class="reseaux col-md-12">
     <a href="https://www.facebook.com/wildcodeschool/" target="_blank"><img class="imgbtn" src="logofooter/fb.png" alt="imgbtn"></a>
     <a href="https://www.instagram.com/wildcodeschool/" target="_blank"><img class="imgbtn" src="logofooter/insta.png" alt="imgbtn"></a>
     <a href="https://twitter.com/wildcodeschool" target="_blank"><img class="imgbtn" src="logofooter/twitter.png" alt="imgbtn"></a>
@@ -392,16 +331,14 @@ const footerForAllPage = /* @html */ `<footer>
        <a href="https://www.linkedin.com/in/florentin-hauton-479a64156/" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="LinkedIn de Florentin !">Florentin</a>,
        <a href="https://www.linkedin.com/in/thientamtran/" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="LinkedIn de Thien Tam !">Thien Tam</a>,
        <a href="https://www.linkedin.com/in/nicolas-nivlet-b3aab6a3/" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="LinkedIn de Jack !">Jack
-       </a> of WildCodeSchool 2018.</p>
+       </a> _ WildCodeSchool Toulouse 2018.</p>
    </div>
-
-</footer>`
+ </footer>`
 
 
 // DEBUT PAGE HELP
 const showAide = () => {
     render(aideHtml)
-
 // Envois du formulaire vers la database
     const formCours = document.getElementById('formHelp')
     formCours.addEventListener('submit', event => {
@@ -436,6 +373,7 @@ const showAide = () => {
           alert(data.success)
         }
 // permet de revenir sur un formulaire vierge
+      // loggedInUser = data
         showAide()
         console.log(data)
       })
@@ -478,6 +416,7 @@ const showAide = () => {
           alert (data.error)
           return
         }
+        loggedInUser = data
         console.log(data)
           page ('/aide')
       })
@@ -486,8 +425,6 @@ const showAide = () => {
 
    const showInscriptionHelper = () => {
      render(inscriptionHtml('Inscription Alumni', 'Un élève de la Wild Code School est en détresse. Seras-tu l\'aider ?', 'Helper'))
-
-         $('[data-toggle="popover"]').remove();
 
      const element = document.getElementById('sinscrire')
      const myForml = document.getElementById('myFormulaireInscription')
@@ -517,16 +454,18 @@ const showAide = () => {
            alert (data.error)
            return
          }
+         loggedInUser = data
          console.log(data)
          page ('/requete')
        })
      })
-     }
+    }
 
 
 
   const showLanguages = () => {
     render(languageHtml)
+
   }
 
   const showConnexion = () => {
@@ -542,6 +481,7 @@ const showAide = () => {
           data[input.name] = input.value
         }
       }
+
       fetch('/connexion', {
         method: 'POST',
         headers: {
@@ -580,17 +520,27 @@ const showAide = () => {
   }
 
 
-
-
-
-
+  const checkLoginMiddleware = (context, next) => {
+    console.log("exécuté avant l'affichage de la page")
+    if(loggedInUser === undefined) {
+      page('/connexion')
+    }
+    next()
+  }
+  // const checkLoginWilder = (context, next) => {
+  //   console.log("exécuté avant l'affichage de la page")
+  //   if(data.accountType=="Wilder") {
+  //     page('/wilder')
+  //   }
+  //   next()
+  // }
 
 page('/', showAccueil)
 page('/connexion', showConnexion)
 page('/wilder', showInscriptionWilder)
 page('/helper', showInscriptionHelper)
-page('/languages', showLanguages)
-page('/cours', showCoursPropose)
-page('/requete', showListeRequete)
-page('/aide', showAide)
+
+page('/requete',checkLoginMiddleware, showListeRequete)
+page('/aide', checkLoginMiddleware, showAide)
+
 page()

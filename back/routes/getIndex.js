@@ -5,7 +5,7 @@ const html = user => /* @html */ `
 <html class="no-js" lang="fr">
   <head>
     <meta charset="utf-8">
-    <title>Formulaires</title>
+    <title>Wild Help</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
     <link rel="stylesheet" href="wildhelp.css" />
 
@@ -24,15 +24,16 @@ const html = user => /* @html */ `
     <script src="page.js"></script>
     <script>
    // On transforme l'user passé en paramètre en string
-   let loggedInUser = ${ JSON.stringify(user) }
-   </script>
+     let loggedInUser = ${ JSON.stringify(user) }
+     </script>
     <script src="wildhelp.js"></script>
   </body>
 </html>`
 
 
 const getIndex = (req, res) => {
-  console.log('wildcard route')
+
+  console.log(req.session.user)
   res.send(html(req.session.user))
   res.end()
 }
