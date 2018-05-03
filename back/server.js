@@ -24,6 +24,9 @@ const checkLoggedInUser = require('./routes/checkLoggedInUser')
 const getInscriptions = require('./routes/getInscriptions')
 const logOut = require('./routes/logOut')
 const listerRequest = require('./routes/listerRequest')
+const deleteRequest = require('./routes/deleteRequest')
+
+
 
 //
 // const middleware = (req, res, next) => {
@@ -49,6 +52,8 @@ const middleware = (req, res, next) => {
      })
    }
 }
+
+app.delete('/request/:id', deleteRequest)
 
 app.post('/register', getInscriptions)
 app.post('/connexion', checkLoggedInUser)
