@@ -109,8 +109,10 @@ margin: : 50px 50px;
  .btn-login
 {
   background: #ff6090;
+  border-color: #ff6090;
   color:#fff;
   font-weight:600;
+  margin-right: 1%;
 }
 
  .banner-text

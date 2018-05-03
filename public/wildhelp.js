@@ -308,7 +308,7 @@ const aideHtml = /* @html */ `
           <a href="/"><button type="reset" class="btn btn-outline-danger">Annuler</button></a>
         </div>
         <div class="col-md-6">
-          <input class="btn btn-outline" type="submit" value="Aidez-moi !"/>
+          <input class="btn-aide btn btn-outline" type="submit" value="Aidez-moi"/>
         </div>
       </div>
     </div>
