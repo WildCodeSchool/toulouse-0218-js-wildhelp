@@ -7,27 +7,28 @@ body {
 .background .accInscription
 {
   position: absolute;
-  margin-top: 25%;
-  margin-left: 4%;
+  margin-top: 20%;
   color: white;
-
+  font-size: 4vw;
 }
 
 .background .btnWild {
   position: absolute;
-  margin-top: 31.5%;
-  margin-left: 38%;
+  margin-top: 35%;
+  margin-left: 45%;
 }
 
 .accInscription p
 {
   color: white;
-  text-align: left;
-  font-size: 30px;
+  text-align: center;
+  font-size: 35px;
 }
 
 .accInscription button
 {
+    display: block;
+    margin : auto;
     padding: center;
     background: #DE6262;
     color:#fff;
@@ -50,10 +51,10 @@ font-weight:600;
 .FormulaireInsc{
 background: #ff8a80;  /* fallback for old browsers */
 /* background: -webkit-linear-gradient(to bottom, #FFB88C, #ff8a80);  /* Chrome 10-25, Safari 5.1-6 */
+
 padding : 50px 50px;
 margin: : 50px 50px;
 }
-
 
 /* CSS PAGE CONNEXION */
  .login-block
@@ -78,12 +79,10 @@ margin: : 50px 50px;
     text-align:left;
      left:5%;
 }
-
  .login-sec{
     padding: 50px 30px;
      position:relative;
 }
-
  .login-sec .copy-text{
      position:absolute;
      width:80%;
@@ -95,7 +94,6 @@ margin: : 50px 50px;
  .login-sec .copy-text a{
     color:#E36262;
 }
-
  .login-sec h2
 {
      margin-bottom:30px;
@@ -105,8 +103,7 @@ margin: : 50px 50px;
 }
 
 #sinscrire{
-  margin-left: 21%;
-  background-color: #ff6090;
+  margin-left: 20%;
 }
 
  .btn-login
@@ -137,6 +134,9 @@ margin: : 50px 50px;
     color:white;
 }
 /* page requetes */
+.background .btn-log-out{
+
+}
 
 h1{
   color-font: #563482;
@@ -145,16 +145,11 @@ h1{
 
 h3{
   color-font: #563482;
-  text-align: left;
-}
-
-h4{
-  color-font: #563482;
   text-align: center;
 }
 
 h6{
-  text-align: left;
+  text-align: center;
   font-size: 10px;
   padding-bottom: 15px;
 }
@@ -213,6 +208,9 @@ h6{
   top: 270px;
 }
 
+.buttonHelp{
+  margin-right:0.5%;
+}
 /* CSS Accordéon */
 #accordion{
   margin-bottom: 9%;
@@ -222,6 +220,10 @@ h6{
 
 btn-link{
   background: #FFF;
+}
+
+#iconesTechno{
+  background-color: #FFF;
 }
 
 .jelaide{
@@ -241,8 +243,7 @@ btn-link{
 
 footer p{
   font-weight: bold;
-  font-style: italic;
-  text-align: center;
+  margin-right:1%;
 }
 
 footer .imgbtn
