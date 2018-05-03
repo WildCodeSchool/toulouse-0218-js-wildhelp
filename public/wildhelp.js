@@ -195,10 +195,6 @@ const listerequeteHtml = (requetes) => /* @html */ `<div class="nav-side-menu">
    </div>
 </div>
 
-
-
-<!-- Ajout icônes technologies proposées. -->
-
 <div class="container">
   <h3>Technologies proposées</h3>
   <div class="row justify-content-center">
@@ -229,9 +225,6 @@ const listerequeteHtml = (requetes) => /* @html */ `<div class="nav-side-menu">
       </div>
     </div>
 
-
-
-
 <div class="container">
    <div class="row">
       <div class="col-md-12">
@@ -243,12 +236,6 @@ const listerequeteHtml = (requetes) => /* @html */ `<div class="nav-side-menu">
       </div>
    </div>
 </div>`
-
-// const getRequestItem = requete => /* @html */ `
-//     <ul class="list-group">
-//        ${requetes.map(getRequestItem).join("")}
-//     </ul>
-// `
 
 function getRequestItem(requete) {
 
@@ -320,6 +307,7 @@ const showListeRequete = () => {
 
 // PAGE DEMANDE AIDE
 
+
 const aideHtml = /* @html */ `
    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4  bg-white border-bottom box-shadow" id="navBarAide">
       <h5 class="my-0 mr-md-auto">WildHelp</h5>
@@ -327,6 +315,7 @@ const aideHtml = /* @html */ `
         <a class="p-2 text-dark" href="/">
            <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
         </a>
+        <p> Hello ${loggedInUser}</p>
       </nav>
        <a class="btn btn-log-out" href="/logout"><span class="glyphicon glyphicon-log-out">Deconnexion </span> </a>
    </div>
@@ -401,7 +390,6 @@ const footerForAllPage = /* @html */ `<footer>
 // DEBUT PAGE HELP
 const showAide = () => {
     render(aideHtml)
-
 // Envois du formulaire vers la database
     const formCours = document.getElementById('formHelp')
     formCours.addEventListener('submit', event => {
@@ -436,6 +424,7 @@ const showAide = () => {
           alert(data.success)
         }
 // permet de revenir sur un formulaire vierge
+      // loggedInUser = data
         showAide()
         console.log(data)
       })
@@ -487,9 +476,6 @@ const showAide = () => {
 
    const showInscriptionHelper = () => {
      render(inscriptionHtml('Inscription Alumni', 'Un élève de la Wild Code School est en détresse. Seras-tu l\'aider ?', 'Helper'))
-
-         $('[data-toggle="popover"]').remove();
-
      const element = document.getElementById('sinscrire')
      const myForml = document.getElementById('myFormulaireInscription')
      myForml.addEventListener('submit', e => {
@@ -529,6 +515,7 @@ const showAide = () => {
 
   const showLanguages = () => {
     render(languageHtml)
+
   }
 
   const showConnexion = () => {
@@ -583,14 +570,25 @@ const showAide = () => {
   }
 
 
-
+  const checkLoginMiddleware = (context, next) => {
+    console.log("exécuté avant l'affichage de la page")
+    if(loggedInUser === undefined) {
+      page('/connexion')
+    }
+    next()
+  }
+  // const checkLoginWilder = (context, next) => {
+  //   console.log("exécuté avant l'affichage de la page")
+  //   if(data.accountType=="Wilder") {
+  //     page('/wilder')
+  //   }
+  //   next()
+  // }
 
 page('/', showAccueil)
 page('/connexion', showConnexion)
 page('/wilder', showInscriptionWilder)
 page('/helper', showInscriptionHelper)
-page('/languages', showLanguages)
-page('/cours', showCoursPropose)
-page('/requete', showListeRequete)
-page('/aide', showAide)
+page('/requete',checkLoginMiddleware, showListeRequete)
+page('/aide', checkLoginMiddleware, showAide)
 page()
