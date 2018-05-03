@@ -31,7 +31,7 @@ const requestAllHelp =  (req, res) => {
     }
     else {
       return res.status(200).json({
-        success : 'Félicitation, votre requête est bien pris en compte ! Un Alumni vous contactera pour prendre rendez-vous.'
+        success : 'On a bien noté ton problème. Un alumni va être alerté et pourra prendre contact avec toi pour t\'aider.'
       })
     }
     console.log(results)
