@@ -62,7 +62,7 @@ const inscriptionHtml = (title, text, type) =>
                         <input type="password" name="password" autocomplete="current-password" class="form-control" id="current" placeholder="Mot-de-passe" required="required"/>
                      </div>
 
-                     <input type="submit" value="S'inscrire" id="sinscrire" />
+                     <input type="submit" class="btn" value="S'inscrire" id="sinscrire" />
                      <a href="/connexion">
                         <button type="submit" value="submit" class="btn btn-primary ml-5" a href="/connexion">
                      Déjà inscrit ?
@@ -129,7 +129,6 @@ const connexionHtml = /* @html */ `
    <h5 class="my-0 mr-md-auto">WildHelp</h5>
    <nav class="my-2 my-md-0 mr-md-3">
      <a class="p-2 text-dark" href="/">
-       <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
          <p>Hello ${name}</p>
      </a>
    </nav>
