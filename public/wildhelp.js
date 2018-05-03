@@ -124,12 +124,13 @@ const connexionHtml = /* @html */ `
    </div>
  </section>`
 
- const listerequeteHtml = (requetes) => /* @html */ `
+ const listerequeteHtml = (requetes, name) => /* @html */ `
  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4  bg-white border-bottom box-shadow" id="navBarAide">
    <h5 class="my-0 mr-md-auto">WildHelp</h5>
    <nav class="my-2 my-md-0 mr-md-3">
      <a class="p-2 text-dark" href="/">
        <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
+       <p> Salut ${name}</p>
      </a>
    </nav>
    <a class="btn btn-log-out" href="/logout"><span class="glyphicon glyphicon-log-out">Deconnexion </span> </a>
@@ -212,7 +213,7 @@ const showListeRequete = () => {
   })
   .then(response => response.json())
   .then(requetes => {
-    render(listerequeteHtml(requetes))
+    render(listerequeteHtml(requetes, loggedInUser.name))
 
       $('#iconesTechno a').click(function(event){
         console.log(event)
