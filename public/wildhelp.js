@@ -142,15 +142,8 @@ const listerequeteHtml = (requetes) => /* @html */ `
   <a class="btn btn-log-out" href="/logout"><span class="glyphicon glyphicon-log-out">Deconnexion </span> </a>
 </div>
 
-<<<<<<< HEAD
+
 <div class="container">
-=======
-
-
-<!-- Ajout icônes technologies proposées. -->
-
-<div class="technologies container">
->>>>>>> e3710c7f11feee9bc3ac21bcd2d4b81948a9e963
   <h3>Technologies proposées</h3>
   <div class="row justify-content-center">
     <div class="col-4">
@@ -264,7 +257,6 @@ const showListeRequete = () => {
 
 
 const aideHtml = /* @html */ `
-<<<<<<< HEAD
    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4  bg-white border-bottom box-shadow" id="navBarAide">
       <h5 class="my-0 mr-md-auto">WildHelp</h5>
       <nav class="my-2 my-md-0 mr-md-3">
