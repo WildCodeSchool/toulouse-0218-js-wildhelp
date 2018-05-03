@@ -148,9 +148,9 @@ const listerequeteHtml = (requetes) => /* @html */ `
   <h3>Technologies proposées</h3>
   <div class="row justify-content-center">
     <div class="col-4">
-      <div class="row">
+      <div class="row" id="iconesTechno">
         <div class="col-md-4 col-sm logo">
-          <a href="/requete" target="_blank">
+          <a href="" target="_blank">
             <img class="img-fluid" src="http://blog.zenika.com/wp-content/uploads/2016/04/java-logo.png" alt="Java Logo" />
             <p>Java</p>
           </a>
@@ -232,6 +232,19 @@ const showListeRequete = () => {
   .then(response => response.json())
   .then(requetes => {
     render(listerequeteHtml(requetes))
+    //choix de la technologie.
+    const technologies = document.getElementById('iconesTechno')
+    const liens = technologies.getElementsByTagName('a')
+    for (const lien of liens) {
+      lien.addEventListener("click", function (event) {
+
+        event.preventDefault()
+        // Number(event.target.href)
+
+
+      })
+    }
+    // evenements choix-contact.
     const formulaires = document.getElementsByClassName('choix-contact')
     for (const formulaire of formulaires) {
       const inputs = formulaire.getElementsByTagName('input')
