@@ -187,11 +187,14 @@ h6{
   height: 5em;
   text-align:right;
 }
+#formHelp row{
+  align-items: left;
+}
 
 #formHelp
 {
-  text-align: center;
-} */
+  text-align: left;
+}
 
 #formHelp h2
 {

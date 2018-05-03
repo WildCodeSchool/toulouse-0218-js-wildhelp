@@ -186,7 +186,6 @@ const connexionHtml = /* @html */ `
              <div class="card-body">
                <p>Demande de: ${requete.name} ${requete.surname}</p><br>
                ${requete.description}<br>
-               <p>Comment me contacter ?</p>
           <button type="button" onClick="Message('${requete.email}', ${requete.id})" class="jelaide btn">Je l'aide</button>
       </div>
     </div>
@@ -273,9 +272,6 @@ const aideHtml = (name) => /* @html */ `
              <h2>Dis-nous sur quoi tu as besoin d'aide !</h2>
            </div>
          </div>
-
-
-
          <div class="row">
            <div class="col-md-12">
              <p>
