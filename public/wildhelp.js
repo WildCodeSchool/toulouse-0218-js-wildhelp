@@ -416,7 +416,7 @@ const showAide = () => {
 
    const showInscriptionHelper = () => {
         $('#popover-alumni').popover('hide')
-     render(inscriptionHtml('Inscription Alumni', 'Un élève de la Wild Code School est en détresse. Seras-tu l\'aider ?', 'Helper'))
+     render(inscriptionHtml('Inscription Alumni', 'Un élève de la Wild Code School est en détresse. Sauras-tu l\'aider ?', 'Helper'))
 
 
      const element = document.getElementById('sinscrire')
