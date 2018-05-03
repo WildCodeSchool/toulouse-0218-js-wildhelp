@@ -2,33 +2,35 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
   /* font-weight: bold; */
 }
-
+span{
+  font-size: 20px;
+}
 /*  PAGE D ACCUEIL */
 .background .accInscription
 {
   position: absolute;
-  margin-top: 20%;
+  margin-top: 25%;
+  margin-left: 4%;
   color: white;
-  font-size: 4vw;
 }
-
+#navBarAcc{
+  font-weight: bold;
+}
 .background .btnWild {
   position: absolute;
-  margin-top: 35%;
-  margin-left: 45%;
+  margin-top: 31.5%;
+  margin-left: 38%;
 }
 
 .accInscription p
 {
   color: white;
-  text-align: center;
-  font-size: 35px;
+  text-align: left;
+  font-size: 30px;
 }
 
 .accInscription button
 {
-    display: block;
-    margin : auto;
     padding: center;
     background: #DE6262;
     color:#fff;
@@ -51,10 +53,10 @@ font-weight:600;
 .FormulaireInsc{
 background: #ff8a80;  /* fallback for old browsers */
 /* background: -webkit-linear-gradient(to bottom, #FFB88C, #ff8a80);  /* Chrome 10-25, Safari 5.1-6 */
-
 padding : 50px 50px;
 margin: : 50px 50px;
 }
+
 
 /* CSS PAGE CONNEXION */
  .login-block
@@ -79,10 +81,12 @@ margin: : 50px 50px;
     text-align:left;
      left:5%;
 }
+
  .login-sec{
     padding: 50px 30px;
      position:relative;
 }
+
  .login-sec .copy-text{
      position:absolute;
      width:80%;
@@ -94,6 +98,7 @@ margin: : 50px 50px;
  .login-sec .copy-text a{
     color:#E36262;
 }
+
  .login-sec h2
 {
      margin-bottom:30px;
@@ -103,7 +108,8 @@ margin: : 50px 50px;
 }
 
 #sinscrire{
-  margin-left: 20%;
+  margin-left: 21%;
+  background-color: #ff6090;
 }
 
  .btn-login
@@ -134,9 +140,6 @@ margin: : 50px 50px;
     color:white;
 }
 /* page requetes */
-.background .btn-log-out{
-
-}
 
 h1{
   color-font: #563482;
@@ -145,11 +148,17 @@ h1{
 
 h3{
   color-font: #563482;
+  text-align: left;
+}
+
+h4{
+  color-font: #563482;
   text-align: center;
+  font-weight:bold;
 }
 
 h6{
-  text-align: center;
+  text-align: left;
   font-size: 10px;
   padding-bottom: 15px;
 }

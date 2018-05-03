@@ -4,7 +4,7 @@ const targetElement = document.getElementById('main')
 
 const accueilhtml =
 /* @html */`<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4  bg-white border-bottom box-shadow" id="navBarAcc">
-   <h4 class="my-0 mr-md-auto">Wild Help</h4>
+   <h4 class="my-0 mr-md-auto"><span>Wild Help</span></h4>
    <nav class="my-2 my-md-0 mr-md-3">
       <a href='/helper' id="popover-alumni" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom"  data-content="Inscris toi pour aider les nouveaux élèves !">Alumni</a>
    </nav>
@@ -13,7 +13,7 @@ const accueilhtml =
     <div class="row background">
   <img class ="container-fluid" src="/image/gif1.gif" type="image/gif" height="150%" loop="0" />
    <div class="accInscription">
-      <p>Profite de la communauté des développeurs Alumni de la Wild pour t'aider à résoudre les casse-têtes les plus fous durant ta formation !</p>
+      <p>Profite de la communauté des Alumnis de la Wild<br> pour t'aider à résoudre les casse-têtes<br> les plus fous durant ta formation !</p>
   </div>
   <div class="btnWild">
       <a href="/wilder"><button type="button" class="btn">Inscription</button></a>
