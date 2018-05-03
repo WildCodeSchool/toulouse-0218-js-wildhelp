@@ -188,7 +188,7 @@ const connexionHtml = /* @html */ `
 
            <div id="req-${requete.id}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
              <div class="card-body">
-               <p>Requête de: ${requete.name} ${requete.surname}</p><br>
+               <p>Demande de: ${requete.name} ${requete.surname}</p><br>
                <p>Mail: ${requete.email}</p>
                <p>Pssedo Slack: ${requete.slack}</p>
                ${requete.description}<br>
