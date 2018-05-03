@@ -17,6 +17,7 @@ const listerRequest = (req, res) => {
 //
 
 const requetes = `SELECT * FROM wildRequest`
+// const validation =`DELETE FROM wildRequest WHERE ${id}`
 
  connection.query(requetes, (error, results) => {
     if(error) {
