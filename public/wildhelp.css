@@ -1,6 +1,6 @@
 body {
   font-family: 'Source Sans Pro', sans-serif;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 /*  PAGE D ACCUEIL */
@@ -102,11 +102,17 @@ margin: : 50px 50px;
      color: white;
 }
 
+#sinscrire{
+  margin-left: 20%;
+}
+
  .btn-login
 {
   background: #ff6090;
+  border-color: #ff6090;
   color:#fff;
   font-weight:600;
+  margin-right: 1%;
 }
 
  .banner-text
@@ -227,7 +233,13 @@ btn-link{
     background-color: white;
 }
 
- footer .imgbtn
+footer p{
+  font-weight: bold;
+  font-style: italic;
+  text-align: center;
+}
+
+footer .imgbtn
  {
      width: 2%;
      filter: grayscale(80%);
