@@ -88,21 +88,19 @@ const connexionHtml = /* @html */ `
          <div class="col-md-4 login-sec">
             <h2 class="text-center">Connexion</h2>
             <form method="POST" id="loginForm" class="form-horizontal"  action="/login">
-               <div class="form-group">
+               <div>
                   <label for="email" class="text-uppercase">E-mail</label>
-                  <input type="text" name="email" autocomplete="email" class="form-control" id="email" placeholder="wilder@example.com" required />
+                  <div></div>
+                  <input type="text" size="28" name="email" autocomplete="email" id="email" placeholder="wilder@example.com" required />
                </div>
-               <div class="form-group">
-                  <label for="password" class="text-uppercase">Mot de Passe</label>
-                  <input type="password" autocomplete="current-password" name="password" class="form-control" id="password" placeholder="Mot-de-passe" required />
+               <div>
+                  <label for="password" class="text-uppercase mt-3">Mot de Passe</label>
+                  <input type="password" size="28" autocomplete="current-password" name="password" id="password" placeholder="Mot-de-passe" required />
                </div>
-               <div class="form-check">
-                  <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input">
-                  <small>Se souvenir de moi</small>
-                  </label>
-                  <input type="submit" class="btn-login" value="Connexion" />
-               </div>
+               <div class="form-check mt-5 mb-3">
+                  <label class="form-check-label "><input type="checkbox" class="form-check-input">Se souvenir de moi</label>
+                </div>
+               <input type="submit" class="btn-login" value="Connexion" />
             </form>
             <div id="result"></div>
          </div>
@@ -111,9 +109,7 @@ const connexionHtml = /* @html */ `
                <div class="carousel-inner" role="listbox">
                   <div class="carousel-item active">
                     <img class="d-block img-fluid" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=37c91c8e3f63462e0739c676dfe8fee8&auto=format&fit=crop&w=1050&q=80" alt="Second slide">
-
                   </div>
-
                   <div class="carousel-item">
                     <img class="d-block img-fluid" src="https://images.unsplash.com/photo-1497171156029-51dfc973e5f9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c8e7ca2e7514a9e0e66fcc2091dc2ad5&auto=format&fit=crop&w=1050&q=80" alt="First slide">
                   </div>
@@ -126,17 +122,12 @@ const connexionHtml = /* @html */ `
 
  const listerequeteHtml = (requetes, name) => /* @html */ `
  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4  bg-white border-bottom box-shadow" id="navBarAide">
-   <h5 class="my-0 mr-md-auto">WildHelp</h5>
-   <nav class="my-2 my-md-0 mr-md-3">
-     <a class="p-2 text-dark" href="/">
-       <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
-         <p>Hello ${name}</p>
-     </a>
-   </nav>
+   <h5 class="my-0 mr-md-auto">Hello ${name}</h5>
    <a class="btn btn-log-out" href="/logout"><span class="glyphicon glyphicon-log-out">Deconnexion </span> </a>
  </div>
  <div class="container">
-   <h3>Technologies proposées</h3>
+   <br/>
+   <h3>Selectionne un langage</h3>
    <div class="row justify-content-center">
      <div class="col-4">
        <div class="row" id="iconesTechno">
@@ -161,8 +152,8 @@ const connexionHtml = /* @html */ `
        <div class="container">
          <div class="row">
            <div class="col-md-12">
-             <h3>Liste des requêtes</h3>
-             <h6>Cliquez sur une requête pour la dérouler</h6>
+             <!-- <h3>Liste des requêtes</h3> -->
+             <h5>Clique pour afficher les demandes</h5>
              <div id="accordion">
                ${requetes.map(getRequestItem).join("")}
              </div>
@@ -183,7 +174,7 @@ const connexionHtml = /* @html */ `
 
            <div id="req-${requete.id}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
              <div class="card-body">
-               <p>Requête de: ${requete.name} ${requete.surname}</p><br>
+               <p>Demande de: ${requete.name} ${requete.surname}</p><br>
                ${requete.description}<br>
                <p>Comment me contacter ?</p>
                <form class="choix-contact">
@@ -230,15 +221,16 @@ const showListeRequete = () => {
   .then(response => response.json())
   .then(requetes => {
     render(listerequeteHtml(requetes, loggedInUser.name))
-
       $('#iconesTechno a').click(function(event){
-        console.log(event)
         event.preventDefault()
         $(event.currentTarget).toggleClass('active')
         const filter = event.currentTarget.id
-
         $('.card-requetes').hide()
         $('.' + filter).show()
+      })
+      $('#iconesTechno a').dblclick(function(event){
+        event.preventDefault()
+        $('.card-requetes').show()
       })
 
     // evenements choix-contact.
@@ -267,43 +259,43 @@ const showListeRequete = () => {
 
 const aideHtml = (name) => /* @html */ `
    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4  bg-white border-bottom box-shadow" id="navBarAide">
-      <h5 class="my-0 mr-md-auto">WildHelp</h5>
-      <nav class="my-2 my-md-0 mr-md-3">
+      <h5 class="my-0 mr-md-auto">Hello ${name}</h5>
+      <!-- <nav class="my-2 my-md-0 mr-md-3">
         <a class="p-2 text-dark" href="/">
            <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
         </a>
-        <p>Hello ${name}</p>
-      </nav>
+        <p></p>
+      </nav> -->
        <a class="btn btn-log-out" href="/logout"><span class="glyphicon glyphicon-log-out">Deconnexion </span> </a>
    </div>
    <div class="container">
      <form id="formHelp" class="form-horizontal" method="POST" action="/aide">
        <div class="bodyHelp">
-         <div class="row">
+         <!-- <div class="row">
            <div class="col-md-12">
              <h2>Demande d'aide</h2>
            </div>
+         </div> -->
+          <div class="row">
+         <div class="col-md-12 mt-5">
+           <p>
+             <label for="topic" id="enteteLabel">Dis nous sur quoi tu as besoin d'aide</label>
+             <input type="text" class="form-control" name="topic" id="topic" placeholder="Ex : React, Android, Symfony ..." size="40" required="required" />
+           </p>
          </div>
-         <div class="row">
-           <div class="col-md-9 offset-md-3">
-             <div class="input-group">
+
+           <div class="col-md-12 mb-3">
+             <!-- <div class="input-group"> -->
                <select id="subject" name="langage" class="form-control" required="required">
                  <option value="" selected="">Selectionnez le langage</option>
                  <option value="1">JavaScript</option>
                  <option value="2">JAVA</option>
                  <option value="3">PHP</option>
                </select>
-             </div>
+             <!-- </div> -->
            </div>
          </div>
-         <div class="row">
-           <div class="col-md-12">
-             <p>
-               <label for="topic">Sujet requête :</label>
-               <input type="text" class="form-control" name="topic" id="topic" placeholder="Ex : React, Symfony ..." size="40" maxlength="50" required="required" />
-             </p>
-           </div>
-         </div>
+
          <div class="row">
            <div class="col-md-12">
              <p>
