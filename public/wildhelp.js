@@ -310,52 +310,6 @@ const aideHtml = /* @html */ `
         placeholder="Décris ici, en détail, ton problème."></textarea>
             </p>
           </div>
-=======
-<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4  bg-white border-bottom box-shadow" id="navBarAide">
-  <h5 class="my-0 mr-md-auto">WildHelp</h5>
-  <nav class="my-2 my-md-0 mr-md-3">
-    <a class="p-2 text-dark" href="/">
-      <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
-    </a>
-  </nav>
-  <a class="btn btn-log-out" href="/logout"><span class="glyphicon glyphicon-log-out">Deconnexion </span> </a>
-</div>
-<div class="container">
-  <form id="formHelp" class="form-horizontal" method="POST" action="/aide">
-    <div class="bodyHelp">
-      <div class="row">
-        <div class="col-md-12">
-          <h2>Demande d'aide</h2>
->>>>>>> e3710c7f11feee9bc3ac21bcd2d4b81948a9e963
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-9 offset-md-3">
-          <div class="input-group">
-            <select id="subject" name="langage" class="form-control" required="required">
-              <option value="" selected="">Selectionnez le langage</option>
-              <option value="1">JavaScript</option>
-              <option value="2">JAVA</option>
-              <option value="3">PHP</option>
-            </select>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <p>
-            <label for="topic">Sujet requête :</label>
-            <input type="text" class="form-control" name="topic" id="topic" placeholder="Ex : React, Symfony ..." size="40" maxlength="50" required="required" />
-          </p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <p>
-            <textarea name="description" id="description" class="form-control" rows="10" cols="50" required="required"
-            placeholder="Décris ici, en détail, ton problème."></textarea>
-          </p>
-        </div>
       </div>
       <div class="row buttonHelp">
         <div class="col-md-6">
@@ -476,14 +430,8 @@ const showAide = () => {
     }
 
    const showInscriptionHelper = () => {
-<<<<<<< HEAD
      render(inscriptionHtml('Inscription Alumni', 'Un élève de la Wild Code School est en détresse. Seras-tu l\'aider ?', 'Helper'))
-=======
-     render(inscriptionHtml('Inscription Alumni', 'Un élève de la Wild Code School est en détresse. Sauras-tu l\'aider ?', 'Helper'))
 
-         $('[data-toggle="popover"]').remove();
-
->>>>>>> e3710c7f11feee9bc3ac21bcd2d4b81948a9e963
      const element = document.getElementById('sinscrire')
      const myForml = document.getElementById('myFormulaireInscription')
      myForml.addEventListener('submit', e => {
@@ -597,12 +545,8 @@ page('/', showAccueil)
 page('/connexion', showConnexion)
 page('/wilder', showInscriptionWilder)
 page('/helper', showInscriptionHelper)
-<<<<<<< HEAD
+
 page('/requete',checkLoginMiddleware, showListeRequete)
 page('/aide', checkLoginMiddleware, showAide)
-=======
-page('/languages', showLanguages)
-page('/requete', showListeRequete)
-page('/aide', showAide)
->>>>>>> e3710c7f11feee9bc3ac21bcd2d4b81948a9e963
+
 page()
