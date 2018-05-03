@@ -189,8 +189,10 @@ const connexionHtml = /* @html */ `
            <div id="req-${requete.id}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
              <div class="card-body">
                <p>Requête de: ${requete.name} ${requete.surname}</p><br>
+               <p>Mail: ${requete.email}</p>
+               <p>Pssedo Slack: ${requete.slack}</p>
                ${requete.description}<br>
-               <p>Comment me contacter ?</p>
+               <!-- <p>Comment me contacter ?</p>
                <form class="choix-contact">
 
                  <input type="radio" name="contact" value="email" checked />par e-mail<br>
@@ -199,7 +201,7 @@ const connexionHtml = /* @html */ `
 
                  <input type="text" name="pseudoSlack" value="" style="display:none" /><br>
 
-          </form>
+          </form> -->
           <button type="button" onClick="Message('${requete.email}', ${requete.id})" class="jelaide btn">Je l'aide</button>
       </div>
     </div>

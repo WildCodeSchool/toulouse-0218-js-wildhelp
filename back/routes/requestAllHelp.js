@@ -12,7 +12,8 @@ const requestAllHelp =  (req, res) => {
   const name = req.session.user.name
   const surname = req.session.user.surname
   const email = req.session.user.email
-  const request = `INSERT INTO wildRequest (userId, name, surname, email, technoId, topic, description ) VALUES (${userId}, '${name}', '${surname}', '${email}', ${technoId}, '${topic}', '${description}')`
+  const slack = req.session.user.slack
+  const request = `INSERT INTO wildRequest (userId, name, surname, email, slack, technoId, topic, description ) VALUES (${userId}, '${name}', '${surname}', '${email}', '${slack}', ${technoId}, '${topic}', '${description}')`
 
 
   connection.query(request, (error, results) => {
