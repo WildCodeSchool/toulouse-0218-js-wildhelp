@@ -272,26 +272,30 @@ const aideHtml = /* @html */ `
              <h2>Demande d'aide</h2>
            </div>
          </div>
+
+
          <div class="row">
-           <div class="col-md-9 offset-md-3">
+           <div class="col-md-9 col-offset-md-3">
              <div class="input-group">
                <select id="subject" name="langage" class="form-control" required="required">
                  <option value="" selected="">Selectionnez le langage</option>
                  <option value="1">JavaScript</option>
-                 <option value="2">JAVA</option>
+                 <option value="2">Java</option>
                  <option value="3">PHP</option>
                </select>
              </div>
            </div>
          </div>
+
          <div class="row">
            <div class="col-md-12">
              <p>
-               <label for="topic">Sujet requête :</label>
+               <label for="topic">Dis-nous sur quoi tu as besoin d'aide !</label>
                <input type="text" class="form-control" name="topic" id="topic" placeholder="Ex : React, Symfony ..." size="40" maxlength="50" required="required" />
              </p>
            </div>
          </div>
+
          <div class="row">
            <div class="col-md-12">
              <p>
