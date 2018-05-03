@@ -71,7 +71,7 @@ const inscriptionHtml = (title, text, type) =>
                   </div>
                   <div class="container col-md-6">
                      <div class="ImgInscription">
-                        <img class="img-fluid" src="/image/formInsc.jpg" id="imageInscription"  alt="ImgInscription">
+                        <img class="img-fluid" src="/image/inscriptions.jpg" id="imageInscription"  alt="ImgInscription">
                      </div>
                   </div>
                </div>
