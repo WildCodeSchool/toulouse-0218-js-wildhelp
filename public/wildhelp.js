@@ -269,6 +269,15 @@ const aideHtml = /* @html */ `
          </div>
 
 
+
+         <div class="row">
+           <div class="col-md-12">
+             <p>
+               <input type="text" class="form-control" name="topic" id="topic" placeholder="Ex : React, Symfony ..." size="40" maxlength="50" required="required" />
+             </p>
+           </div>
+         </div>
+
          <div class="row">
            <div class="col-md-7">
              <div class="input-group">
@@ -279,13 +288,6 @@ const aideHtml = /* @html */ `
                  <option value="3">PHP</option>
                </select>
              </div>
-           </div>
-         </div>
-         <div class="row">
-           <div class="col-md-12">
-             <p>
-               <input type="text" class="form-control" name="topic" id="topic" placeholder="Ex : React, Symfony ..." size="40" maxlength="50" required="required" />
-             </p>
            </div>
          </div>
 
