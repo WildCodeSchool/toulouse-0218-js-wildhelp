@@ -4,6 +4,10 @@ body {
 }
 
 /*  PAGE D ACCUEIL */
+
+#navBarAcc{
+  font-weight:bold;
+}
 .background .accInscription
 {
   position: absolute;
@@ -158,6 +162,11 @@ h1{
 h3{
   color-font: #563482;
   text-align: center;
+}
+
+h4{
+font-weight: bold;
+font-size:20px;
 }
 
 h6{
