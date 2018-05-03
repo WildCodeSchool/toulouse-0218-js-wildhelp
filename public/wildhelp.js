@@ -62,7 +62,7 @@ const inscriptionHtml = (title, text, type) =>
                         <input type="password" name="password" autocomplete="current-password" class="form-control" id="current" placeholder="Mot-de-passe" required="required"/>
                      </div>
                      <a href="/connexion">
-                         <button type="submit" value="submit" class="btn deja ml-5">Déjà inscrit ?</button>
+                         <button type="submit" value="submit" class="btn deja ml-5" >Déjà inscrit ?</button>
                      </a>
                      <input type="submit" class="btn btn-link" value="S'inscrire" id="sinscrire" />
                   </div>
