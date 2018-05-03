@@ -7,9 +7,9 @@ body {
 .background .accInscription
 {
   position: absolute;
-  margin-top: 20%;
+  margin-top: 27%;
   color: white;
-  font-size: 4vw;
+  margin-left: 5%;
 }
 
 .background .btnWild {
@@ -21,7 +21,7 @@ body {
 .accInscription p
 {
   color: white;
-  text-align: center;
+  text-align: left;
   font-size: 35px;
 }
 
