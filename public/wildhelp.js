@@ -61,13 +61,10 @@ const inscriptionHtml = (title, text, type) =>
                         <div class="input-group-addon" style="width: 2.6rem"></div>
                         <input type="password" name="password" autocomplete="current-password" class="form-control" id="current" placeholder="Mot-de-passe" required="required"/>
                      </div>
-
-                     <input type="submit" value="S'inscrire" id="sinscrire" />
-                    <a href="/connexion">
-                        <button type="submit" value="submit" class="btn-deja btn ml-5" a href="/connexion">
-                     Déjà inscrit ?
-                     </button>
-                    </a>
+                     <a href="/connexion">
+                         <button type="submit" value="submit" class="btn deja ml-5">Déjà inscrit ?</button>
+                     </a>
+                     <input type="submit" class="btn btn-link" value="S'inscrire" id="sinscrire" />
                   </div>
                   <div class="container col-md-6">
                      <div class="ImgInscription">
