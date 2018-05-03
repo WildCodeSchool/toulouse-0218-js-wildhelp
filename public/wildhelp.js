@@ -146,7 +146,7 @@ const listerequeteHtml = (requetes) => /* @html */ `
 
 <!-- Ajout icônes technologies proposées. -->
 
-<div class="container">
+<div class="technologies container">
   <h3>Technologies proposées</h3>
   <div class="row justify-content-center">
     <div class="col-4">
@@ -529,7 +529,6 @@ page('/connexion', showConnexion)
 page('/wilder', showInscriptionWilder)
 page('/helper', showInscriptionHelper)
 page('/languages', showLanguages)
-page('/cours', showCoursPropose)
 page('/requete', showListeRequete)
 page('/aide', showAide)
 page()
