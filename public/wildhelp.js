@@ -144,7 +144,7 @@ const listerequeteHtml = (requetes) => /* @html */ `
 
 
 <div class="container">
-<!-- Ajout icônes technologies proposées. -->
+
   <h3>Technologies proposées</h3>
   <div class="row justify-content-center">
     <div class="col-4">
