@@ -61,6 +61,11 @@ const inscriptionHtml = (title, text, type) =>
                         <div class="input-group-addon" style="width: 2.6rem"></div>
                         <input type="password" name="password" autocomplete="current-password" class="form-control" id="current" placeholder="Mot-de-passe" required="required"/>
                      </div>
+                     <label for="slack">Slack</label>
+                     <div class="form-group">
+                        <div class="input-group-addon" style="width: 2.6rem"></div>
+                        <input type="text" name="slack" autocomplete="slack" class="form-control" id="slack" placeholder="Slack optionnel"/>
+                     </div>
 
                      <input type="submit" value="S'inscrire" id="sinscrire" />
                      <a href="/connexion">
@@ -172,16 +177,16 @@ const connexionHtml = /* @html */ `
 
        function getRequestItem(requete) {
          return /* @html */ `
-         <div class="card card-requetes techno-${requete.technoId}">
-           <div class="card-header" id="headingOne">
+         <div class="card card-requetes techno-${requete.technoId}" id="card-${requete.id}">
+           <div class="card-header" id="heading-${requete.id}">
              <h5 class="mb-0">
-               <button class="btn btn-link" data-toggle="collapse" data-target="#${requete.id}" aria-expanded="true" aria-controls="collapseOne">
+               <button class="btn btn-link" data-toggle="collapse" data-target="#req-${requete.id}" aria-expanded="true" aria-controls="collapseOne">
                  ${requete.topic}
                </button>
              </h5>
            </div>
 
-           <div id="${requete.id}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+           <div id="req-${requete.id}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
              <div class="card-body">
                <p>Requête de: ${requete.name} ${requete.surname}</p><br>
                ${requete.description}<br>
@@ -195,14 +200,20 @@ const connexionHtml = /* @html */ `
                  <input type="text" name="pseudoSlack" value="" style="display:none" /><br>
 
           </form>
-          <button type="button" onClick="Message('${requete.email}')" class="jelaide btn">Je l'aide</button>
+          <button type="button" onClick="Message('${requete.email}', ${requete.id})" class="jelaide btn">Je l'aide</button>
       </div>
     </div>
   </div>`
 }
 // Alerte de validation d'aide
-function Message(email) {
-    if (confirm(`Pour contacter le Wilder, envoyez un email à ${email} !\nAppuyez sur OK pour Valider l'aide et supprimer sa demande.\nSinon appuyez sur CANCEL.`)) {
+function Message(email, requestId) {
+    if (confirm(`Pour aider ce Wilder, tu peux lui envoyer un mail à ${email}.\nAttention si tu appuis sur OK, la demande va disparaître, tu seras le seul à pouvoir contacter ce Wilder !\nSinon appuis sur CANCEL.`)) {
+      fetch(`/request/${requestId}`, {
+        method: 'DELETE',
+      })
+      .then(() => {
+        $(`#card-${requestId}`).remove()
+      })
     }
     else {
       showListeRequete()
