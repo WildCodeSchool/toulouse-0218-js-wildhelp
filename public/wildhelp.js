@@ -141,17 +141,17 @@ const connexionHtml = /* @html */ `
      <div class="col-4">
        <div class="row" id="iconesTechno">
          <div class="col-md-4 col-sm logo">
-           <a href="#" class="btn" id="techno-2"> <img class="img-fluid"  src="http://blog.zenika.com/wp-content/uploads/2016/04/java-logo.png" alt="Java Logo" />
+           <a href="#" id="techno-2"> <img class="img-fluid"  src="http://blog.zenika.com/wp-content/uploads/2016/04/java-logo.png" alt="Java Logo" />
              <p>Java</p></a>
            </div>
            <div class="col-md-4 col-sm logo">
 
-             <a href="#" class="btn" id="techno-1"> <img class="img-fluid" src="http://edmundtian.com/images/nodejs.ico" alt="JavaScript Logo" />
+             <a href="#" id="techno-1"> <img class="img-fluid" src="http://edmundtian.com/images/nodejs.ico" alt="JavaScript Logo" />
                <p>JavaScript</p></a>
              </div>
 
              <div class="col-md-4 col-sm logo">
-               <a href="#" class="btn" id="techno-3"> <img class="img-fluid" src="http://muchocodigo.com/wp-content/uploads/2013/11/php.jpg" alt="Php Logo" />
+               <a href="#" id="techno-3"> <img class="img-fluid" src="http://muchocodigo.com/wp-content/uploads/2013/11/php.jpg" alt="Php Logo" />
                  <p>PHP</p> </a>
                </div>
              </div>
