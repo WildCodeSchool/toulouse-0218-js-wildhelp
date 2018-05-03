@@ -130,7 +130,7 @@ const connexionHtml = /* @html */ `
    <nav class="my-2 my-md-0 mr-md-3">
      <a class="p-2 text-dark" href="/">
        <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
-       <p> Salut ${name}</p>
+         <p>Hello ${name}</p>
      </a>
    </nav>
    <a class="btn btn-log-out" href="/logout"><span class="glyphicon glyphicon-log-out">Deconnexion </span> </a>
@@ -246,9 +246,6 @@ const showListeRequete = () => {
     }
   })
 }
-
-
-
 // PAGE DEMANDE AIDE
 
 
@@ -259,7 +256,7 @@ const aideHtml = (name) => /* @html */ `
         <a class="p-2 text-dark" href="/">
            <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
         </a>
-        <p> Salut ${name}</p>
+        <p>Hello ${name}</p>
       </nav>
        <a class="btn btn-log-out" href="/logout"><span class="glyphicon glyphicon-log-out">Deconnexion </span> </a>
    </div>
