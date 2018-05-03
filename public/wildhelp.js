@@ -6,7 +6,7 @@ const accueilhtml =
 /* @html */`<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4  bg-white border-bottom box-shadow" id="navBarAcc">
    <h4 class="my-0 mr-md-auto">Wild Help</h4>
    <nav class="my-2 my-md-0 mr-md-3">
-      <a href='/helper' data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom"  data-content="Inscris toi pour aider les nouveaux élèves !">Alumni</a>
+      <a href='/helper' id="popover-alumni" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom"  data-content="Inscris toi pour aider les nouveaux élèves !">Alumni</a>
    </nav>
    <a class="btn" href="/connexion">Connexion</a>
 </div>
@@ -257,14 +257,14 @@ const showListeRequete = () => {
 // PAGE DEMANDE AIDE
 
 
-const aideHtml = /* @html */ `
+const aideHtml = (name) => /* @html */ `
    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4  bg-white border-bottom box-shadow" id="navBarAide">
       <h5 class="my-0 mr-md-auto">WildHelp</h5>
       <nav class="my-2 my-md-0 mr-md-3">
         <a class="p-2 text-dark" href="/">
            <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
         </a>
-        <p> Hello ${loggedInUser}</p>
+        <p> Hello ${name}</p>
       </nav>
        <a class="btn btn-log-out" href="/logout"><span class="glyphicon glyphicon-log-out">Deconnexion </span> </a>
    </div>
@@ -337,7 +337,7 @@ const footerForAllPage = /* @html */ `
 
 // DEBUT PAGE HELP
 const showAide = () => {
-    render(aideHtml)
+    render(aideHtml(loggedInUser.name))
 // Envois du formulaire vers la database
     const formCours = document.getElementById('formHelp')
     formCours.addEventListener('submit', event => {
@@ -423,7 +423,9 @@ const showAide = () => {
     }
 
    const showInscriptionHelper = () => {
+        $('#popover-alumni').popover('hide')
      render(inscriptionHtml('Inscription Alumni', 'Un élève de la Wild Code School est en détresse. Seras-tu l\'aider ?', 'Helper'))
+
 
      const element = document.getElementById('sinscrire')
      const myForml = document.getElementById('myFormulaireInscription')
