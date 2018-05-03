@@ -278,3 +278,10 @@ a:hover
 {
   color: black;
 }
+
+nav p
+{
+  color: green;
+  text-align: left;
+
+}

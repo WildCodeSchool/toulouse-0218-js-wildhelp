@@ -15,6 +15,7 @@ const listerRequest = (req, res) => {
 //   })
 //
 //
+
 const requetes = `SELECT * FROM wildRequest`
 
  connection.query(requetes, (error, results) => {

@@ -6,12 +6,12 @@ const accueilhtml =
 /* @html */`<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4  bg-white border-bottom box-shadow" id="navBarAcc">
    <h4 class="my-0 mr-md-auto">Wild Help</h4>
    <nav class="my-2 my-md-0 mr-md-3">
-      <a href='/helper' data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom"  data-content="Inscris toi pour aider les nouveaux élèves !">Alumni</a>
+      <a href='/helper' id="popover-alumni" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom"  data-content="Inscris toi pour aider les nouveaux élèves !">Alumni</a>
    </nav>
    <a class="btn" href="/connexion">Connexion</a>
 </div>
     <div class="row background">
-  <img class ="container-fluid" src="/image/gif1.gif" type="image/gif" height="150%" loop="0" />
+  <img class ="container-fluid" src="/image/finale.gif" type="image/gif" height="150%" loop="0" />
    <div class="accInscription">
       <p>Profite de la communauté des Alumnis de la Wild<br> pour t'aider à résoudre les casse-têtes<br> les plus fous durant ta formation !</p>
   </div>
@@ -124,12 +124,13 @@ const connexionHtml = /* @html */ `
    </div>
  </section>`
 
- const listerequeteHtml = (requetes) => /* @html */ `
+ const listerequeteHtml = (requetes, name) => /* @html */ `
  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4  bg-white border-bottom box-shadow" id="navBarAide">
    <h5 class="my-0 mr-md-auto">WildHelp</h5>
    <nav class="my-2 my-md-0 mr-md-3">
      <a class="p-2 text-dark" href="/">
        <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
+         <p>Hello ${name}</p>
      </a>
    </nav>
    <a class="btn btn-log-out" href="/logout"><span class="glyphicon glyphicon-log-out">Deconnexion </span> </a>
@@ -140,17 +141,17 @@ const connexionHtml = /* @html */ `
      <div class="col-4">
        <div class="row" id="iconesTechno">
          <div class="col-md-4 col-sm logo">
-           <a href="#" class="btn" id="techno-2"> <img class="img-fluid"  src="http://blog.zenika.com/wp-content/uploads/2016/04/java-logo.png" alt="Java Logo" />
+           <a href="#" id="techno-2"> <img class="img-fluid"  src="http://blog.zenika.com/wp-content/uploads/2016/04/java-logo.png" alt="Java Logo" />
              <p>Java</p></a>
            </div>
            <div class="col-md-4 col-sm logo">
 
-             <a href="#" class="btn" id="techno-1"> <img class="img-fluid" src="http://edmundtian.com/images/nodejs.ico" alt="JavaScript Logo" />
+             <a href="#" id="techno-1"> <img class="img-fluid" src="http://edmundtian.com/images/nodejs.ico" alt="JavaScript Logo" />
                <p>JavaScript</p></a>
              </div>
 
              <div class="col-md-4 col-sm logo">
-               <a href="#" class="btn" id="techno-3"> <img class="img-fluid" src="http://muchocodigo.com/wp-content/uploads/2013/11/php.jpg" alt="Php Logo" />
+               <a href="#" id="techno-3"> <img class="img-fluid" src="http://muchocodigo.com/wp-content/uploads/2013/11/php.jpg" alt="Php Logo" />
                  <p>PHP</p> </a>
                </div>
              </div>
@@ -212,7 +213,7 @@ const showListeRequete = () => {
   })
   .then(response => response.json())
   .then(requetes => {
-    render(listerequeteHtml(requetes))
+    render(listerequeteHtml(requetes, loggedInUser.name))
 
       $('#iconesTechno a').click(function(event){
         console.log(event)
@@ -245,13 +246,10 @@ const showListeRequete = () => {
     }
   })
 }
-
-
-
 // PAGE DEMANDE AIDE
 
 
-const aideHtml = /* @html */ `
+const aideHtml = (name) => /* @html */ `
    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4  bg-white border-bottom box-shadow" id="navBarAide">
       <h5 class="my-0 mr-md-auto">WildHelp</h5>
       <nav class="my-2 my-md-0 mr-md-3">
@@ -324,14 +322,14 @@ const footerForAllPage = /* @html */ `
        <a href="https://www.linkedin.com/in/florentin-hauton-479a64156/" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="LinkedIn de Florentin !">Florentin</a>,
        <a href="https://www.linkedin.com/in/thientamtran/" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="LinkedIn de Thien Tam !">Thien Tam</a>,
        <a href="https://www.linkedin.com/in/nicolas-nivlet-b3aab6a3/" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="LinkedIn de Jack !">Jack
-       </a> _ WildCodeSchool Toulouse 2018</p>
+       </a> _ WildCodeSchool Toulouse 2018.</p>
    </div>
  </footer>`
 
 
 // DEBUT PAGE HELP
 const showAide = () => {
-    render(aideHtml)
+    render(aideHtml(loggedInUser.name))
 // Envois du formulaire vers la database
     const formCours = document.getElementById('formHelp')
     formCours.addEventListener('submit', event => {
@@ -417,7 +415,9 @@ const showAide = () => {
     }
 
    const showInscriptionHelper = () => {
-     render(inscriptionHtml('Inscription Alumni', 'Un élève de la Wild Code School est en détresse. Seras-tu l\'aider ?', 'Helper'))
+        $('#popover-alumni').popover('hide')
+     render(inscriptionHtml('Inscription Alumni', 'Un élève de la Wild Code School est en détresse. Sauras-tu l\'aider ?', 'Helper'))
+
 
      const element = document.getElementById('sinscrire')
      const myForml = document.getElementById('myFormulaireInscription')
