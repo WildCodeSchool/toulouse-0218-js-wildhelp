@@ -8,17 +8,11 @@ const requestAllHelp =  (req, res) => {
   const technoId = req.body.langage
   const topic = mysqlEscape(req.body.topic)
   const description = mysqlEscape(req.body.description)
-
-  if(description.length < 30) {
-    return res.status(400).json({
-      error : 'Description trop court (30 caractères minimum)'
-    })
-  }
-
-      const userId = req.session.user.id
-      const name = req.session.user.name
-      const surname = req.session.user.surname
-      const request = `INSERT INTO wildRequest (userId, name, surname, technoId, topic, description ) VALUES (${userId}, '${name}', '${surname}', ${technoId}, '${topic}', '${description}')`
+  const userId = req.session.user.id
+  const name = req.session.user.name
+  const surname = req.session.user.surname
+  const email = req.session.user.email
+  const request = `INSERT INTO wildRequest (userId, name, surname, email, technoId, topic, description ) VALUES (${userId}, '${name}', '${surname}', '${email}', ${technoId}, '${topic}', '${description}')`
 
 
   connection.query(request, (error, results) => {

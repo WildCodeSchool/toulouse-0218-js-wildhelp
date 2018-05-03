@@ -199,10 +199,11 @@ function getRequestItem(requete) {
 
     <div id="${requete.id}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body">
-          <p>Requête de: ${requete.name} ${requete.surname}</p><br>
-          ${requete.description}<br>
+          <p>Demande de: ${requete.name} ${requete.surname}</p>
+          <p>E-mail: ${requete.email}</p>
+          ${requete.description}
 
-          <!-- <p>Comment me contacter ?</p>
+          <p>Comment me contacter ?</p>
           <form class="choix-contact">
 
             <input type="radio" name="contact" value="email" checked />par e-mail<br>
@@ -211,14 +212,24 @@ function getRequestItem(requete) {
 
             <input type="text" name="pseudoSlack" value="" style="display:none" /><br>
 
-          </form> -->
-          <button type="submit" class="jelaide btn">Je l'aide</button>
+          </form>
+          <button type="button" onClick="Message('${requete.email}')" class="jelaide btn">Je l'aide</button>
       </div>
     </div>
   </div>`
 }
+// Alerte de validation d'aide
+function Message(email) {
+    if (confirm(`Pour contacter le Wilder, envoyez un email à ${email} !\nAppuyez sur OK pour Valider l'aide et supprimer sa demande.\nSinon appuyez sur CANCEL.`)) {
+    }
+    else {
+      showListeRequete()
+    }
+}
+
 
 const showListeRequete = () => {
+
 
   fetch('/liste-requete', {
     method: 'GET',
@@ -371,7 +382,6 @@ const showAide = () => {
           alert(data.success)
         }
 // permet de revenir sur un formulaire vierge
-      // loggedInUser = data
         showAide()
         console.log(data)
       })
