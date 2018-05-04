@@ -447,13 +447,13 @@ const showAide = () => {
          body: JSON.stringify(data)
        })
        .then(response => response.json())
-       .then(data => {
+       .then(user => {
          if (data.error) {
            alert (data.error)
            return
          }
-         loggedInUser = data
-         console.log(data)
+         loggedInUser = user
+         console.log(user)
          page ('/requete')
        })
      })
