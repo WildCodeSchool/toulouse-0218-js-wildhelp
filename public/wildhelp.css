@@ -110,8 +110,12 @@ margin: : 50px 50px;
   border-color: #ff6090;
   color:#fff;
   font-weight:600;
+  margin-left:13%;
 }
 
+.form-check-label{
+  margin-left:20%;
+}
 #sinscrire{
     background:#ff8a80;
     border-radius: 10px;
