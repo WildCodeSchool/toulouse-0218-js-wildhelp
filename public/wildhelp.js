@@ -298,7 +298,7 @@ const aideHtml = (name) => /* @html */ `
            <div class="col-md-12">
              <p>
                <textarea name="description" id="description" class="form-control" rows="10" cols="50" required="required"
-        placeholder="Décris ici, en détail, ton problème."></textarea>
+        placeholder="Décris ici en détail ton problème."></textarea>
             </p>
           </div>
       </div>
