@@ -30,42 +30,39 @@ const inscriptionHtml = (text, type, name) =>
   <form method="POST" id="myFormulaireInscription" class="form-horizontal" action="/register" >
       <input type="hidden" name="accountType" value="${type}" />
       <div class="container">
-         <div class="card">
-            <div class="card-body">
-              <div class="row">
-                   <div class="col-md-12">
-                      <p>${text}</p>
-                   </div>
-                 <div class="col-md-6">
-                    <label for="name">Prénom</label>
-                    <div class="form-group">
-                       <div class="input-group-addon" style="width: 2.6rem"></div>
-                       <input type="text" name="name" autocomplete="given-name" class="form-control" id="given" placeholder="John" required="required"/>
-                    </div>
-                    <label for="surname">Nom</label>
-                    <div class="form-group">
-                       <div class="input-group-addon" style="width: 2.6rem"></div>
-                       <input type="text" name="surname" autocomplete="family-name" class="form-control" id="family" placeholder="Doe" required="required"/>
-                    </div>
-                    <label for="email">E-mail</label>
-                    <div class="form-group">
-                       <div class="input-group-addon" style="width: 2.6rem"></div>
-                       <input type="text" name="email" autocomplete="email" class="form-control" id="email" placeholder="wilder@example.com" required="required"/>
-                    </div>
-                    <label for="password">Mot de passe</label>
-                    <div class="form-group">
-                       <div class="input-group-addon" style="width: 2.6rem"></div>
-                       <input type="password" name="password" autocomplete="current-password" class="form-control" id="current" placeholder="Mot-de-passe" required="required"/>
-                    </div>
-                    <label for="slack">Pseudo Slack</label>
-                    <div class="form-group">
-                       <div class="input-group-addon" style="width: 2.6rem"></div>
-                       <input type="text" name="slack" autocomplete="current-slack" class="form-control" id="slack" placeholder="Slack"/>
-                    </div>
-                    <input type="submit" value="S'inscrire" class ="btn" id="sinscrire" />
-
+        <div class="card">
+       <div class="card-body">
+          <div class="row">
+             <div class="col-md-6 champForm">
+               <p>${text}</p>
+                <div>
+                   <label for="name">Prénom :</label>
+                   <div></div>
+                     <input type="text" size=30 name="name" autocomplete="given-name" id="given" placeholder="John" required="required"/>
+                </div>
+                <div class="mt-2">
+                    <label for="surname">Nom :</label>
+                    <div></div>
+                   <input type="text" size=30 name="surname" autocomplete="family-name" id="family" placeholder="Doe" required="required"/>
+                </div>
+                <div class="mt-2">
+                   <label for="email">E-mail :</label>
+                   <div></div>
+                   <input type="text" size=30 name="email" autocomplete="email" id="email" placeholder="wilder@example.com" required="required"/>
+                </div>
+                <div class="mt-2">
+                    <label for="password">Mot de passe :</label>
+                    <div></div>
+                   <input type="password" size=30 name="password" autocomplete="current-password"  id="current" placeholder="Mot-de-passe" required="required"/>
+                </div>
+                <div class="mt-2 mb-2">
+                   <label for="slack">Slack :</label>
+                   <div></div>
+                   <input type="text" size=30 name="slack" autocomplete="slack"  id="slack" placeholder="Slack optionnel"/>
+               </div>
+                    <input type="submit" value="S'inscrire !" class ="btn" id="sinscrire " />
                     <a href="/connexion">
-                       <button type="submit" value="submit" class="btn ml-5" a href="/connexion">
+                       <button type="submit" value="submit" class="btn ml-5" id="inscrit" a href="/connexion">
                     Déjà inscrit ?
                     </button>
                    </a>
@@ -99,9 +96,9 @@ const connexionHtml = /* @html */ `
                   <input type="password" size="50" autocomplete="current-password" class="form-control" name="password" id="password" placeholder="Mot-de-passe" required />
                </div>
                <div class="form-check mt-5 mb-3">
-                  <label class="form-check-label "><input type="checkbox" class="form-check-input">Se souvenir de moi</label>
+                  <label class="form-check-label"><input type="checkbox" class="form-check-input">Se souvenir de moi</label> <hr>
 
-               <input type="submit" class="btn-login" value="Connexion" />
+               <input type="submit" class="btn-login" text-align ="center" value="Connexion" />
                </div>
             </form>
             <div id="result"></div>
@@ -157,7 +154,7 @@ const connexionHtml = /* @html */ `
          <div class="row">
            <div class="col-md-12">
              <!-- <h3>Liste des requêtes</h3> -->
-             <h5>Wilders en détresse</h5>
+             <h5>Wilder en détresse</h5>
              <div id="accordion">
                ${requetes.map(getRequestItem).join("")}
              </div>

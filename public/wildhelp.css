@@ -31,7 +31,7 @@ span{
     padding: center;
     background: #ff6090;
     color:#fff;
-    font-size: 60%;
+    font-size: 55%;
     margin-bottom: 2.5%;
 }
 
@@ -117,9 +117,10 @@ margin: : 50px 50px;
 .form-check-label{
   margin-left:20%;
 }
-#sinscrire{
+
+#inscrit{
     background:#ff8a80;
-    border-radius: 10px;
+
     margin-left:20%;
 }
 
