@@ -369,6 +369,7 @@ const showAide = () => {
         if (data.success) {
           alert(data.success)
         }
+         // loggedInUser = data
 // permet de revenir sur un formulaire vierge
         showAide()
         console.log(data)

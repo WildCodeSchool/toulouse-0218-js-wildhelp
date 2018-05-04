@@ -63,8 +63,9 @@ const getInscriptions =  (req, res) => {
         error: ('Email déjà enregistré, vérifiez votre adresse ou connectez vous via la page connexion !')
       })
     }
+
     console.log(results)
-    res.json(results[0])
+    res.json({results})
   })
 }
 
