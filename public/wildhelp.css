@@ -4,6 +4,7 @@ body {
 }
 span{
   font-size: 20px;
+  font-weight: bold;
 }
 /*  PAGE D ACCUEIL */
 .background .accInscription
@@ -16,29 +17,25 @@ span{
 #navBarAcc{
   font-weight: bold;
 }
-.background .btnWild {
-  position: absolute;
-  margin-top: 31.5%;
-  margin-left: 38%;
-}
+
 
 .accInscription p
 {
   color: white;
   text-align: left;
-  font-size: 40px;
+  font-size: 220%;
 }
 
-.accInscription button
+#inscriptionAccueil
 {
     padding: center;
-    background: #DE6262;
+    background: #ff6090;
     color:#fff;
-    font-weight:600;
+    font-size: 60%;
 }
 
 .btn{
-background: #ff6090;
+background:#ff6090;
 color:#fff;
 font-weight:600;
 }
@@ -51,8 +48,7 @@ font-weight:600;
 
 /* formulaires d inscription */
 .FormulaireInsc{
-background: #ff8a80;  /* fallback for old browsers */
-/* background: -webkit-linear-gradient(to bottom, #FFB88C, #ff8a80);  /* Chrome 10-25, Safari 5.1-6 */
+background: #ff8a80;
 padding : 50px 50px;
 margin: : 50px 50px;
 
@@ -107,10 +103,6 @@ margin: : 50px 50px;
      color: white;
 }
 
-#sinscrire{
-  margin-left: 21%;
-  background-color: #ff6090;
-}
 
  .btn-login
 {
@@ -120,6 +112,15 @@ margin: : 50px 50px;
   font-weight:600;
 }
 
+#sinscrire{
+    background:#ff8a80;
+    border-radius: 10px;
+}
+
+#inscrit{
+    background:grey;
+    border-radius: 10px;
+}
  .banner-text
 {
     width:70%;

@@ -8,11 +8,11 @@ const accueilhtml =
    <nav class="my-2 my-md-0 mr-md-3">
       <a href='/helper' id="popover-alumni" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom"  data-content="Inscris toi pour aider les nouveaux élèves !">Alumni</a>
    </nav>
-   <a class="btn" href="/connexion">Connexion</a>
+   <a class="btn"  href="/connexion">Connexion</a>
 </div>
     <div class="row background">
       <div class="accInscription">
-         <p>Profite de la communauté des Alumnis de la Wild </br>pour t'aider à résoudre les casse-têtes</br> les plus fous durant ta formation ! <a href="/wilder"><button type="button" class="btn">Inscription</button></a>
+         <p>Profite de la communauté des Alumnis de la Wild </br>pour t'aider à résoudre les casse-têtes</br> les plus fous durant ta formation ! <a href="/wilder"><button type="button" class="btn" id="inscriptionAccueil">Inscription</button></a>
      </p>
    </div>
   <img class ="container-fluid" src="/image/gif1.gif" type="image/gif" height="150%" loop="0" />
@@ -64,7 +64,7 @@ const inscriptionHtml = (text, type) =>
 
                      <input type="submit" value="S'inscrire" id="sinscrire" />
                      <a href="/connexion">
-                        <button type="submit" value="submit" class="btn btn-primary ml-5" a href="/connexion">
+                        <button type="submit" value="submit" id="inscrit" class="btn ml-5" a href="/connexion">
                      Déjà inscrit ?
                      </button>
                     </a>
@@ -127,7 +127,7 @@ const connexionHtml = /* @html */ `
  </div>
  <div class="container">
    <br/>
-   <h3>Selectionne un langage</h3>
+   <h3>Tu peux filtrer par techno !</h3>
    <div class="row justify-content-center">
      <div class="col-4">
        <div class="row" id="iconesTechno">
@@ -153,7 +153,7 @@ const connexionHtml = /* @html */ `
          <div class="row">
            <div class="col-md-12">
              <!-- <h3>Liste des requêtes</h3> -->
-             <h5>Clique pour afficher les demandes</h5>
+             <h5>Wilder en détresse :</h5>
              <div id="accordion">
                ${requetes.map(getRequestItem).join("")}
              </div>
@@ -534,8 +534,6 @@ page('/', showAccueil)
 page('/connexion', showConnexion)
 page('/wilder', showInscriptionWilder)
 page('/helper', showInscriptionHelper)
-
 page('/requete',checkLoginMiddleware, showListeRequete)
 page('/aide', checkLoginMiddleware, showAide)
-
 page()
