@@ -5,7 +5,10 @@ const regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/
 const champsObligatoires = ['name', 'surname', 'password', 'email']
 
 const getInscriptions =  (req, res) => {
+
+
   console.log(req.body)
+
   for (champ of champsObligatoires){
     if(! req.body[champ]){
       return res.status(400).json({
@@ -48,9 +51,10 @@ const getInscriptions =  (req, res) => {
   const family = mysqlEscape(req.body['surname'])
   const current = mysqlEscape(req.body['password'])
   const email = mysqlEscape(req.body['email'])
+
   const accountType = mysqlEscape(req.body['accountType'])
 
-  const selectUser = `INSERT INTO user (name, surname, password, email, accountType) VALUES ('${given}', '${family}', '${current}', '${email}', '${accountType}')`
+  const selectUser = `INSERT INTO user (name, surname, password, email,accountType) VALUES ('${given}', '${family}', '${current}', '${email}', '${accountType}')`
 
   connection.query(selectUser, (error, results, fields) => {
     if(error) {
@@ -59,10 +63,8 @@ const getInscriptions =  (req, res) => {
         error: ('Email déjà enregistré, vérifiez votre adresse ou connectez vous via la page connexion !')
       })
     }
-    const user = results[0]
-    req.session.user = user
-    console.log(user)
-    res.json(user)
+    console.log(results)
+    res.json(results[0])
   })
 }
 
