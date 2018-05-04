@@ -212,7 +212,7 @@ const showListeRequete = () => {
     method: 'GET',
     credentials: 'include',
     headers: {
-      Accpet: 'application/json',
+      Accept: 'application/json',
       'Content-Type': 'application/json'
     }
   })

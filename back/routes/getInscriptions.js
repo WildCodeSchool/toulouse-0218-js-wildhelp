@@ -65,7 +65,7 @@ const getInscriptions =  (req, res) => {
     }
 
     console.log(results)
-    res.json({results})
+    res.json(results)
   })
 }
 
