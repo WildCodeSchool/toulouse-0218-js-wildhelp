@@ -46,7 +46,7 @@ const checkLoggedInUser = (req, res) => {
       })
     }
 
-    req.session.user = user
+    req.session.user = results[0]
     console.log(req.session.user)
     res.json(results[0])
 

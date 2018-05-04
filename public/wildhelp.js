@@ -23,7 +23,7 @@ $(document).ready(function(){
     $('[data-toggle="popover"]').popover();
 });
 
-const inscriptionHtml = (text, type) =>
+const inscriptionHtml = (text, type, name) =>
 /* @html */ `
 
   <section class="FormulaireInsc">

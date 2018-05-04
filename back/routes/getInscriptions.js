@@ -63,9 +63,23 @@ const getInscriptions =  (req, res) => {
         error: ('Email déjà enregistré, vérifiez votre adresse ou connectez vous via la page connexion !')
       })
     }
-
     console.log(results)
-    res.json(results)
+    
+    const selectUser2 = `SELECT * FROM user WHERE id = '${results.insertId}'`
+    console.log(selectUser2)
+    connection.query(selectUser2, (error, result, fields) => {
+      if (error){
+        return res.status(500).json({
+          error: error.message
+        })
+      }
+      req.session.user = result[0]
+
+      console.log(req.session.user)
+      res.json(result[0])
+    })
+    // console.log(results)
+    // res.json(results)
   })
 }
 
