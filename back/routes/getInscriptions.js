@@ -48,9 +48,10 @@ const getInscriptions =  (req, res) => {
   const family = mysqlEscape(req.body['surname'])
   const current = mysqlEscape(req.body['password'])
   const email = mysqlEscape(req.body['email'])
+  const slack = mysqlEscape(req.body['slack'])
   const accountType = mysqlEscape(req.body['accountType'])
 
-  const selectUser = `INSERT INTO user (name, surname, password, email, accountType) VALUES ('${given}', '${family}', '${current}', '${email}', '${accountType}')`
+  const selectUser = `INSERT INTO user (name, surname, password, email, slack, accountType) VALUES ('${given}', '${family}', '${current}', '${email}','${slack}', '${accountType}')`
 
   connection.query(selectUser, (error, results, fields) => {
     if(error) {
@@ -60,7 +61,7 @@ const getInscriptions =  (req, res) => {
       })
     }
     console.log(results)
-    res.json(results[0])
+    res.json(results)
   })
 }
 

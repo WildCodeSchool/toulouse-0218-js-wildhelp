@@ -57,6 +57,11 @@ const inscriptionHtml = (text, type) =>
                        <div class="input-group-addon" style="width: 2.6rem"></div>
                        <input type="password" name="password" autocomplete="current-password" class="form-control" id="current" placeholder="Mot-de-passe" required="required"/>
                     </div>
+                    <label for="slack">Psedo slack</label>
+                    <div class="form-group">
+                       <div class="input-group-addon" style="width: 2.6rem"></div>
+                       <input type="text" name="slack" autocomplete="current-slack" class="form-control" id="slack" placeholder="slack"/>
+                    </div>
                     <input type="submit" value="S'inscrire" id="sinscrire" />
                     <a href="/connexion">
                        <button type="submit" value="submit" class="btn btn-primary ml-5" a href="/connexion">
@@ -212,7 +217,7 @@ const showListeRequete = () => {
     method: 'GET',
     credentials: 'include',
     headers: {
-      Accpet: 'application/json',
+      Accept: 'application/json',
       'Content-Type': 'application/json'
     }
   })
@@ -371,6 +376,7 @@ const showAide = () => {
         }
 // permet de revenir sur un formulaire vierge
         showAide()
+        console.log(loggedInUser)
         console.log(data)
       })
     })
