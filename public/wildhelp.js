@@ -57,10 +57,10 @@ const inscriptionHtml = (text, type) =>
                        <div class="input-group-addon" style="width: 2.6rem"></div>
                        <input type="password" name="password" autocomplete="current-password" class="form-control" id="current" placeholder="Mot-de-passe" required="required"/>
                     </div>
-                    <label for="slack">Psedo slack</label>
+                    <label for="slack">Pseudo Slack</label>
                     <div class="form-group">
                        <div class="input-group-addon" style="width: 2.6rem"></div>
-                       <input type="text" name="slack" autocomplete="current-slack" class="form-control" id="slack" placeholder="slack"/>
+                       <input type="text" name="slack" autocomplete="current-slack" class="form-control" id="slack" placeholder="Slack"/>
                     </div>
                     <input type="submit" value="S'inscrire" class ="btn" id="sinscrire" />
 
