@@ -217,7 +217,7 @@ const showListeRequete = () => {
     method: 'GET',
     credentials: 'include',
     headers: {
-      Accpet: 'application/json',
+      Accept: 'application/json',
       'Content-Type': 'application/json'
     }
   })
@@ -376,6 +376,7 @@ const showAide = () => {
         }
 // permet de revenir sur un formulaire vierge
         showAide()
+        console.log(loggedInUser)
         console.log(data)
       })
     })
