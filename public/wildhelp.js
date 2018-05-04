@@ -149,7 +149,7 @@ const connexionHtml = /* @html */ `
          <div class="row">
            <div class="col-md-12">
              <!-- <h3>Liste des requêtes</h3> -->
-             <h5>Wilder en détresse :</h5>
+             <h5>Wilders en détresse :</h5>
              <div id="accordion">
                ${requetes.map(getRequestItem).join("")}
              </div>
@@ -191,7 +191,7 @@ const connexionHtml = /* @html */ `
 }
 // Alerte de validation d'aide
 function Message(email, requestId) {
-    if (confirm(`Pour aider ce Wilder, tu peux lui envoyer un mail à ${email}.\nAttention si tu appuies sur OK, la demande va disparaître, tu seras le seul à pouvoir contacter ce Wilder !\nSinon appuies sur CANCEL.`)) {
+    if (confirm(`Pour aider ce Wilder, tu peux lui envoyer un mail à ${email}.\nAttention si tu appuies sur OK, la demande va disparaître, tu seras le seul à pouvoir contacter ce Wilder !\nSinon, appuies sur CANCEL.`)) {
       fetch(`/request/${requestId}`, {
         method: 'DELETE',
       })
@@ -298,15 +298,12 @@ const aideHtml = (name) => /* @html */ `
            <div class="col-md-12">
              <p>
                <textarea name="description" id="description" class="form-control" rows="10" cols="50" required="required"
-        placeholder="Décris ici, en détail, ton problème."></textarea>
+        placeholder="Décris ici en détail ton problème."></textarea>
             </p>
           </div>
       </div>
       <div class="row buttonHelp">
-        <!-- <div class="col-md-6">
-          <a href="/"><button type="reset" class="btn btn-outline-danger">Annuler</button></a>
-        </div> -->
-        <div class="col-md-12">
+        <div class="col-md-6 offset-md-6">
           <input class="btn btn-outline" type="submit" value="Aidez-moi !"/>
         </div>
       </div>

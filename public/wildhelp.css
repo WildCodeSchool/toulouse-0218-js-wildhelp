@@ -110,8 +110,12 @@ margin: : 50px 50px;
   border-color: #ff6090;
   color:#fff;
   font-weight:600;
+  margin-left:13%;
 }
 
+.form-check-label{
+  margin-left:20%;
+}
 #sinscrire{
     background:#ff8a80;
     border-radius: 10px;
@@ -208,6 +212,9 @@ h5{
   font-size: 16px;
 }
 
+.buttonHelp{
+  margin-right: 0.5%;
+}
 btn-link{
   background: #FFF;
 }
@@ -233,8 +240,8 @@ btn-link{
 
 footer p{
   font-weight: bold;
-  font-style: italic;
   text-align: center;
+  margin-right:0.5%;
 }
 
 footer .imgbtn
