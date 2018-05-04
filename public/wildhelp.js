@@ -62,9 +62,10 @@ const inscriptionHtml = (text, type) =>
                        <div class="input-group-addon" style="width: 2.6rem"></div>
                        <input type="text" name="slack" autocomplete="current-slack" class="form-control" id="slack" placeholder="slack"/>
                     </div>
-                    <input type="submit" value="S'inscrire" id="sinscrire" />
+                    <input type="submit" value="S'inscrire" class ="btn" id="sinscrire" />
+
                     <a href="/connexion">
-                       <button type="submit" value="submit" class="btn btn-primary ml-5" a href="/connexion">
+                       <button type="submit" value="submit" class="btn ml-5" a href="/connexion">
                     Déjà inscrit ?
                     </button>
                    </a>
@@ -128,7 +129,9 @@ const connexionHtml = /* @html */ `
  </div>
  <div class="container">
    <br/>
-   <h3>Tu peux filtrer par techno !</h3>
+   <div class="filtrertechno">
+   <h3>Tu peux filtrer par technologie</h3>
+  </div>
    <div class="row justify-content-center">
      <div class="col-4">
        <div class="row" id="iconesTechno">
@@ -154,7 +157,7 @@ const connexionHtml = /* @html */ `
          <div class="row">
            <div class="col-md-12">
              <!-- <h3>Liste des requêtes</h3> -->
-             <h5>Wilder en détresse :</h5>
+             <h5>Wilders en détresse</h5>
              <div id="accordion">
                ${requetes.map(getRequestItem).join("")}
              </div>
@@ -196,7 +199,7 @@ const connexionHtml = /* @html */ `
 }
 // Alerte de validation d'aide
 function Message(email, requestId) {
-    if (confirm(`Pour aider ce Wilder, tu peux lui envoyer un mail à ${email}.\nAttention si tu appuis sur OK, la demande va disparaître, tu seras le seul à pouvoir contacter ce Wilder !\nSinon appuis sur CANCEL.`)) {
+    if (confirm(`Pour aider ce Wilder, tu peux lui envoyer un mail à ${email}.\nAttention si tu appuies sur OK, la demande va disparaître, tu seras le seul à pouvoir contacter ce Wilder !\nSinon, appuies sur CANCEL.`)) {
       fetch(`/request/${requestId}`, {
         method: 'DELETE',
       })
@@ -292,7 +295,7 @@ const aideHtml = (name) => /* @html */ `
                <select id="subject" name="langage" class="form-control" required="required">
                  <option value="" selected="">Selectionnez le langage</option>
                  <option value="1">JavaScript</option>
-                 <option value="2">JAVA</option>
+                 <option value="2">Java</option>
                  <option value="3">PHP</option>
                </select>
              <!-- </div> -->
@@ -303,15 +306,12 @@ const aideHtml = (name) => /* @html */ `
            <div class="col-md-12">
              <p>
                <textarea name="description" id="description" class="form-control" rows="10" cols="50" required="required"
-        placeholder="Décris ici, en détail, ton problème."></textarea>
+        placeholder="Décris ici en détail ton problème."></textarea>
             </p>
           </div>
       </div>
       <div class="row buttonHelp">
-        <div class="col-md-6">
-          <a href="/"><button type="reset" class="btn btn-outline-danger">Annuler</button></a>
-        </div>
-        <div class="col-md-6">
+        <div class="col-md-6 offset-md-6">
           <input class="btn btn-outline" type="submit" value="Aidez-moi !"/>
         </div>
       </div>
@@ -333,7 +333,7 @@ const footerForAllPage = /* @html */ `
        <a href="https://www.linkedin.com/in/florentin-hauton-479a64156/" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="LinkedIn de Florentin !">Florentin</a>,
        <a href="https://www.linkedin.com/in/thientamtran/" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="LinkedIn de Thien Tam !">Thien Tam</a>,
        <a href="https://www.linkedin.com/in/nicolas-nivlet-b3aab6a3/" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="LinkedIn de Jack !">Jack
-       </a> _ WildCodeSchool Toulouse 2018.</p>
+       </a> _ WildCodeSchool Toulouse 2018</p>
    </div>
  </footer>`
 
@@ -427,7 +427,7 @@ const showAide = () => {
 
    const showInscriptionHelper = () => {
         $('#popover-alumni').popover('hide')
-     render(inscriptionHtml('Un élève de la Wild Code School est en détresse. </br> Sauras-tu l\'aider ?', 'Helper'))
+     render(inscriptionHtml('Un élève de la Wild Code School est en détresse </br> Sauras-tu l\'aider ?', 'Helper'))
 
 
      const element = document.getElementById('sinscrire')
