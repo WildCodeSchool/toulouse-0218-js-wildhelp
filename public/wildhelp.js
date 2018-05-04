@@ -4,18 +4,20 @@ const targetElement = document.getElementById('main')
 
 const accueilhtml =
 /* @html */`<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4  bg-white border-bottom box-shadow" id="navBarAcc">
-   <h4 class="my-0 mr-md-auto"><span>Wild Help</span></h4>
+   <h4 class="my-0 mr-md-auto">Wild Help</h4>
    <nav class="my-2 my-md-0 mr-md-3">
-      <a href='/helper' id="popover-alumni" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom"  data-content="Inscris toi pour aider les nouveaux élèves !">Alumni</a>
+      <a href='/helper' data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom"  data-content="Inscris toi pour aider les nouveaux élèves !">Alumni</a>
    </nav>
    <a class="btn" href="/connexion">Connexion</a>
 </div>
     <div class="row background">
-      <div class="accInscription">
-         <p>Profite de la communauté des Alumnis de la Wild </br>pour t'aider à résoudre les casse-têtes</br> les plus fous durant ta formation ! <a href="/wilder"><button type="button" class="btn">Inscription</button></a>
-     </p>
-   </div>
   <img class ="container-fluid" src="/image/gif1.gif" type="image/gif" height="150%" loop="0" />
+   <div class="accInscription">
+      <p>Profite de la communauté des développeurs Alumni de la Wild pour t'aider à résoudre les casse-têtes les plus fous durant ta formation !</p>
+  </div>
+  <div class="btnWild">
+      <a href="/wilder"><button type="button" class="btn">Inscription</button></a>
+  </div>
 </div>`
 
 
@@ -23,64 +25,59 @@ $(document).ready(function(){
     $('[data-toggle="popover"]').popover();
 });
 
-const inscriptionHtml = (text, type) =>
+const inscriptionHtml = (title, text, type) =>
 /* @html */ `
 
   <section class="FormulaireInsc">
-  <form method="POST" id="myFormulaireInscription" class="form-horizontal" action="/register" >
+  <form method="POST" id="myFormulaireInscription" class="form-horizontal"  action="/register" >
       <input type="hidden" name="accountType" value="${type}" />
-      <!-- <div class="container"> -->
+      <div class="container">
          <div class="card">
             <div class="card-body">
                <div class="row">
-                  <div class="col-md-5 champForm">
-                    <div class="col-md-12">
-                    <p>${text}</p>
-                  </div>
-                     <div class="col-md-6">
-
-                        <label for="name">Prénom</label>
-                          <input type="text" size=30 name="name" autocomplete="given-name" id="given" placeholder="John" required="required"/>
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6"> <h1>${title}</h1></div>
+                    <div class="col-md-12 text-center">
+                       <p>${text}</p>
+                    </div>
+                  <div class="col-md-6">
+                     <label for="name">Prénom</label>
+                     <div class="form-group">
+                        <div class="input-group-addon" style="width: 2.6rem"></div>
+                        <input type="text" name="name" autocomplete="given-name" class="form-control" id="given" placeholder="John" required="required"/>
                      </div>
-                     <div class="col-md-6">
-                         <label for="surname">Nom</label>
-
-                        <input type="text" size=30 name="surname" autocomplete="family-name" id="family" placeholder="Doe" required="required"/>
+                     <label for="surname">Nom</label>
+                     <div class="form-group">
+                        <div class="input-group-addon" style="width: 2.6rem"></div>
+                        <input type="text" name="surname" autocomplete="family-name" class="form-control" id="family" placeholder="Doe" required="required"/>
                      </div>
-                     <div class="col-md-6">
-                        <label for="email">E-mail</label>
-
-                        <input type="text" size=30 name="email" autocomplete="email" id="email" placeholder="wilder@example.com" required="required"/>
+                     <label for="email">E-mail</label>
+                     <div class="form-group">
+                        <div class="input-group-addon" style="width: 2.6rem"></div>
+                        <input type="text" name="email" autocomplete="email" class="form-control" id="email" placeholder="wilder@example.com" required="required"/>
                      </div>
-                     <div class="col-md-6">
-                         <label for="password">Mot de passe</label>
-
-                        <input type="password" size=30 name="password" autocomplete="current-password"  id="current" placeholder="Mot-de-passe" required="required"/>
+                     <label for="password">Mot de passe</label>
+                     <div class="form-group">
+                        <div class="input-group-addon" style="width: 2.6rem"></div>
+                        <input type="password" name="password" autocomplete="current-password" class="form-control" id="current" placeholder="Mot-de-passe" required="required"/>
                      </div>
-                     <!-- <div class="col-md-6 mb-3">
-                        <label for="slack">Slack</label>
-                        <input type="text" size=30 name="slack" autocomplete="" id="slack" placeholder="Slack optionnel" optional/>
-                     </div> -->
-                     <div class="col-md-12">
+
                      <input type="submit" value="S'inscrire" id="sinscrire" />
-                     </div>
-                     <div class="col-md-12">
                      <a href="/connexion">
-                        <button type="submit" value="submit" id="connex" class="btn btn-primary ml-5" a href="/connexion">
+                        <button type="submit" value="submit" class="btn btn-primary ml-5" a href="/connexion">
                      Déjà inscrit ?
                      </button>
                     </a>
                   </div>
-                  </div>
-                  <div class="container-fluid col-md-7">
+                  <div class="container col-md-6">
                      <div class="ImgInscription">
-                        <img class="img-fluid" src="/image/inscriptions.jpg" id="imageInscription"  alt="ImgInscription">
+                        <img class="img-fluid" src="/image/formInsc.jpg" id="imageInscription"  alt="ImgInscription">
                      </div>
                   </div>
                </div>
             </div>
          </div>
-      <!-- </div> -->
+      </div>
    </form>
  </section>`
 
@@ -91,19 +88,21 @@ const connexionHtml = /* @html */ `
          <div class="col-md-4 login-sec">
             <h2 class="text-center">Connexion</h2>
             <form method="POST" id="loginForm" class="form-horizontal"  action="/login">
-               <div>
+               <div class="form-group">
                   <label for="email" class="text-uppercase">E-mail</label>
-                  <div></div>
-                  <input type="text" size="28" name="email" autocomplete="email" id="email" placeholder="wilder@example.com" required />
+                  <input type="text" name="email" autocomplete="email" class="form-control" id="email" placeholder="wilder@example.com" required />
                </div>
-               <div>
-                  <label for="password" class="text-uppercase mt-3">Mot de Passe</label>
-                  <input type="password" size="28" autocomplete="current-password" name="password" id="password" placeholder="Mot-de-passe" required />
+               <div class="form-group">
+                  <label for="password" class="text-uppercase">Mot de Passe</label>
+                  <input type="password" autocomplete="current-password" name="password" class="form-control" id="password" placeholder="Mot-de-passe" required />
                </div>
-               <div class="form-check mt-5 mb-3">
-                  <label class="form-check-label "><input type="checkbox" class="form-check-input">Se souvenir de moi</label>
-                </div>
-               <input type="submit" class="btn-login" value="Connexion" />
+               <div class="form-check">
+                  <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input">
+                  <small>Se souvenir de moi</small>
+                  </label>
+                  <input type="submit" class="btn-login" value="Connexion" />
+               </div>
             </form>
             <div id="result"></div>
          </div>
@@ -112,7 +111,9 @@ const connexionHtml = /* @html */ `
                <div class="carousel-inner" role="listbox">
                   <div class="carousel-item active">
                     <img class="d-block img-fluid" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=37c91c8e3f63462e0739c676dfe8fee8&auto=format&fit=crop&w=1050&q=80" alt="Second slide">
+
                   </div>
+
                   <div class="carousel-item">
                     <img class="d-block img-fluid" src="https://images.unsplash.com/photo-1497171156029-51dfc973e5f9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c8e7ca2e7514a9e0e66fcc2091dc2ad5&auto=format&fit=crop&w=1050&q=80" alt="First slide">
                   </div>
@@ -123,29 +124,33 @@ const connexionHtml = /* @html */ `
    </div>
  </section>`
 
- const listerequeteHtml = (requetes, name) => /* @html */ `
+ const listerequeteHtml = (requetes) => /* @html */ `
  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4  bg-white border-bottom box-shadow" id="navBarAide">
-   <h5 class="my-0 mr-md-auto">Hello ${name}</h5>
+   <h5 class="my-0 mr-md-auto">WildHelp</h5>
+   <nav class="my-2 my-md-0 mr-md-3">
+     <a class="p-2 text-dark" href="/">
+       <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
+     </a>
+   </nav>
    <a class="btn btn-log-out" href="/logout"><span class="glyphicon glyphicon-log-out">Deconnexion </span> </a>
  </div>
  <div class="container">
-   <br/>
-   <h3>Selectionne un langage</h3>
+   <h3>Technologies proposées</h3>
    <div class="row justify-content-center">
      <div class="col-4">
        <div class="row" id="iconesTechno">
          <div class="col-md-4 col-sm logo">
-           <a href="#" id="techno-2"> <img class="img-fluid"  src="http://blog.zenika.com/wp-content/uploads/2016/04/java-logo.png" alt="Java Logo" />
+           <a href="#" class="btn" id="techno-2"> <img class="img-fluid"  src="http://blog.zenika.com/wp-content/uploads/2016/04/java-logo.png" alt="Java Logo" />
              <p>Java</p></a>
            </div>
            <div class="col-md-4 col-sm logo">
 
-             <a href="#" id="techno-1"> <img class="img-fluid" src="http://edmundtian.com/images/nodejs.ico" alt="JavaScript Logo" />
+             <a href="#" class="btn" id="techno-1"> <img class="img-fluid" src="http://edmundtian.com/images/nodejs.ico" alt="JavaScript Logo" />
                <p>JavaScript</p></a>
              </div>
 
              <div class="col-md-4 col-sm logo">
-               <a href="#" id="techno-3"> <img class="img-fluid" src="http://muchocodigo.com/wp-content/uploads/2013/11/php.jpg" alt="Php Logo" />
+               <a href="#" class="btn" id="techno-3"> <img class="img-fluid" src="http://muchocodigo.com/wp-content/uploads/2013/11/php.jpg" alt="Php Logo" />
                  <p>PHP</p> </a>
                </div>
              </div>
@@ -155,8 +160,8 @@ const connexionHtml = /* @html */ `
        <div class="container">
          <div class="row">
            <div class="col-md-12">
-             <!-- <h3>Liste des requêtes</h3> -->
-             <h5>Clique pour afficher les demandes</h5>
+             <h3>Liste des requêtes</h3>
+             <h6>Cliquez sur une requête pour la dérouler</h6>
              <div id="accordion">
                ${requetes.map(getRequestItem).join("")}
              </div>
@@ -166,18 +171,18 @@ const connexionHtml = /* @html */ `
 
        function getRequestItem(requete) {
          return /* @html */ `
-         <div class="card card-requetes techno-${requete.technoId}" id="card-${requete.id}">
-           <div class="card-header" id="heading-${requete.id}">
+         <div class="card card-requetes techno-${requete.technoId}">
+           <div class="card-header" id="headingOne">
              <h5 class="mb-0">
-               <button class="btn btn-link" data-toggle="collapse" data-target="#req-${requete.id}" aria-expanded="true" aria-controls="collapseOne">
+               <button class="btn btn-link" data-toggle="collapse" data-target="#${requete.id}" aria-expanded="true" aria-controls="collapseOne">
                  ${requete.topic}
                </button>
              </h5>
            </div>
 
-           <div id="req-${requete.id}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+           <div id="${requete.id}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
              <div class="card-body">
-               <p>Demande de: ${requete.name} ${requete.surname}</p><br>
+               <p>Requête de: ${requete.name} ${requete.surname}</p><br>
                ${requete.description}<br>
                <p>Comment me contacter ?</p>
                <form class="choix-contact">
@@ -188,30 +193,14 @@ const connexionHtml = /* @html */ `
 
                  <input type="text" name="pseudoSlack" value="" style="display:none" /><br>
 
-          </form>
-          <button type="button" onClick="Message('${requete.email}', ${requete.id})" class="jelaide btn">Je l'aide</button>
-      </div>
-    </div>
-  </div>`
-}
-// Alerte de validation d'aide
-function Message(email, requestId) {
-    if (confirm(`Pour aider ce Wilder, tu peux lui envoyer un mail à ${email}.\nAttention si tu appuis sur OK, la demande va disparaître, tu seras le seul à pouvoir contacter ce Wilder !\nSinon appuis sur CANCEL.`)) {
-      fetch(`/request/${requestId}`, {
-        method: 'DELETE',
-      })
-      .then(() => {
-        $(`#card-${requestId}`).remove()
-      })
-    }
-    else {
-      showListeRequete()
-    }
-}
-
+               </form>
+               <button type="submit" class="jelaide btn">Je l'aide</button>
+             </div>
+           </div>
+         </div>`
+       }
 
 const showListeRequete = () => {
-
 
   fetch('/liste-requete', {
     method: 'GET',
@@ -223,17 +212,16 @@ const showListeRequete = () => {
   })
   .then(response => response.json())
   .then(requetes => {
-    render(listerequeteHtml(requetes, loggedInUser.name))
+    render(listerequeteHtml(requetes))
+
       $('#iconesTechno a').click(function(event){
+        console.log(event)
         event.preventDefault()
         $(event.currentTarget).toggleClass('active')
         const filter = event.currentTarget.id
+
         $('.card-requetes').hide()
         $('.' + filter).show()
-      })
-      $('#iconesTechno a').dblclick(function(event){
-        event.preventDefault()
-        $('.card-requetes').show()
       })
 
     // evenements choix-contact.
@@ -257,48 +245,51 @@ const showListeRequete = () => {
     }
   })
 }
+
+
+
 // PAGE DEMANDE AIDE
 
 
-const aideHtml = (name) => /* @html */ `
+const aideHtml = /* @html */ `
    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4  bg-white border-bottom box-shadow" id="navBarAide">
-      <h5 class="my-0 mr-md-auto">Hello ${name}</h5>
-      <!-- <nav class="my-2 my-md-0 mr-md-3">
+      <h5 class="my-0 mr-md-auto">WildHelp</h5>
+      <nav class="my-2 my-md-0 mr-md-3">
         <a class="p-2 text-dark" href="/">
            <h5 class="my-0 mr-md-auto font-weight-normal">Accueil</h5>
         </a>
-        <p></p>
-      </nav> -->
+        <p> Hello ${loggedInUser}</p>
+      </nav>
        <a class="btn btn-log-out" href="/logout"><span class="glyphicon glyphicon-log-out">Deconnexion </span> </a>
    </div>
    <div class="container">
      <form id="formHelp" class="form-horizontal" method="POST" action="/aide">
        <div class="bodyHelp">
-         <!-- <div class="row">
+         <div class="row">
            <div class="col-md-12">
              <h2>Demande d'aide</h2>
            </div>
-         </div> -->
-          <div class="row">
-         <div class="col-md-12 mt-5">
-           <p>
-             <label for="topic" id="enteteLabel">Dis nous sur quoi tu as besoin d'aide</label>
-             <input type="text" class="form-control" name="topic" id="topic" placeholder="Ex : React, Android, Symfony ..." size="40" required="required" />
-           </p>
          </div>
-
-           <div class="col-md-12 mb-3">
-             <!-- <div class="input-group"> -->
+         <div class="row">
+           <div class="col-md-9 offset-md-3">
+             <div class="input-group">
                <select id="subject" name="langage" class="form-control" required="required">
                  <option value="" selected="">Selectionnez le langage</option>
                  <option value="1">JavaScript</option>
                  <option value="2">JAVA</option>
                  <option value="3">PHP</option>
                </select>
-             <!-- </div> -->
+             </div>
            </div>
          </div>
-
+         <div class="row">
+           <div class="col-md-12">
+             <p>
+               <label for="topic">Sujet requête :</label>
+               <input type="text" class="form-control" name="topic" id="topic" placeholder="Ex : React, Symfony ..." size="40" maxlength="50" required="required" />
+             </p>
+           </div>
+         </div>
          <div class="row">
            <div class="col-md-12">
              <p>
@@ -340,7 +331,7 @@ const footerForAllPage = /* @html */ `
 
 // DEBUT PAGE HELP
 const showAide = () => {
-    render(aideHtml(loggedInUser.name))
+    render(aideHtml)
 // Envois du formulaire vers la database
     const formCours = document.getElementById('formHelp')
     formCours.addEventListener('submit', event => {
@@ -375,6 +366,7 @@ const showAide = () => {
           alert(data.success)
         }
 // permet de revenir sur un formulaire vierge
+      // loggedInUser = data
         showAide()
         console.log(data)
       })
@@ -388,7 +380,7 @@ const showAide = () => {
   }
 
   const showInscriptionWilder = () => {
-    render(inscriptionHtml('Un alumni de la Wild Code School peut t\'aider, <br> même au bout de la France ou du monde !', 'Wilder'))
+    render(inscriptionHtml('Inscription Wilder', 'Un alumni de la Wild Code School peut t\'aider, même au bout de la France ou du monde !', 'Wilder'))
     const element = document.getElementById('sinscrire')
     const myForml = document.getElementById('myFormulaireInscription')
     myForml.addEventListener('submit', e => {
@@ -425,9 +417,7 @@ const showAide = () => {
     }
 
    const showInscriptionHelper = () => {
-        $('#popover-alumni').popover('hide')
-     render(inscriptionHtml('Un élève de la Wild Code School est en détresse. </br> Sauras-tu l\'aider ?', 'Helper'))
-
+     render(inscriptionHtml('Inscription Alumni', 'Un élève de la Wild Code School est en détresse. Seras-tu l\'aider ?', 'Helper'))
 
      const element = document.getElementById('sinscrire')
      const myForml = document.getElementById('myFormulaireInscription')
@@ -530,6 +520,13 @@ const showAide = () => {
     }
     next()
   }
+  // const checkLoginWilder = (context, next) => {
+  //   console.log("exécuté avant l'affichage de la page")
+  //   if(data.accountType=="Wilder") {
+  //     page('/wilder')
+  //   }
+  //   next()
+  // }
 
 page('/', showAccueil)
 page('/connexion', showConnexion)
