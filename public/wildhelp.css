@@ -115,12 +115,9 @@ margin: : 50px 50px;
 #sinscrire{
     background:#ff8a80;
     border-radius: 10px;
+    margin-left:20%;
 }
 
-#inscrit{
-    background:grey;
-    border-radius: 10px;
-}
  .banner-text
 {
     width:70%;

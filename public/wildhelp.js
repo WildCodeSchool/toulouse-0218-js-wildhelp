@@ -57,9 +57,9 @@ const inscriptionHtml = (text, type) =>
                        <div class="input-group-addon" style="width: 2.6rem"></div>
                        <input type="password" name="password" autocomplete="current-password" class="form-control" id="current" placeholder="Mot-de-passe" required="required"/>
                     </div>
-                    <input type="submit" value="S'inscrire" id="sinscrire" />
+                    <input type="submit" value="S'inscrire" class ="btn" id="sinscrire" />
                     <a href="/connexion">
-                       <button type="submit" value="submit" class="btn btn-primary ml-5" a href="/connexion">
+                       <button type="submit" value="submit" class="btn ml-5" a href="/connexion">
                     Déjà inscrit ?
                     </button>
                    </a>
@@ -191,7 +191,7 @@ const connexionHtml = /* @html */ `
 }
 // Alerte de validation d'aide
 function Message(email, requestId) {
-    if (confirm(`Pour aider ce Wilder, tu peux lui envoyer un mail à ${email}.\nAttention si tu appuis sur OK, la demande va disparaître, tu seras le seul à pouvoir contacter ce Wilder !\nSinon appuis sur CANCEL.`)) {
+    if (confirm(`Pour aider ce Wilder, tu peux lui envoyer un mail à ${email}.\nAttention si tu appuies sur OK, la demande va disparaître, tu seras le seul à pouvoir contacter ce Wilder !\nSinon appuies sur CANCEL.`)) {
       fetch(`/request/${requestId}`, {
         method: 'DELETE',
       })
@@ -287,7 +287,7 @@ const aideHtml = (name) => /* @html */ `
                <select id="subject" name="langage" class="form-control" required="required">
                  <option value="" selected="">Selectionnez le langage</option>
                  <option value="1">JavaScript</option>
-                 <option value="2">JAVA</option>
+                 <option value="2">Java</option>
                  <option value="3">PHP</option>
                </select>
              <!-- </div> -->
@@ -328,7 +328,7 @@ const footerForAllPage = /* @html */ `
        <a href="https://www.linkedin.com/in/florentin-hauton-479a64156/" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="LinkedIn de Florentin !">Florentin</a>,
        <a href="https://www.linkedin.com/in/thientamtran/" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="LinkedIn de Thien Tam !">Thien Tam</a>,
        <a href="https://www.linkedin.com/in/nicolas-nivlet-b3aab6a3/" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="LinkedIn de Jack !">Jack
-       </a> _ WildCodeSchool Toulouse 2018.</p>
+       </a> _ WildCodeSchool Toulouse 2018</p>
    </div>
  </footer>`
 
@@ -421,7 +421,7 @@ const showAide = () => {
 
    const showInscriptionHelper = () => {
         $('#popover-alumni').popover('hide')
-     render(inscriptionHtml('Un élève de la Wild Code School est en détresse. </br> Sauras-tu l\'aider ?', 'Helper'))
+     render(inscriptionHtml('Un élève de la Wild Code School est en détresse </br> Sauras-tu l\'aider ?', 'Helper'))
 
 
      const element = document.getElementById('sinscrire')
