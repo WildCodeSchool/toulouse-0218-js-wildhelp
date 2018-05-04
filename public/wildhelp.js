@@ -29,47 +29,50 @@ const inscriptionHtml = (text, type) =>
   <section class="FormulaireInsc">
   <form method="POST" id="myFormulaireInscription" class="form-horizontal" action="/register" >
       <input type="hidden" name="accountType" value="${type}" />
-      <div class="container">
+      <!-- <div class="container"> -->
          <div class="card">
             <div class="card-body">
                <div class="row">
-                  <div class="col-md-6 champForm">
+                  <div class="col-md-5 champForm">
+                    <div class="col-md-12">
                     <p>${text}</p>
-                     <div>
+                  </div>
+                     <div class="col-md-6">
+
                         <label for="name">Prénom</label>
-                        <div></div>
                           <input type="text" size=30 name="name" autocomplete="given-name" id="given" placeholder="John" required="required"/>
                      </div>
-                     <div>
+                     <div class="col-md-6">
                          <label for="surname">Nom</label>
-                         <div></div>
+
                         <input type="text" size=30 name="surname" autocomplete="family-name" id="family" placeholder="Doe" required="required"/>
                      </div>
-                     <div>
+                     <div class="col-md-6">
                         <label for="email">E-mail</label>
-                        <div></div>
+
                         <input type="text" size=30 name="email" autocomplete="email" id="email" placeholder="wilder@example.com" required="required"/>
                      </div>
-                     <div>
+                     <div class="col-md-6">
                          <label for="password">Mot de passe</label>
-                         <div></div>
+
                         <input type="password" size=30 name="password" autocomplete="current-password"  id="current" placeholder="Mot-de-passe" required="required"/>
                      </div>
-                     <div class="form-group">
-
+                     <!-- <div class="col-md-6 mb-3">
                         <label for="slack">Slack</label>
-                        <div></div>
-                        <input type="text" size=30 name="slack" autocomplete="slack"  id="slack" placeholder="Slack optionnel"/>
-                     </div>
-
+                        <input type="text" size=30 name="slack" autocomplete="" id="slack" placeholder="Slack optionnel" optional/>
+                     </div> -->
+                     <div class="col-md-12">
                      <input type="submit" value="S'inscrire" id="sinscrire" />
+                     </div>
+                     <div class="col-md-12">
                      <a href="/connexion">
-                        <button type="submit" value="submit" class="btn btn-primary ml-5" a href="/connexion">
+                        <button type="submit" value="submit" id="connex" class="btn btn-primary ml-5" a href="/connexion">
                      Déjà inscrit ?
                      </button>
                     </a>
                   </div>
-                  <div class="container col-md-6">
+                  </div>
+                  <div class="container-fluid col-md-7">
                      <div class="ImgInscription">
                         <img class="img-fluid" src="/image/inscriptions.jpg" id="imageInscription"  alt="ImgInscription">
                      </div>
@@ -77,7 +80,7 @@ const inscriptionHtml = (text, type) =>
                </div>
             </div>
          </div>
-      </div>
+      <!-- </div> -->
    </form>
  </section>`
 

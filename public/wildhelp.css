@@ -4,6 +4,11 @@ body {
 }
 span{
   font-size: 20px;
+font-weight: bold;
+}
+.champForm p {
+
+  font-weight: bold;
 }
 /*  PAGE D ACCUEIL */
 .background .accInscription
@@ -26,7 +31,8 @@ span{
 {
   color: white;
   text-align: left;
-  font-size: 40px;
+  /* font-weight: bold; */
+  font-size:220%;
 }
 
 .accInscription button
@@ -43,6 +49,17 @@ color:#fff;
 font-weight:600;
 }
 
+#sinscrire{
+  padding: center;
+  background: #DE6262;
+  color:#fff;
+  font-weight:600;
+}
+#connex{
+  background: #ff6090;
+  color:#fff;
+  font-weight:600;
+}
 .btn:hover{
 background: #ff6090;
 color:#fff;
@@ -107,10 +124,7 @@ margin: : 50px 50px;
      color: white;
 }
 
-#sinscrire{
-  margin-left: 21%;
-  background-color: #ff6090;
-}
+
 
  .btn-login
 {
@@ -169,9 +183,7 @@ h5{
   text-align:right;
 }
 
-.enteteLabel{
-  text-align: left;
-}
+
 #formHelp
 {
   text-align: center;
