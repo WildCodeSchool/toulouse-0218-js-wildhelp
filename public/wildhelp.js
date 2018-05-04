@@ -191,7 +191,7 @@ const connexionHtml = /* @html */ `
 }
 // Alerte de validation d'aide
 function Message(email, requestId) {
-    if (confirm(`Pour aider ce Wilder, tu peux lui envoyer un mail à ${email}.\nAttention si tu appuies sur OK, la demande va disparaître, tu seras le seul à pouvoir contacter ce Wilder !\nSinon appuies sur CANCEL.`)) {
+    if (confirm(`Pour aider ce Wilder, tu peux lui envoyer un mail à ${email}.\nAttention si tu appuies sur OK, la demande va disparaître, tu seras le seul à pouvoir contacter ce Wilder !\nSinon, appuies sur CANCEL.`)) {
       fetch(`/request/${requestId}`, {
         method: 'DELETE',
       })
