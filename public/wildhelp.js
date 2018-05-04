@@ -123,7 +123,9 @@ const connexionHtml = /* @html */ `
  </div>
  <div class="container">
    <br/>
-   <h3>Tu peux filtrer par techno !</h3>
+   <div class="filtrertechno">
+   <h3>Tu peux filtrer par technologie</h3>
+  </div>
    <div class="row justify-content-center">
      <div class="col-4">
        <div class="row" id="iconesTechno">
@@ -149,7 +151,7 @@ const connexionHtml = /* @html */ `
          <div class="row">
            <div class="col-md-12">
              <!-- <h3>Liste des requêtes</h3> -->
-             <h5>Wilders en détresse :</h5>
+             <h5>Wilders en détresse</h5>
              <div id="accordion">
                ${requetes.map(getRequestItem).join("")}
              </div>

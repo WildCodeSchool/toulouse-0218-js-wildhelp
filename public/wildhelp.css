@@ -150,7 +150,11 @@ h1{
 h3{
   color-font: #563482;
   font-weight: bold;
+}
 
+.filtrertechno h3{
+  font-size:20px;
+  text-align: left;
 }
 
 h5{
@@ -159,7 +163,7 @@ h5{
 }
 
 .logo{
-  margin-top: 50px;
+  margin-top: 10px;
   margin-bottom: 20px;
   text-align: center;
 }
