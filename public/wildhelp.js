@@ -303,10 +303,7 @@ const aideHtml = (name) => /* @html */ `
           </div>
       </div>
       <div class="row buttonHelp">
-        <div class="col-md-6">
-          <a href="/"><button type="reset" class="btn btn-outline-danger">Annuler</button></a>
-        </div>
-        <div class="col-md-6">
+        <div class="col-md-6 offset-md-6">
           <input class="btn btn-outline" type="submit" value="Aidez-moi !"/>
         </div>
       </div>
