@@ -7,23 +7,43 @@ span{
   font-weight: bold;
 }
 /*  PAGE D ACCUEIL */
-.background .accInscription
+.background .accInscriptionGrand
 {
   position: absolute;
   margin-top: 25%;
   margin-left: 4%;
   color: white;
 }
+
+.background .accInscriptionPetit
+{
+  background: d-none;
+}
+
 #navBarAcc{
   font-weight: bold;
 }
 
-
-.accInscription p
+.accInscriptionGrand p
 {
   color: white;
   text-align: left;
-  font-size: 220%;
+  font-size: 190%;
+}
+
+#inscriptionAccueilp
+{
+  margin-left: 7rem;
+    text-align: center;
+    background: #ff6090;
+    color:#fff;
+}
+
+.accInscriptionPetit p
+{
+  text-align: center;
+  color: black;
+  font-size: 90%;
 }
 
 #inscriptionAccueil

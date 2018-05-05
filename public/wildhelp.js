@@ -4,20 +4,25 @@ const targetElement = document.getElementById('main')
 
 const accueilhtml =
 /* @html */`<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4  bg-white border-bottom box-shadow" id="navBarAcc">
-   <h4 class="my-0 mr-md-auto"><span>Wild Help</span></h4>
-   <nav class="my-2 my-md-0 mr-md-3">
-      <a href='/helper' id="popover-alumni" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom"  data-content="Inscris toi pour aider les nouveaux élèves !">Alumni</a>
-   </nav>
-   <a class="btn"  href="/connexion">Connexion</a>
+ <h4 class="my-0 mr-md-auto"><span>Wild Help</span></h4>
+ <nav class="my-2 my-md-0 mr-md-3">
+    <a href='/helper' id="popover-alumni" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom"  data-content="Inscris toi pour aider les nouveaux élèves !">Alumni</a>
+ </nav>
+ <a class="btn" href="/connexion">Connexion</a>
 </div>
-    <div class="row background">
-      <div class="accInscription">
-         <p>Profite de la communauté des Alumnis de la Wild </br>pour t'aider à résoudre les casse-têtes</br> les plus fous durant ta formation ! <a href="/wilder"><button type="button" class="btn" id="inscriptionAccueil">Inscription</button></a>
-     </p>
-   </div>
-  <img class ="container-fluid" src="/image/gif1.gif" type="image/gif" height="150%" loop="0" />
-</div>`
+  <div class="row background">
+    <div class="accInscriptionGrand d-none d-sm-none d-md-block">
+       <p>Profite de la communauté des Alumnis de la Wild </br>pour t'aider à résoudre les casse-têtes</br> les plus fous durant ta formation ! <a href="/wilder"><button type="button" class="btn" id="inscriptionAccueil">Inscription</button></a>
+   </p>
+ </div>
+<img class ="container-fluid d-none d-sm-none d-md-block" src="/image/gif1.gif" type="image/gif" height="150%" loop="0" />
+<img class ="d-md-none d-lg-none container-fluid mt-5" src="/image/gif1.gif" type="image/gif" height="150%" loop="0" />
+   <div class="accInscriptionPetit d-md-none d-lg-none mt-5">
+<p>Profite des Alumnis de la Wild pour t'aider à résoudre les casse-têtes durant ta formation! </p>
 
+</div>
+<a href="/wilder"><button type="button" class="btn d-md-none d-lg-none mt-3" id="inscriptionAccueilp">Inscription</button></a>
+</div>`
 
 $(document).ready(function(){
     $('[data-toggle="popover"]').popover();
